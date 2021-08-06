@@ -1,8 +1,8 @@
 ---
-title: "second post"
+title: "second post no img"
 date: "March 6, 2021"
 excerpt: "Amet reprehenderit mollit qui Lorem cupidatat adipisicing."
-cover_image: "/images/posts/01.png"
+cover_image: ""
 ---
 
 Pariatur ad et aute deserunt anim eu Lorem elit. Pariatur dolor qui consequat mollit irure quis ullamco sunt irure culpa consectetur ea ea dolor. Et ea pariatur id consectetur id. Mollit nisi incididunt pariatur aliquip. Dolor sint cupidatat excepteur exercitation.

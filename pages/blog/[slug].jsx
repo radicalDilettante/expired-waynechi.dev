@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-import styles from "./blog.module.css";
+import styles from "./post.module.css";
 
 export default function Blog({
   frontMatter: { title, date, cover_image },

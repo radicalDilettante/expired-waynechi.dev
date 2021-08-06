@@ -1,13 +1,14 @@
-import "../styles/globals.css";
-import Header from "../components/header";
+import "./_app.css";
 import { PortfolioProvider } from "../context/context";
 import { prefix } from "../config/config";
+import Layout from "../components/layout";
 
 function MyApp({ Component, pageProps }) {
   return (
     <PortfolioProvider value={{ prefix }}>
-      <Header />
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </PortfolioProvider>
   );
 }
