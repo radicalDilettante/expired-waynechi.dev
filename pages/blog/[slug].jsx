@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -16,7 +17,9 @@ export default function Blog({
     <div>
       <h1>{title}</h1>
       <p>{date}</p>
-      {cover_image && <img src={cover_image} className={styles.img} />}
+      {cover_image && (
+        <Image src={cover_image} className={styles.img} alt={title} />
+      )}
       {markedContent.map((text, index) => (
         <p key={index}>{text}</p>
       ))}

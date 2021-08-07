@@ -1,10 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./post_card.module.css";
 
 export default function PostCard({ post }) {
   return (
     <div>
-      <img src={post.frontMatter.cover_image} alt="" className={styles.img} />
+      <Image src={post.frontMatter.cover_image} alt="" className={styles.img} />
 
       <div>Posted on {post.frontMatter.date}</div>
 
