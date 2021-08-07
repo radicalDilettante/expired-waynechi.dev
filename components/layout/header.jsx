@@ -1,6 +1,8 @@
 import React from "react";
 import HeaderItem from "./header_item";
 
+import styles from "./header.module.css";
+
 export default function Header() {
   const menus = [
     { name: "HOME", path: "/" },
@@ -10,10 +12,10 @@ export default function Header() {
     { name: "RESUME", path: "/resume" },
   ];
   return (
-    <header>
-      <h1>Wayne Choi</h1>
-      <h2>Web developer & Boat builder</h2>
-      <ul>
+    <header className={styles.container}>
+      <h1 className={styles.name}>Wayne Choi</h1>
+      <p className={styles.desc}>Web developer & Boat builder</p>
+      <ul className={styles.list}>
         {menus.map((menu, index) => (
           <HeaderItem key={index} menu={menu} />
         ))}
