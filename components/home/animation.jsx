@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import {
   BoxGeometry,
   Mesh,
@@ -14,12 +14,13 @@ import styles from "./animation.module.css";
 
 export default function Animation() {
   const canvas = useRef(null);
-  const width = 580;
-  const height = 380;
+
   useEffect(() => {
     const renderer = new WebGLRenderer();
-    renderer.setSize(width, height);
     canvas.current.appendChild(renderer.domElement);
+    const width = canvas.current.offsetWidth;
+    const height = (width * 2) / 3;
+    renderer.setSize(width, height);
 
     const fov = 75; //filed of view
     const aspect = 2; //default ratio
@@ -55,6 +56,10 @@ export default function Animation() {
     function render(time) {
       time *= 0.001; // convert time to seconds
 
+      const canvas = renderer.domElement;
+      camera.aspect = canvas.clientWidth / canvas.clientHeight;
+      camera.updateProjectionMatrix();
+
       cube.rotation.x = time;
       cube.rotation.y = time;
 
@@ -64,6 +69,5 @@ export default function Animation() {
     }
     requestAnimationFrame(render);
   }, []);
-
   return <div ref={canvas} className={styles.container}></div>;
 }
