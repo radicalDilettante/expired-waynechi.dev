@@ -1,5 +1,10 @@
 import styles from "./index.module.css";
+import Animation from "../components/home/animation";
 
 export default function Home() {
-  return <div className={styles.box}>Hello World.</div>;
+  return (
+    <div className={styles.box}>
+      <Animation />
+    </div>
+  );
 }
