@@ -9,6 +9,7 @@ import styles from "./post.module.css";
 export default function Blog({
   frontMatter: { title, date, cover_image },
   content,
+  prefix,
 }) {
   let markedContent;
   markedContent = content.split("\r\n");
@@ -18,7 +19,7 @@ export default function Blog({
       <h1>{title}</h1>
       <p>{date}</p>
       {cover_image && (
-        <Image src={cover_image} className={styles.img} alt={title} />
+        <Image src={prefix + cover_image} className={styles.img} alt={title} />
       )}
       {markedContent.map((text, index) => (
         <p key={index}>{text}</p>

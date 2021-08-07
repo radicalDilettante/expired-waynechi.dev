@@ -9,11 +9,11 @@ const sortByDate = (a, b) => {
   return new Date(b.frontMatter.date) - new Date(a.frontMatter.date);
 };
 
-export default function index({ posts }) {
+export default function index({ posts, prefix }) {
   return (
     <div>
       {posts.map((post, index) => (
-        <PostCard key={index} post={post} />
+        <PostCard key={index} post={post} prefix={prefix} />
       ))}
     </div>
   );

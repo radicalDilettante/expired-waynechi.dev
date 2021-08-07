@@ -1,4 +1,2 @@
 export const prefix =
-  process.env.NODE_ENV === "production"
-    ? "https://hhyemi.github.io/hyemi-portfolio"
-    : "";
+  process.env.NODE_ENV === "production" ? "https://waynethebb.github.io/" : "";
