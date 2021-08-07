@@ -1,11 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
 import styles from "./post_card.module.css";
 
 export default function PostCard({ post, prefix }) {
   return (
     <div>
-      <Image
+      <img
         src={prefix + post.frontMatter.cover_image}
         alt=""
         className={styles.img}
