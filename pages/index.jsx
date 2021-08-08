@@ -1,10 +1,14 @@
+import React, { useEffect } from "react";
 import styles from "./index.module.css";
-import Animation from "../components/home/animation";
+import { Main } from "../service/animation/main";
 
 export default function Home() {
+  useEffect(() => {
+    new Main();
+  });
   return (
-    <div className={styles.box}>
-      <Animation />
+    <div className={styles.container}>
+      <div id={"box"} className={styles.box} />
     </div>
   );
 }
