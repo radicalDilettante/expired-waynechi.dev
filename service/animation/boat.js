@@ -6,7 +6,7 @@ export class Boat {
   resize(stageWidth, stageHeight) {
     this.stageWidth = stageWidth;
     this.stageHeight = stageHeight;
-    if (stageWidth > stageHeight) {
+    if (stageWidth / stageHeight > 1.7) {
       this.boatHeight = stageHeight * 0.7;
       this.boatWidth = this.boatHeight / 1.2;
     } else {
