@@ -1,14 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./index.module.css";
 import { Main } from "../service/animation/main";
 
 export default function Home() {
+  const canvas = useRef();
   useEffect(() => {
-    new Main();
+    new Main(canvas);
   });
+
   return (
     <div className={styles.container}>
-      <div id={"box"} className={styles.box} />
+      <canvas ref={canvas} className={styles.canvas} />
     </div>
   );
 }

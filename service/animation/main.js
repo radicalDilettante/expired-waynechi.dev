@@ -1,31 +1,34 @@
-import { Wave } from "./wave";
+import { Boat } from "./boat";
+import { WaveGroup } from "./wave_group";
 
 export class Main {
-  constructor() {
-    this.canvas = document.createElement("canvas");
+  constructor(canvas) {
+    this.canvas = canvas.current;
+    console.log(canvas);
     this.ctx = this.canvas.getContext("2d");
-    document.getElementById("box").appendChild(this.canvas);
 
-    this.wave = new Wave();
+    this.waveGroup = new WaveGroup();
+    this.boat = new Boat();
 
-    window.addEventListener("resize", this.resize.bind(this), false);
     this.resize();
     requestAnimationFrame(this.animate.bind(this));
   }
 
   resize() {
-    this.stageWidth = document.getElementById("box").clientWidth;
-    this.stageHeight = (this.stageWidth * 2) / 3;
+    this.stageWidth = this.canvas.offsetWidth;
+    this.stageHeight = this.canvas.offsetHeight;
 
     this.canvas.width = this.stageWidth;
     this.canvas.height = this.stageHeight;
-    this.wave.resize(this.stageWidth, this.stageHeight);
+    this.waveGroup.resize(this.stageWidth, this.stageHeight);
+    this.boat.resize(this.stageWidth, this.stageHeight);
   }
 
   animate(t) {
     this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
 
-    this.wave.draw(this.ctx);
+    this.boat.draw(this.ctx);
+    this.waveGroup.draw(this.ctx);
 
     requestAnimationFrame(this.animate.bind(this));
   }
