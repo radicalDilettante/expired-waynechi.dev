@@ -13,7 +13,7 @@ export class Boat {
   }
 
   init() {
-    this.point = new Point(0, 5, this.stageWidth / 6, this.centerY);
+    this.point = new Point(0, 2, this.stageWidth / 6, this.centerY);
   }
   draw(ctx) {
     ctx.beginPath();

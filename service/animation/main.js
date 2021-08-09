@@ -4,7 +4,6 @@ import { WaveGroup } from "./wave_group";
 export class Main {
   constructor(canvas) {
     this.canvas = canvas.current;
-    console.log(canvas);
     this.ctx = this.canvas.getContext("2d");
 
     this.waveGroup = new WaveGroup();
