@@ -13,14 +13,14 @@ export class Boat {
   }
 
   init() {
-    this.point = new Point(0, 8, this.stageWidth / 6, this.centerY);
+    this.point = new Point(0, 5, this.stageWidth / 6, this.centerY);
   }
   draw(ctx) {
     ctx.beginPath();
     ctx.fillStyle = "#000FFF";
     this.point.update();
     const boat = new Image();
-    boat.src = "images/boat.png";
+    boat.src = "images/boat.svg";
     ctx.drawImage(
       boat,
       this.point.x,

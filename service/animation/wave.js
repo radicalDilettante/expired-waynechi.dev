@@ -24,7 +24,7 @@ export class Wave {
     for (let i = 0; i < this.totalPoints; i++) {
       const point = new Point(
         this.index + i,
-        15,
+        Math.random() * 15,
         this.pointGap * i,
         this.centerY
       );
