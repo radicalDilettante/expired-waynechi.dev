@@ -1,12 +1,10 @@
 .container {
-  margin: 25px;
-  margin-top: 50px;
+  margin: 30px;
 }
 
 .canvas {
   width: 100%;
-  height: 40vh;
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
   color: #fff;
   background: linear-gradient(
     to bottom,

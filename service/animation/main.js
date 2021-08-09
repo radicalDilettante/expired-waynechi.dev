@@ -15,7 +15,7 @@ export class Main {
 
   resize() {
     this.stageWidth = this.canvas.offsetWidth * 2;
-    this.stageHeight = this.canvas.offsetHeight * 2;
+    this.stageHeight = (this.stageWidth * 9) / 16;
 
     this.canvas.width = this.stageWidth;
     this.canvas.height = this.stageHeight;

@@ -5,11 +5,10 @@ import styles from "./header.module.css";
 
 export default function Header() {
   const menus = [
-    { name: "HOME", path: "/" },
-    { name: "ABOUT", path: "/about" },
+    { name: "ABOUT", path: "/" },
     { name: "BLOG", path: "/blog" },
     { name: "PORTFOLIO", path: "/portfolio" },
-    { name: "RESUME", path: "/resume" },
+    { name: "GITHUB", path: "https://github.com/waynethebb" },
   ];
   return (
     <header className={styles.container}>

@@ -1,5 +1,11 @@
 import styles from "./index.module.css";
 
+import Layout from "../components/layout";
+
 export default function Home() {
-  return <div>Hello World.</div>;
+  return (
+    <Layout>
+      <div>Hello World.</div>
+    </Layout>
+  );
 }
