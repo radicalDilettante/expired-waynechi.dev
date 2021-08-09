@@ -13,7 +13,7 @@ export class Wave {
     this.stageHeight = stageHeight;
 
     this.centerX = stageWidth / 2;
-    this.centerY = stageHeight / 1.4;
+    this.centerY = stageHeight - 100;
 
     this.pointGap = this.stageWidth / (this.totalPoints - 1);
     this.init();
@@ -24,7 +24,7 @@ export class Wave {
     for (let i = 0; i < this.totalPoints; i++) {
       const point = new Point(
         this.index + i,
-        Math.random() * 15,
+        Math.random() * 20,
         this.pointGap * i,
         this.centerY
       );

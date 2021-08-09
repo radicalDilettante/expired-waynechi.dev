@@ -3,7 +3,7 @@ import { Wave } from "./wave";
 export class WaveGroup {
   constructor() {
     this.totalWaves = 3;
-    this.totalPoints = 10;
+    this.totalPoints = 20;
 
     this.color = [
       "rgba(0,199,235,0.2)",

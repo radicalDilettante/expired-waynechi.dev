@@ -6,14 +6,21 @@ export class Boat {
   resize(stageWidth, stageHeight) {
     this.stageWidth = stageWidth;
     this.stageHeight = stageHeight;
+    if (stageWidth > stageHeight) {
+      this.boatHeight = stageHeight * 0.7;
+      this.boatWidth = this.boatHeight / 1.2;
+    } else {
+      this.boatWidth = stageWidth * 0.4;
+      this.boatHeight = this.boatWidth * 1.2;
+    }
 
     this.centerX = stageWidth / 2;
-    this.centerY = stageHeight * 0.11;
+    this.centerY = stageHeight - 70 - this.boatHeight;
     this.init();
   }
 
   init() {
-    this.point = new Point(0, 2, this.stageWidth / 6, this.centerY);
+    this.point = new Point(0, 2, this.stageWidth / 7, this.centerY);
   }
   draw(ctx) {
     ctx.beginPath();
@@ -25,8 +32,8 @@ export class Boat {
       boat,
       this.point.x,
       this.point.y,
-      this.stageHeight / 2,
-      this.stageHeight / 1.5
+      this.boatWidth,
+      this.boatHeight
     );
     ctx.fill();
     ctx.closePath();
