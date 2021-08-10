@@ -7,10 +7,7 @@ import matter from "gray-matter";
 import styles from "./index.module.css";
 
 import PostCard from "../../components/blog/post_card";
-
-const sortByDate = (a, b) => {
-  return new Date(b.frontMatter.date) - new Date(a.frontMatter.date);
-};
+import sortByDate from "../../service/sort_by_date";
 
 export default function index({ posts, prefix }) {
   return (
