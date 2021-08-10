@@ -14,13 +14,7 @@ export default function HeaderItem({ menu }) {
           : styles.list_item
       }
     >
-      <Link href={menu.path}>
-        {menu.name === "GITHUB" ? (
-          <a target="_blank">{menu.name}</a>
-        ) : (
-          menu.name
-        )}
-      </Link>
+      <Link href={menu.path}>{menu.name}</Link>
     </li>
   );
 }

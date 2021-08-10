@@ -4,7 +4,8 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-import Layout from "../../components/layout";
+import styles from "./blog.module.css";
+
 import PostCard from "../../components/blog/post_card";
 
 const sortByDate = (a, b) => {
@@ -13,13 +14,11 @@ const sortByDate = (a, b) => {
 
 export default function index({ posts, prefix }) {
   return (
-    <Layout>
-      <div>
-        {posts.map((post, index) => (
-          <PostCard key={index} post={post} prefix={prefix} />
-        ))}
-      </div>
-    </Layout>
+    <div className={styles.container}>
+      {posts.map((post, index) => (
+        <PostCard key={index} post={post} prefix={prefix} />
+      ))}
+    </div>
   );
 }
 

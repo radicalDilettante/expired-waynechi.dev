@@ -13,3 +13,31 @@
     rgb(255, 255, 255)
   );
 }
+
+.about {
+  position: relative;
+  margin: 30px 40px;
+  text-align: right;
+}
+
+.profilePic {
+  width: 30%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff; /*Change this to a background image or remove*/
+  border: solid #fff;
+  border-width: 6px 6px 20px 6px;
+  box-shadow: 1px 1px 5px #333;
+}
+
+.profilePic img {
+  width: 100%;
+}
+
+.about h2 {
+  margin: 0;
+}
+.about p {
+  margin: 0;
+}
