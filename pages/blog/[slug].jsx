@@ -4,15 +4,13 @@ import path from "path";
 import matter from "gray-matter";
 
 import styles from "./post.module.css";
+import ReactMarkdown from "react-markdown";
 
 export default function Blog({
   frontMatter: { title, date, cover_image },
   content,
   prefix,
 }) {
-  let markedContent;
-  markedContent = content.split("\r\n");
-  markedContent = markedContent.filter((element, i) => element !== "");
   return (
     <div>
       <h1>{title}</h1>
@@ -20,9 +18,7 @@ export default function Blog({
       {cover_image && (
         <img src={prefix + cover_image} className={styles.img} alt={title} />
       )}
-      {markedContent.map((text, index) => (
-        <p key={index}>{text}</p>
-      ))}
+      <ReactMarkdown>{content}</ReactMarkdown>
     </div>
   );
 }

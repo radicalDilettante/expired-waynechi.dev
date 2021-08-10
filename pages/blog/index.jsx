@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-import styles from "./blog.module.css";
+import styles from "./index.module.css";
 
 import PostCard from "../../components/blog/post_card";
 
@@ -15,9 +15,11 @@ const sortByDate = (a, b) => {
 export default function index({ posts, prefix }) {
   return (
     <div className={styles.container}>
-      {posts.map((post, index) => (
-        <PostCard key={index} post={post} prefix={prefix} />
-      ))}
+      <div className={styles.postsWrapper}>
+        {posts.map((post, index) => (
+          <PostCard key={index} post={post} prefix={prefix} />
+        ))}
+      </div>
     </div>
   );
 }
@@ -33,10 +35,11 @@ export async function getStaticProps() {
       "utf-8"
     );
 
-    const { data: frontMatter } = matter(markdownWithMeta);
+    const { data: frontMatter, content } = matter(markdownWithMeta);
 
     return {
       slug,
+      content,
       frontMatter,
     };
   });

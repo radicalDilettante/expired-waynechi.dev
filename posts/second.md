@@ -1,6 +1,7 @@
 ---
 title: "second post no img"
 date: "March 6, 2021"
+tag: "cs general"
 excerpt: "Amet reprehenderit mollit qui Lorem cupidatat adipisicing."
 cover_image: ""
 ---

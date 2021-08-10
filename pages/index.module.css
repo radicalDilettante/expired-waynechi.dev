@@ -1,4 +1,8 @@
 .container {
+  width: 100%;
+}
+
+.canvasWrapper {
   margin: 30px;
 }
 
@@ -14,30 +18,15 @@
   );
 }
 
-.about {
-  position: relative;
-  margin: 30px 40px;
-  text-align: right;
-}
-
-.profilePic {
-  width: 30%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #fff; /*Change this to a background image or remove*/
-  border: solid #fff;
-  border-width: 6px 6px 20px 6px;
-  box-shadow: 1px 1px 5px #333;
-}
-
-.profilePic img {
+.txt {
   width: 100%;
+  text-align: center;
+  font-size: 2rem;
 }
 
-.about h2 {
-  margin: 0;
-}
-.about p {
-  margin: 0;
+.postsWrapper {
+  width: calc(100% - 2rem);
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
 }

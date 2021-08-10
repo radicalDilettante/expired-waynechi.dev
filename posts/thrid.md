@@ -1,6 +1,7 @@
 ---
 title: "third post"
 date: "March 7, 2021"
+tag: "react"
 excerpt: "Amet reprehenderit mollit qui Lorem cupidatat adipisicing."
 cover_image: "/images/posts/01.png"
 ---

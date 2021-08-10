@@ -7,7 +7,7 @@ export default function Layout(props) {
   return (
     <div className={styles.container}>
       <Header></Header>
-      <section>{props.children}</section>
+      <section className={styles.contentsWrapper}>{props.children}</section>
     </div>
   );
 }
