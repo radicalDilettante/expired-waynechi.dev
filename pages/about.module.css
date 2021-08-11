@@ -1,9 +1,28 @@
-.pic {
+.container {
   width: 80%;
   margin: 0 auto;
+  text-align: right;
 }
 
-.pic img {
+.pic {
   width: 100%;
   border-radius: 10px;
+}
+
+.text {
+  width: 90%;
+  margin: 20px 0 20px auto;
+}
+
+.text p {
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.text ul {
+  margin: 0;
+}
+
+.text li {
+  margin-bottom: 5px;
 }
