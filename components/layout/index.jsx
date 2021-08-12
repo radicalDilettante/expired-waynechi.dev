@@ -8,6 +8,9 @@ export default function Layout(props) {
     <div className={styles.container}>
       <Header></Header>
       <section className={styles.contentsWrapper}>{props.children}</section>
+      <footer className={styles.footer}>
+        (C) {props.year}. Wonjun Choi. All rights reserved.
+      </footer>
     </div>
   );
 }

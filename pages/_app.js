@@ -3,8 +3,9 @@ import Layout from "../components/layout";
 import { prefix } from "../config/config";
 
 function MyApp({ Component, pageProps }) {
+  const date = new Date();
   return (
-    <Layout>
+    <Layout year={date.getFullYear()}>
       <Component {...pageProps} prefix={prefix} />
     </Layout>
   );
