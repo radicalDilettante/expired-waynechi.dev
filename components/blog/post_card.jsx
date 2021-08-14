@@ -5,17 +5,17 @@ export default function PostCard({ post, prefix }) {
   return (
     <Link href={`/blog/${post.slug}`}>
       <div className={styles.container}>
-        {post.frontMatter.cover_image && (
+        {post.cover_image && (
           <img
-            src={prefix + post.frontMatter.cover_image}
-            alt={post.frontMatter.title}
+            src={prefix + post.cover_image}
+            alt={post.title}
             className={styles.img}
           />
         )}
         <div className={styles.detail}>
-          <h3>{post.frontMatter.title}</h3>
-          <p>{post.frontMatter.excerpt}</p>
-          <div>{post.frontMatter.date}</div>
+          <h3>{post.title}</h3>
+          <p>{post.excerpt}</p>
+          <div>{post.date}</div>
         </div>
       </div>
     </Link>
