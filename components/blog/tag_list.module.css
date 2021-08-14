@@ -1,0 +1,13 @@
+.tagsWrapper {
+  margin: 0 30px;
+  text-align: right;
+}
+
+.tagsWrapper li {
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.selectedTag {
+  color: rgb(226, 129, 38);
+}

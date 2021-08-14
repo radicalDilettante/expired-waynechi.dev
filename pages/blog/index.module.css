@@ -2,22 +2,10 @@
   width: 100%;
 }
 
-.status {
+.menuIcon {
   margin: 0 30px;
   text-align: right;
-}
-
-.tagsWrapper {
-  margin: 0 30px;
-  text-align: right;
-}
-
-.tagsWrapper li {
-  margin: 5px 0;
-}
-
-.selectedTag {
-  color: rgb(226, 129, 38);
+  cursor: pointer;
 }
 
 .postsWrapper {
