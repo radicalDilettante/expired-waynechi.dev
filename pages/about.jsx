@@ -22,7 +22,11 @@ export default function About({ prefix }) {
   };
   return (
     <article className={styles.container}>
-      <img className={styles.pic} src={prefix + "images/profile.webp"} />
+      <img
+        className={styles.pic}
+        src={prefix + "images/profile.webp"}
+        alt={"Wonjun Wayne Choi"}
+      />
       <section className={styles.text}>
         <h2>Hi!</h2>
         <p>I am Wayne.</p>

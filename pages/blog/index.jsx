@@ -31,7 +31,11 @@ export default function Index({ posts, prefix }) {
   return (
     <div className={styles.container}>
       <div className={styles.menuIcon}>
-        <img src={prefix + "images/menu.svg"} onClick={toggleIsHideTags} />
+        <img
+          src={prefix + "images/menu.svg"}
+          onClick={toggleIsHideTags}
+          alt={"menu"}
+        />
       </div>
       {!isHideTags && (
         <TagList posts={posts} selected={selected} filter={filter} />
