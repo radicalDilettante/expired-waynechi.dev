@@ -1,4 +1,5 @@
 import styles from "./about.module.css";
+import Layout from "../components/layout";
 
 export default function About({ prefix }) {
   const useList = [

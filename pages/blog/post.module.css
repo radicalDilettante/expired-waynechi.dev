@@ -1,8 +1,27 @@
 .container {
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
+}
+
+.subject {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.date {
+  text-align: center;
+  color: #4d4d4d;
+  margin-bottom: 30px;
 }
 
 .img {
   width: 100%;
+}
+
+.tag {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1rem;
+  color: #4d4d4d;
 }

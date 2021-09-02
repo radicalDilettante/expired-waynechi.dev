@@ -1,12 +1,10 @@
 ---
-title: "Variable declaration in JavaScript Module"
+title: "Variable declaration in JavaScript Modules"
 date: "Sep 2, 2021"
-tag: "js-library,project"
-excerpt: "Amet reprehenderit mollit qui Lorem cupidatat adipisicing."
-cover_image: "/images/posts/neoquery.png"
+tag: ["javascript"]
+excerpt: 'In module JavaScript, however, "this" refers to "undefined" in the top level context...
+'
 ---
-
-# Variable declaration in JavaScript Module
 
 This study started with only a single line of code I did not understand.
 
@@ -61,6 +59,6 @@ console.log(this.a); // undefined
 
 ## References
 
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
-- https://v8.dev/features/modules#mjs
+- [this - JavaScript | MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/this)
+- [JavaScript modules - JavaScript | MDN](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Modules)
+- [JavaScript modules · V8](https://v8.dev/features/modules#mjs)

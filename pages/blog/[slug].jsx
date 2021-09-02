@@ -3,41 +3,28 @@ import React from "react";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
+import Markdown from "../../components/blog/markdown";
 import styles from "./post.module.css";
-import ReactMarkdown from "react-markdown";
 
 export default function Blog({
-  frontMatter: { title, date, cover_image },
+  frontMatter: { title, date, cover_image, tag },
   content,
   prefix,
 }) {
   return (
     <div className={styles.container}>
+      <ul className={styles.tag}>
+        {tag.map((item, index) => {
+          return <li key={index}>{`# ${item}`}</li>;
+        })}
+      </ul>
       {cover_image && (
         <img src={prefix + cover_image} className={styles.img} alt={title} />
       )}
-      <ReactMarkdown
-        children={content}
-        components={{
-          code({ node, inline, className, children, ...props }) {
-            const match = /language-(\w+)/.exec(className || "");
-            return !inline && match ? (
-              <SyntaxHighlighter
-                children={String(children).replace(/\n$/, "")}
-                language={match[1]}
-                PreTag="div"
-                {...props}
-              />
-            ) : (
-              <code className={className} {...props}>
-                {children}
-              </code>
-            );
-          },
-        }}
-      />
+      <h1 className={styles.subject}>{title}</h1>
+      <p className={styles.date}>{date}</p>
+      <Markdown content={content} />
     </div>
   );
 }

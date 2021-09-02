@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "./index.module.css";
 
 import PostCard from "../../components/blog/post_card";
-import blogList from "../../service/blog/blog_list";
+import getBlogList from "../../service/blog/get_list";
 import TagList from "../../components/blog/tag_list";
 
 export default function Index({ posts, prefix }) {
@@ -52,7 +52,7 @@ export default function Index({ posts, prefix }) {
 export async function getStaticProps() {
   return {
     props: {
-      posts: blogList(),
+      posts: getBlogList(),
     },
   };
 }

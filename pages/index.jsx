@@ -3,7 +3,7 @@ import styles from "./index.module.css";
 import { Main } from "../service/animation/main";
 
 import PostCard from "../components/blog/post_card";
-import blogList from "../service/blog/blog_list";
+import getBlogList from "../service/blog/get_list";
 
 export default function Home({ prefix, posts }) {
   const canvas = useRef();
@@ -29,7 +29,7 @@ export default function Home({ prefix, posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = blogList();
+  const posts = getBlogList();
   let result = posts;
   if (result.length >= 5) {
     result = result.slice(0, 4);

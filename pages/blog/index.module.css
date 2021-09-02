@@ -9,9 +9,8 @@
 }
 
 .postsWrapper {
-  width: calc(100% - 2rem);
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin: 1rem;
-  margin-top: 0;
+  margin: 1rem 0;
 }

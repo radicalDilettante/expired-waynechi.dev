@@ -26,8 +26,8 @@
 }
 
 .postsWrapper {
-  width: calc(100% - 2rem);
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin: 1rem;
+  margin: 0;
 }

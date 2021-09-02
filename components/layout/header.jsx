@@ -8,7 +8,7 @@ export default function Header() {
     { name: "HOME", path: "/" },
     { name: "ABOUT", path: "/about" },
     { name: "BLOG", path: "/blog" },
-    { name: "WORK", path: "/work" },
+    //{ name: "WORK", path: "/work" },
   ];
   return (
     <header className={styles.container}>

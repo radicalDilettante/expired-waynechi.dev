@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import sortByDate from "../lib/sort_by_date";
 
-export default function blogList() {
+export default function getBlogList() {
   const files = fs.readdirSync(path.join("posts"));
 
   const posts = files.map((filename) => {
@@ -14,11 +14,12 @@ export default function blogList() {
       "utf-8"
     );
 
-    const { data: frontMatter } = matter(markdownWithMeta);
+    const { data: frontMatter, content } = matter(markdownWithMeta);
 
     return {
       slug,
       ...frontMatter,
+      content,
     };
   });
 
