@@ -14,7 +14,9 @@ export default function HeaderItem({ menu }) {
           : styles.list_item
       }
     >
-      <Link href={menu.path}>{menu.name}</Link>
+      <Link href={menu.path} className={styles.link}>
+        {menu.name}
+      </Link>
     </li>
   );
 }

@@ -1,7 +1,9 @@
+/* eslint-disable react/no-children-prop */
 import React from "react";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
 import styles from "./post.module.css";
 import ReactMarkdown from "react-markdown";
@@ -12,13 +14,30 @@ export default function Blog({
   prefix,
 }) {
   return (
-    <div>
-      <h1>{title}</h1>
-      <p>{date}</p>
+    <div className={styles.container}>
       {cover_image && (
         <img src={prefix + cover_image} className={styles.img} alt={title} />
       )}
-      <ReactMarkdown>{content}</ReactMarkdown>
+      <ReactMarkdown
+        children={content}
+        components={{
+          code({ node, inline, className, children, ...props }) {
+            const match = /language-(\w+)/.exec(className || "");
+            return !inline && match ? (
+              <SyntaxHighlighter
+                children={String(children).replace(/\n$/, "")}
+                language={match[1]}
+                PreTag="div"
+                {...props}
+              />
+            ) : (
+              <code className={className} {...props}>
+                {children}
+              </code>
+            );
+          },
+        }}
+      />
     </div>
   );
 }
