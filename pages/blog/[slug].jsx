@@ -14,11 +14,7 @@ export default function Blog({
 }) {
   return (
     <div className={styles.container}>
-      <ul className={styles.tag}>
-        {tag.map((item, index) => {
-          return <li key={index}>{`# ${item}`}</li>;
-        })}
-      </ul>
+      <p className={styles.tag}># {tag}</p>
       {cover_image && (
         <img src={prefix + cover_image} className={styles.img} alt={title} />
       )}

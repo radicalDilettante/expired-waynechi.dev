@@ -1,19 +1,17 @@
 ---
 title: "NeoQuery, the simplified jQuery"
-date: "Sep 1, 2021"
-tag: ["jsLibrary", "project"]
+date: "Sep 3, 2021"
+tag: "JS Library"
 excerpt: "I made a DOM manipulation library, and I was highly motivated from jQuery...
 "
 cover_image: "/images/posts/neoquery.png"
 ---
 
-I made a DOM manipulation library, and I was highly motivated from jQuery.
-
 jQuery, which used to be a market-dominant library, is getting less attention in 2021. It is not an attractive option for new projects anymore, but legacy. Most browsers support web standards, and JavaScript improved a lot with ES6 update. We got fancy api like querySelectorAll() instead of getElementById(), and it is as convenient as jQuery methods.
 
 In addition, jQuery is too heavy. In modern JS ecosystem, modularized library is recommend to use. jQuery, however, does have too many features. It helps Dom manipulation, CSS styling, event handling, animation, and ajax. They could be covered with modern JavaScript, or sometimes other modularized library like Axios.
 
-But I still like jQuery syntax. Especially its way to manipulate DOM with chaining method is still attractive. So I made a library for DOM manipulation with jQuery method. I didn't create ajax and animation features, and minimize styling and event handling features. It is NeoQuery.
+But I believe jQuery syntax still works well. Especially its way to manipulate DOM with chaining method is still attractive. So I made a library, which is highly motivated from jQuery, and has similar methods and syntax, to manipulate DOM. It is [NeoQuery.](https://github.com/waynethebb/neoquery)
 
 ---
 
@@ -134,6 +132,27 @@ addAttr(attributeName, value); // Set attributes
 ---
 
 ## Other features
+
+I didn't create ajax and animation features, and minimize styling and event handling features. I intended to make this library as light as possible.
+
+### Styling
+
+- addCss(propertyName, value)
+- removeCss(propertyName)
+- show()
+- hide()
+
+I believe in-line styling need to be rejected, so I did not implement other styling methods. Unlike jQuery, those method can get only one property name as an argument.("css()" the jQuery method can get object for css properties)
+
+"show()" and "hide()" methods was only exception. I think those methods are more like DOM control, and it does not conflict against other style properties.
+
+### Event
+
+- on(event, callback)
+- one(event, callback)
+- off(event, callback)
+
+I did not make other features to create event listener, but methods we can use with the browser event types.
 
 ---
 

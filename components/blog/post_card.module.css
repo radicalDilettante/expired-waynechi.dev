@@ -10,19 +10,14 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-bottom: 1rem;
   color: #4d4d4d;
-}
-.tag li {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.img {
-  width: 100%;
 }
 
 .detail {
+  width: 100%;
+  margin: 1rem 0;
+}
+.img {
   width: 100%;
 }
 
