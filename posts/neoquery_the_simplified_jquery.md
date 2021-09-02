@@ -1,6 +1,6 @@
 ---
 title: "NeoQuery, the simplified jQuery"
-date: "Sep 3, 2021"
+date: "Sep 1, 2021"
 tag: "JS Library"
 excerpt: "I made a DOM manipulation library, and I was highly motivated from jQuery...
 "

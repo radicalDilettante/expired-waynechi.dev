@@ -1,26 +1,40 @@
 import styles from "./about.module.css";
 import Layout from "../components/layout";
 
+import SkillList from "../components/skill_list";
+
 export default function About({ prefix }) {
   const useList = [
-    { name: "HTML", desc: "semantic markup, DOM manipulation" },
-    { name: "CSS", desc: "responsive design, modules, CSS-in-JS" },
+    {
+      name: "HTML, CSS",
+      desc: ["Semantic markup", "DOM manipulation", "Responsive design"],
+    },
     {
       name: "JavaScript",
-      desc: "understand core concept lik asynchronous, prototype, closure, context and scope.",
+      desc: [
+        "Core concept like asynchronous, prototype, closure, context and scope",
+      ],
     },
-    { name: "React", desc: "" },
+    {
+      name: "React",
+      desc: [
+        "Make encapsulated functional components with hooks",
+        "SSR and SSG with Next.js",
+        "Manage global state with contextAPI",
+        "Understand core concept like JSX, props, and virtual DOM",
+      ],
+    },
+    {
+      name: "TypeScript",
+      desc: ["Make type safe code", "Object oriented programming"],
+    },
   ];
-
-  const renderList = (skill, index) => {
-    return (
-      <li key={index}>
-        <b>{skill.name}</b>
-        <br />
-        <i>{skill.desc}</i>
-      </li>
-    );
-  };
+  const learnList = [
+    {
+      name: "Node.js, express",
+      desc: ["Rest API", "Simple backend service", "Understand web more"],
+    },
+  ];
   return (
     <article className={styles.container}>
       <img
@@ -28,17 +42,23 @@ export default function About({ prefix }) {
         src={prefix + "images/profile.webp"}
         alt={"Wonjun Wayne Choi"}
       />
-      <section className={styles.text}>
+      <section className={styles.greeting}>
         <h2>Hi!</h2>
         <p>I am Wayne.</p>
         <p>
           I make web services in the morning and at night, and build boats on
-          daytime. Born and raised in Korea. Living in NZ.
+          daytime. Born and raised in South Korea. Living in NZ.
         </p>
       </section>
-      <section className={styles.text}>
-        <h3>I use</h3>
-        <ul>{useList.map((skill, index) => renderList(skill, index))}</ul>
+      <section>
+        <h2>I use</h2>
+        {useList.map((skill, index) => (
+          <SkillList skill={skill} key={index} />
+        ))}
+        <h2>I am learning</h2>
+        {learnList.map((skill, index) => (
+          <SkillList skill={skill} key={index} />
+        ))}
       </section>
     </article>
   );

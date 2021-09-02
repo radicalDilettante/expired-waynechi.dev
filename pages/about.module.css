@@ -1,7 +1,6 @@
 .container {
   width: 80%;
   margin: 0 auto;
-  text-align: right;
 }
 
 .pic {
@@ -9,22 +8,12 @@
   border-radius: 10px;
 }
 
-.text {
+.greeting {
   width: 90%;
   margin: 20px 0 20px auto;
+  text-align: right;
 }
-
-.text p {
+.greeting p {
   margin: 0;
-  margin-bottom: 5px;
-}
-
-.text ul {
-  margin: 0;
-  list-style: none;
-  padding: 0;
-}
-
-.text li {
   margin-bottom: 5px;
 }
