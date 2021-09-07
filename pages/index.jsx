@@ -10,7 +10,13 @@ export default function Home({ prefix, posts }) {
   useEffect(() => {
     new Main(canvas);
   }, []);
-
+  let query = "js";
+  const searchResult = posts.filter((post) => {
+    if (Object.values(post).join().toLowerCase().indexOf(query) >= 0) {
+      return post;
+    }
+  });
+  console.log(searchResult);
   return (
     <div className={styles.container}>
       <div className={styles.canvasWrapper}>
@@ -31,13 +37,10 @@ export default function Home({ prefix, posts }) {
 
 export async function getStaticProps() {
   const posts = getBlogList();
-  let result = posts;
-  if (result.length >= 5) {
-    result = result.slice(0, 4);
-  }
+
   return {
     props: {
-      posts: result,
+      posts,
     },
   };
 }

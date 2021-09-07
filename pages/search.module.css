@@ -1,0 +1,9 @@
+.container {
+  width: 100%;
+}
+.postsWrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
