@@ -1,14 +1,6 @@
 .list_item_active {
-  color: #e674d3;
-  display: inline-block;
-  margin: 0 10px;
-  font-size: 0.9rem;
-  font-family: "Roboto", sans-serif;
+  color: #4d4d4d;
 }
 .list_item {
-  color: #5da7e4;
-  display: inline-block;
-  margin: 0 10px;
-  font-size: 0.9rem;
-  font-family: "Roboto", sans-serif;
+  color: #a0a0a0;
 }

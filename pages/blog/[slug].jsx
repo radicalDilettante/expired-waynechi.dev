@@ -20,7 +20,7 @@ export default function Blog({
       )}
       <h1 className={styles.subject}>{title}</h1>
       <p className={styles.date}>{date}</p>
-      <Markdown content={content} />
+      <Markdown content={content} prefix={prefix} />
     </div>
   );
 }

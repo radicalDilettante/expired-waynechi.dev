@@ -9,20 +9,21 @@ export default function Home({ prefix, posts }) {
   const canvas = useRef();
   useEffect(() => {
     new Main(canvas);
-  });
+  }, []);
 
   return (
     <div className={styles.container}>
       <div className={styles.canvasWrapper}>
         <canvas ref={canvas} className={styles.canvas} />
       </div>
+      <div className={styles.blogContainer}>
+        <p className={styles.txt}>Bon Voyage!</p>
 
-      <p className={styles.txt}>Bon Voyage!</p>
-
-      <div className={styles.postsWrapper}>
-        {posts.map((post, index) => (
-          <PostCard key={index} post={post} prefix={prefix} />
-        ))}
+        <div className={styles.postsWrapper}>
+          {posts.map((post, index) => (
+            <PostCard key={index} post={post} prefix={prefix} />
+          ))}
+        </div>
       </div>
     </div>
   );

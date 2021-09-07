@@ -8,17 +8,16 @@ export default function Header() {
     { name: "HOME", path: "/" },
     { name: "ABOUT", path: "/about" },
     { name: "BLOG", path: "/blog" },
-    //{ name: "WORK", path: "/work" },
+    { name: "PORTFOLIO", path: "/work" },
   ];
   return (
-    <header className={styles.container}>
-      <h1 className={styles.name}>Wayne Choi</h1>
-      <p className={styles.desc}>Web developer & Boat builder</p>
+    <div className={styles.container}>
+      <p className={styles.name}>WayneChoi.dev</p>
       <ul className={styles.list}>
         {menus.map((menu, index) => (
           <HeaderItem key={index} menu={menu} />
         ))}
       </ul>
-    </header>
+    </div>
   );
 }

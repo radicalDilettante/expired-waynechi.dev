@@ -1,12 +1,17 @@
 .container {
+  max-width: 1000px;
   text-align: center;
-  margin: 20px 0;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }
 
 .name {
-  font-size: 3rem;
-  margin: 10px 0 2px 0;
-  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0 30px;
+  /* font-family: "Ubuntu", sans-serif; */
 }
 
 .desc {
@@ -15,12 +20,27 @@
 }
 
 .list {
-  margin: 10px 0;
+  margin: 0;
   list-style: none;
   padding: 0;
+}
+
+.list li {
+  display: inline-block;
+  margin: 0;
+  padding: 0 15px;
 }
 
 .list a {
   color: inherit;
   text-decoration: none;
+}
+@media all and (max-width: 1023px) {
+  .list {
+    display: none;
+  }
+  .name {
+    font-size: 1.5rem;
+    margin: 0 auto;
+  }
 }

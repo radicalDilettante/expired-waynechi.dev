@@ -29,7 +29,7 @@ Similarly, the this within modules does not refer to the global this, and instea
 
 ## Variables Declaration
 
-All variables in JavaScript is properties of objects, and a global object is assigned to a property of global object.
+All variables in JavaScript is properties of objects, and a global variable is assigned to a property of global object.
 
 ```javascript
 var a = "hi";
@@ -40,7 +40,7 @@ console.log(this.a); // hi
 
 What object is variables, declared in top-level scope of modules, assigned to?
 
-When variables is declared, it is assigned to a property of LexicalEnvironment component in execution context. In global context, LexicalEnvironment refer the global property. The variables in top-level scope of modules are assigned to LexicalEnvironment like any other execution contexts.
+When variables is declared, it is assigned to a property of LexicalEnvironment component in execution context. The variables in top-level scope of modules are also assigned to LexicalEnvironment like any other execution contexts, but not global object like global variable. Only global variable is assigned to the global object, and then LexicalEnvironment refer the global object.
 
 ---
 

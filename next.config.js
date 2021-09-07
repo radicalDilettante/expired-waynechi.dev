@@ -1,7 +1,5 @@
 module.exports = {
   reactStrictMode: true,
   assetPrefix:
-    process.env.NODE_ENV === "production"
-      ? "https://waynethebb.github.io/"
-      : "",
+    process.env.NODE_ENV === "production" ? "https://waynechoi.dev/" : "",
 };

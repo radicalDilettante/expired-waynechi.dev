@@ -6,8 +6,10 @@ import styles from "./index.module.css";
 export default function Layout(props) {
   return (
     <div className={styles.container}>
-      <Header></Header>
-      <section className={styles.contentsWrapper}>{props.children}</section>
+      <header className={styles.header}>
+        <Header />
+      </header>
+      <section className={styles.contents}>{props.children}</section>
       <footer className={styles.footer}>
         (C) {props.year}. Wonjun Choi. All rights reserved.
       </footer>

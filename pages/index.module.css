@@ -3,12 +3,12 @@
 }
 
 .canvasWrapper {
-  margin: 30px;
+  width: 100%;
 }
 
 .canvas {
   width: 100%;
-  border-radius: 10px;
+  height: 300px;
   color: #fff;
   background: linear-gradient(
     to bottom,
@@ -16,6 +16,12 @@
     rgba(210, 232, 248, 0.4),
     rgb(255, 255, 255)
   );
+}
+
+.blogContainer {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .txt {

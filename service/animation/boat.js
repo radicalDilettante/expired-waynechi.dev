@@ -7,8 +7,8 @@ export class Boat {
     this.stageWidth = stageWidth;
     this.stageHeight = stageHeight;
 
-    this.boatWidth = stageWidth / 4;
-    this.boatHeight = this.boatWidth * 1.2;
+    this.boatHeight = stageHeight * 0.5;
+    this.boatWidth = this.boatHeight;
 
     this.centerX = stageWidth / 2;
     this.centerY = stageHeight - 50 - this.boatHeight;
