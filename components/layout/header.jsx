@@ -7,7 +7,6 @@ export default function Header() {
   const menus = [
     { name: "HOME", path: "/" },
     { name: "ABOUT", path: "/about" },
-    { name: "BLOG", path: "/blog" },
     { name: "PORTFOLIO", path: "/work" },
   ];
   return (

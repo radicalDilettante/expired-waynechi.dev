@@ -3,10 +3,10 @@ import { useRouter } from "next/dist/client/router";
 
 import styles from "./search.module.css";
 
-import PostCard from "../components/blog/post_card";
+import PostList from "../components/blog/post_list";
 import getBlogList from "../service/blog/get_list";
 
-export default function Search({ posts, prefix }) {
+export default function Search({ posts }) {
   const router = useRouter();
   const query = router.query.q;
   const searchResult = posts.filter((post) => {
@@ -14,13 +14,13 @@ export default function Search({ posts, prefix }) {
       return post;
     }
   });
-  console.log(PostCard);
   return (
     <div className={styles.container}>
       <div className={styles.postsWrapper}>
-        {searchResult.map((post, index) => (
-          <PostCard key={index} prefix={prefix} post={post} />
-        ))}
+        <p className={styles.header}>
+          &quot;{query}&quot; search results ({searchResult.length})
+        </p>
+        <PostList posts={searchResult} />
       </div>
     </div>
   );

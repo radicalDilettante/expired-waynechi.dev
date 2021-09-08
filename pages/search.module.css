@@ -1,9 +1,14 @@
 .container {
   width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
 }
+.header {
+  font-size: 2rem;
+  padding-bottom: 30px;
+}
+
 .postsWrapper {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0;
+  padding: 20px 300px 20px 20px;
 }

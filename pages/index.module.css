@@ -22,18 +22,18 @@
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-}
-
-.txt {
-  width: 100%;
-  text-align: center;
-  font-size: 2rem;
-  color: #4d4d4d;
-}
-
-.postsWrapper {
-  width: 100%;
+  padding: 20px;
+  padding-top: 50px;
   display: flex;
-  flex-wrap: wrap;
-  margin: 0;
+  flex-direction: row;
+}
+
+.postList {
+  width: calc(100% - 120px - 190px);
+  margin-right: 120px;
+}
+
+.tag {
+  width: 190px;
+  text-align: left;
 }
