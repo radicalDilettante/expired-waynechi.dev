@@ -4,14 +4,13 @@
   margin: 10px auto;
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
 }
 
 .name {
   font-size: 2rem;
   margin: 0;
-  padding: 0 30px;
-  /* font-family: "Ubuntu", sans-serif; */
+  padding: 0 20px;
 }
 
 .desc {
@@ -23,24 +22,51 @@
   margin: 0;
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-direction: row;
 }
 
 .list li {
-  display: inline-block;
   margin: 0;
-  padding: 0 15px;
+  padding: 10px 15px 0 15px;
 }
 
 .list a {
   color: inherit;
   text-decoration: none;
 }
+
+.searchBar {
+  margin-left: auto;
+  display: flex;
+  padding: 0 20px;
+}
+
+.mobileMenu {
+  display: none;
+  margin-left: 10px;
+}
+
+.mobileSearch {
+  display: none;
+  margin-right: 10px;
+}
+
 @media all and (max-width: 1023px) {
   .list {
+    display: none;
+  }
+  .searchBar {
     display: none;
   }
   .name {
     font-size: 1.5rem;
     margin: 0 auto;
+  }
+  .mobileMenu {
+    display: flex;
+  }
+  .mobileSearch {
+    display: flex;
   }
 }

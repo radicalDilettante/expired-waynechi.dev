@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+}
+.container input {
+  padding: 5px 10px;
+  border: solid #666 1px;
+  border-radius: 3px;
+}
+.container button {
+  border-left: solid #666 1px;
+  margin-left: 15px;
+}

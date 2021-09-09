@@ -2,10 +2,11 @@ import React from "react";
 import Link from "next/link";
 
 import styles from "./header_item.module.css";
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
 
 export default function HeaderItem({ menu }) {
   const router = useRouter();
+
   return (
     <li
       className={
