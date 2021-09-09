@@ -4,13 +4,12 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Markdown from "../components/blog/markdown";
-import styles from "./[slug].module.css";
+import styles from "./blog.module.css";
 
 export default function Blog({
   frontMatter: { title, date, tag },
   content,
   prefix,
-  markdownWithMeta,
 }) {
   return (
     <div className={styles.container}>
@@ -42,7 +41,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 }
 
@@ -55,6 +54,6 @@ export async function getStaticProps({ params: { slug } }) {
   const { data: frontMatter, content } = matter(markdownWithMeta);
 
   return {
-    props: { frontMatter, content, markdownWithMeta },
+    props: { frontMatter, content },
   };
 }
