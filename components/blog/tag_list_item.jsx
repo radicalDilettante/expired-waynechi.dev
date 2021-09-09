@@ -27,12 +27,14 @@ export default function TagListItem({
   };
   return (
     <li
-      className={isActive ? styles.active : ""}
+      className={styles.container}
       onClick={() => {
         toggleActive();
       }}
     >
-      {tag} ({numberByTag(tag)})
+      <span className={isActive ? styles.active : styles.inactive}>
+        {tag} ({numberByTag(tag)}) {isActive && "x"}
+      </span>
     </li>
   );
 }

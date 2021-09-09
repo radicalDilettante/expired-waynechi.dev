@@ -12,6 +12,7 @@ export default function TagList({ posts, selected, setSelected, numberByTag }) {
 
   return (
     <ul className={styles.container}>
+      <p className={styles.subject}>Tag</p>
       {tagList.map((tag, index) => (
         <TagListItem
           key={index}

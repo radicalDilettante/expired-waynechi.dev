@@ -3,10 +3,8 @@
   padding: 0;
 }
 
-.container li {
-  cursor: pointer;
-}
-
-.selectedTag {
-  color: rgb(226, 129, 38);
+.subject {
+  color: #2bc1bc;
+  font-weight: bold;
+  padding: 0 10px;
 }
