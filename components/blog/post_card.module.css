@@ -6,8 +6,20 @@
   margin-bottom: 45px;
 }
 
+.header {
+  width: 100%;
+  display: flex;
+}
+
 .date {
-  margin-right: 15px;
+  width: 100px;
+  margin-right: 10px;
+}
+
+.tagWrapper {
+  width: calc(100% - 120px);
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .tag {

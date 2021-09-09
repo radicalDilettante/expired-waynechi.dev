@@ -4,6 +4,13 @@
   margin: 0 auto;
   padding: 20px;
 }
+
+.tagWrapper {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .tag {
   margin-right: 10px;
   color: #4d4d4d;

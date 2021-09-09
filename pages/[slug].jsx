@@ -13,11 +13,13 @@ export default function Blog({
 }) {
   return (
     <div className={styles.container}>
-      {tag.map((tagItem, index) => (
-        <span key={index} className={styles.tag}>
-          #{tagItem}
-        </span>
-      ))}
+      <div className={styles.tagWrapper}>
+        {tag.map((tagItem, index) => (
+          <span key={index} className={styles.tag}>
+            #{tagItem}
+          </span>
+        ))}
+      </div>
       <h1 className={styles.h1}>{title}</h1>
       <span className={styles.date}>{date}</span>
 
