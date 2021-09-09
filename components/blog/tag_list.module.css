@@ -1,9 +1,9 @@
-.tagsWrapper {
+.container {
   list-style: none;
   padding: 0;
 }
 
-.tagsWrapper li {
+.container li {
   cursor: pointer;
 }
 

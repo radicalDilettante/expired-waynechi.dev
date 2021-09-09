@@ -16,6 +16,7 @@
     rgba(210, 232, 248, 0.4),
     rgb(255, 255, 255)
   );
+  border-bottom: #ccc solid 1px;
 }
 
 .blogContainer {
@@ -36,4 +37,14 @@
 .tag {
   width: 190px;
   text-align: left;
+}
+
+@media all and (max-width: 1023px) {
+  .postList {
+    width: 100%;
+    margin: 0;
+  }
+  .tag {
+    display: none;
+  }
 }

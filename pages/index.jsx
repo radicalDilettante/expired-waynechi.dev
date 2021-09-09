@@ -15,16 +15,30 @@ export default function Home({ posts }) {
 
   //tag
   const [result, setResult] = useState(posts);
-  const [selected, setSelected] = useState("All");
+  const [selected, setSelected] = useState([]);
 
-  const filter = (tag) => {
-    setSelected(tag);
-    if (tag === "All") {
+  const filterByTag = (target, tag) => {
+    return target.filter((post) => {
+      return post.tag.indexOf(tag) > -1;
+    });
+  };
+
+  const numberByTag = (tag) => {
+    return filterByTag(posts, tag).length;
+  };
+
+  useEffect(() => {
+    if (selected.length === 0) {
       setResult(posts);
     } else {
-      setResult(posts.filter((post) => post.tag === tag));
+      let newTagList = [...posts];
+      selected.forEach((tag) => {
+        newTagList = filterByTag(newTagList, tag);
+      });
+      setResult(newTagList);
     }
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selected]);
 
   return (
     <div className={styles.container}>
@@ -36,7 +50,12 @@ export default function Home({ posts }) {
           <PostList posts={result} />
         </div>
         <div className={styles.tag}>
-          <TagList posts={posts} selected={selected} filter={filter} />
+          <TagList
+            posts={posts}
+            selected={selected}
+            setSelected={setSelected}
+            numberByTag={numberByTag}
+          />
         </div>
       </div>
     </div>

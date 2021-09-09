@@ -6,9 +6,11 @@
   margin-bottom: 45px;
 }
 
+.date {
+  margin-right: 15px;
+}
+
 .tag {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  margin-right: 10px;
   color: #4d4d4d;
 }

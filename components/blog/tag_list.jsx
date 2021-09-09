@@ -1,29 +1,25 @@
 import React from "react";
 
 import styles from "./tag_list.module.css";
+import TagListItem from "./tag_list_item";
 
-export default function TagList({ posts, selected, filter }) {
-  const tags = ["All", ...Array.from(new Set(posts.map((post) => post.tag)))];
-  const numberByTag = (tag) => {
-    if (tag === "All") {
-      return posts.length;
-    } else {
-      return posts.filter((post) => post.tag === tag).length;
-    }
-  };
+export default function TagList({ posts, selected, setSelected, numberByTag }) {
+  let tagList = [];
+  posts.forEach((post) => {
+    tagList = [...tagList, ...post.tag];
+  });
+  tagList = [...new Set(tagList)].sort();
 
   return (
-    <ul className={styles.tagsWrapper}>
-      {tags.map((tag, index) => (
-        <li
-          className={tag === selected ? styles.selectedTag : ""}
+    <ul className={styles.container}>
+      {tagList.map((tag, index) => (
+        <TagListItem
           key={index}
-          onClick={() => {
-            filter(tag);
-          }}
-        >
-          {tag} ({numberByTag(tag)})
-        </li>
+          tag={tag}
+          selected={selected}
+          setSelected={setSelected}
+          numberByTag={numberByTag}
+        />
       ))}
     </ul>
   );
