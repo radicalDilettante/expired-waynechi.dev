@@ -38,7 +38,7 @@ export default function Header({ prefix }) {
   const menus = [
     { name: "HOME", path: "/" },
     { name: "ABOUT", path: "/about" },
-    { name: "PORTFOLIO", path: "/work" },
+    { name: "PORTFOLIO", path: "/portfolio" },
   ];
   return (
     <div className={styles.container}>
