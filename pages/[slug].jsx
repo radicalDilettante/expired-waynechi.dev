@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Markdown from "../components/blog/markdown";
-import styles from "./post.module.css";
+import styles from "./[slug].module.css";
 
 export default function Blog({
   frontMatter: { title, date, tag },
@@ -13,10 +13,17 @@ export default function Blog({
 }) {
   return (
     <div className={styles.container}>
-      <p className={styles.tag}># {tag}</p>
-      <h1 className={styles.subject}>{title}</h1>
-      <p className={styles.date}>{date}</p>
-      <Markdown content={content} prefix={prefix} />
+      {tag.map((tagItem, index) => (
+        <span key={index} className={styles.tag}>
+          #{tagItem}
+        </span>
+      ))}
+      <h1 className={styles.h1}>{title}</h1>
+      <span className={styles.date}>{date}</span>
+
+      <div className={styles.content}>
+        <Markdown content={content} prefix={prefix} />
+      </div>
     </div>
   );
 }

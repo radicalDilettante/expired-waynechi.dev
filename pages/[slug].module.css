@@ -1,0 +1,26 @@
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.tag {
+  margin-right: 10px;
+  color: #4d4d4d;
+  font-size: 0.8rem;
+}
+.h1 {
+  font-size: 2rem;
+  padding-bottom: 10px;
+  border-bottom: #ccc solid 1px;
+  margin: 10px 0;
+}
+
+.date {
+  color: #4d4d4d;
+  font-size: 0.8rem;
+}
+
+.content {
+  padding-top: 30px;
+}
