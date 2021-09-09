@@ -4,7 +4,7 @@ import styles from "./post_card.module.css";
 export default function PostCard({ post }) {
   return (
     <div className={styles.container}>
-      <Link href={`/blog/${post.slug}`} passHref>
+      <Link href={`/${post.slug}`}>
         <a>
           <span className={styles.date}>{post.date}</span>
           {post.tag.map((tagItem, index) => (

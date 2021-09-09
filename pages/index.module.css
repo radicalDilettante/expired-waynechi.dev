@@ -2,6 +2,13 @@
   width: 100%;
 }
 
+.bonVoyage {
+  text-align: center;
+  font-size: 2rem;
+  color: #6d6d6d;
+  padding-top: 30px;
+}
+
 .canvasWrapper {
   width: 100%;
 }
@@ -16,7 +23,6 @@
     rgba(210, 232, 248, 0.4),
     rgb(255, 255, 255)
   );
-  border-bottom: #ccc solid 1px;
 }
 
 .blogContainer {
@@ -39,6 +45,12 @@
   text-align: left;
 }
 
+.mobileTag {
+  width: 100%;
+  display: none;
+  text-align: center;
+}
+
 @media all and (max-width: 1023px) {
   .postList {
     width: 100%;
@@ -46,5 +58,11 @@
   }
   .tag {
     display: none;
+  }
+  .mobileTag {
+    display: flex;
+  }
+  .bonVoyage {
+    padding: 0;
   }
 }

@@ -1,7 +1,7 @@
 ---
 title: "Variable declaration in JavaScript Modules"
 date: "Sep 2, 2021"
-tag: ["JavaScript","test"]
+tag: ["JavaScript"]
 excerpt: 'In module JavaScript, however, "this" refers to "undefined" in the top level context...
 '
 ---

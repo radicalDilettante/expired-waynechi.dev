@@ -45,6 +45,15 @@ export default function Home({ posts }) {
       <div className={styles.canvasWrapper}>
         <canvas ref={canvas} className={styles.canvas} />
       </div>
+      <p className={styles.bonVoyage}>Bon Voyage!</p>
+      <div className={styles.mobileTag}>
+        <TagList
+          posts={posts}
+          selected={selected}
+          setSelected={setSelected}
+          numberByTag={numberByTag}
+        />
+      </div>
       <div className={styles.blogContainer}>
         <div className={styles.postList}>
           <PostList posts={result} />

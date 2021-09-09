@@ -1,10 +1,17 @@
 .container {
   list-style: none;
   padding: 0;
+  margin: 0 auto;
 }
 
 .subject {
   color: #2bc1bc;
   font-weight: bold;
   padding: 0 10px;
+}
+
+@media all and (max-width: 1023px) {
+  .subject {
+    display: none;
+  }
 }

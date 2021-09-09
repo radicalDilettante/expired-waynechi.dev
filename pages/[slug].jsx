@@ -3,21 +3,17 @@ import React from "react";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-
-import Markdown from "../../components/blog/markdown";
+import Markdown from "../components/blog/markdown";
 import styles from "./post.module.css";
 
 export default function Blog({
-  frontMatter: { title, date, cover_image, tag },
+  frontMatter: { title, date, tag },
   content,
   prefix,
 }) {
   return (
     <div className={styles.container}>
       <p className={styles.tag}># {tag}</p>
-      {cover_image && (
-        <img src={prefix + cover_image} className={styles.img} alt={title} />
-      )}
       <h1 className={styles.subject}>{title}</h1>
       <p className={styles.date}>{date}</p>
       <Markdown content={content} prefix={prefix} />
@@ -36,7 +32,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
@@ -49,9 +45,6 @@ export async function getStaticProps({ params: { slug } }) {
   const { data: frontMatter, content } = matter(markdownWithMeta);
 
   return {
-    props: {
-      frontMatter,
-      content,
-    },
+    props: { frontMatter, content },
   };
 }
