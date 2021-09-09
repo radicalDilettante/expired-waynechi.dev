@@ -46,8 +46,12 @@ export default function About({ prefix }) {
         <h2>Hi!</h2>
         <p>I am Wayne.</p>
         <p>
+          I prefer readable code, and maintainable system. Aim more background
+          than tools. Love JS. Like TS.
+        </p>
+        <p>
           I make web services in the morning and at night, and build boats on
-          daytime. Born and raised in South Korea. Living in NZ.
+          daytime. Born and raised in South Korea. Living in New Zealand.
         </p>
       </section>
       <section>
