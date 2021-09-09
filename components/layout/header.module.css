@@ -1,7 +1,12 @@
 .container {
   max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  width: 100%;
   text-align: center;
-  margin: 10px auto;
+  padding: 10px 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -42,14 +47,42 @@
   padding: 0 20px;
 }
 
-.mobileMenu {
+.mobileMenuButton {
   display: none;
   margin-left: 10px;
 }
 
-.mobileSearch {
+.mobileSearchButton {
   display: none;
   margin-right: 10px;
+}
+
+.mobileMenuBar {
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+  background-color: #fff;
+  width: 100%;
+  text-align: center;
+  border-bottom: #ccc solid 1px;
+}
+.mobileMenuBar li {
+  padding: 10px;
+}
+
+.mobileSearchBar {
+  margin: 0;
+  background-color: #fff;
+  width: 100%;
+  text-align: center;
+  border-bottom: #ccc solid 1px;
+}
+.mobileSearchBar form {
+  width: 100%;
+  padding: 10px;
+}
+.mobileSearchBar input {
+  width: 100%;
 }
 
 @media all and (max-width: 1023px) {
@@ -63,10 +96,10 @@
     font-size: 1.5rem;
     margin: 0 auto;
   }
-  .mobileMenu {
+  .mobileMenuButton {
     display: flex;
   }
-  .mobileSearch {
+  .mobileSearchButton {
     display: flex;
   }
 }
