@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { useRouter } from "next/dist/client/router";
 
 import styles from "./search.module.css";
