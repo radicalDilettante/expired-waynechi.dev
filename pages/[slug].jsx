@@ -10,6 +10,7 @@ export default function Blog({
   frontMatter: { title, date, tag },
   content,
   prefix,
+  markdownWithMeta,
 }) {
   return (
     <div className={styles.container}>
@@ -54,6 +55,6 @@ export async function getStaticProps({ params: { slug } }) {
   const { data: frontMatter, content } = matter(markdownWithMeta);
 
   return {
-    props: { frontMatter, content },
+    props: { frontMatter, content, markdownWithMeta },
   };
 }
