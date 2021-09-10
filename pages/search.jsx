@@ -25,7 +25,7 @@ export default function Search({ posts }) {
             &quot;{query}&quot; search results ({searchResult.length})
           </p>
         ) : (
-          <p className={styles.header}>No Search Result</p>
+          <p className={styles.header}>No search result</p>
         )}
         <PostList posts={searchResult} />
       </div>

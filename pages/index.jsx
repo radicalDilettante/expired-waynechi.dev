@@ -56,7 +56,15 @@ export default function Home({ posts }) {
       </div>
       <div className={styles.blogContainer}>
         <div className={styles.postList}>
-          <PostList posts={result} />
+          {result.length > 0 ? (
+            <PostList posts={result} />
+          ) : (
+            <p className={styles.noFound}>
+              No result found
+              <br />
+              Please set tags again
+            </p>
+          )}
         </div>
         <div className={styles.tag}>
           <TagList
