@@ -8,7 +8,10 @@ import getBlogList from "../service/blog/get_list";
 
 export default function Search({ posts }) {
   const router = useRouter();
-  const query = router.query.q;
+  let query = router.query.q;
+  if (typeof query === "string") {
+    query = query.toLowerCase();
+  }
   const searchResult = posts.filter((post) => {
     if (Object.values(post).join().toLowerCase().indexOf(query) >= 0) {
       return post;
@@ -17,9 +20,13 @@ export default function Search({ posts }) {
   return (
     <div className={styles.container}>
       <div className={styles.postsWrapper}>
-        <p className={styles.header}>
-          &quot;{query}&quot; search results ({searchResult.length})
-        </p>
+        {searchResult.length > 0 ? (
+          <p className={styles.header}>
+            &quot;{query}&quot; search results ({searchResult.length})
+          </p>
+        ) : (
+          <p className={styles.header}>No Search Result</p>
+        )}
         <PostList posts={searchResult} />
       </div>
     </div>

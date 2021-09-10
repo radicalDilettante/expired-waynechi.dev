@@ -6,9 +6,10 @@
 .header {
   font-size: 2rem;
   padding-bottom: 30px;
+  text-align: center;
 }
 
 .postsWrapper {
   width: 100%;
-  padding: 20px 300px 20px 20px;
+  padding: 20px;
 }
