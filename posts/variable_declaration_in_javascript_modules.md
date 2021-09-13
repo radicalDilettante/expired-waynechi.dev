@@ -2,8 +2,7 @@
 title: "Variable declaration in JavaScript Modules"
 date: "Sep 2, 2021"
 tag: ["JavaScript"]
-excerpt: 'In module JavaScript, however, "this" refers to "undefined" in the top level context...
-'
+excerpt: 'In module JavaScript, however, "this" refers to "undefined" in the top level context...'
 ---
 
 This study started with only a single line of code I did not understand.

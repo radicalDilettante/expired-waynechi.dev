@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./index.module.css";
 import { Main } from "../service/animation/main";
+import Head from "next/head";
 
 import PostList from "../components/blog/post_list";
 import TagList from "..//components/blog/tag_list";
@@ -42,6 +43,15 @@ export default function Home({ posts }) {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>WayneChoi.dev</title>
+        <meta name="author" content="Wayne Choi" />
+        <meta name="description" content="Tech blog of Wayne Choi." />
+        <meta
+          name="keywords"
+          content="javascript, react, frontend, developer"
+        />
+      </Head>
       <div className={styles.canvasWrapper}>
         <canvas ref={canvas} className={styles.canvas} />
       </div>

@@ -1,4 +1,5 @@
 import styles from "./about.module.css";
+import Head from "next/head";
 
 import SkillList from "../components/skill_list";
 
@@ -36,6 +37,15 @@ export default function About({ prefix }) {
   ];
   return (
     <article className={styles.container}>
+      <Head>
+        <title>About - WayneChoi.dev</title>
+        <meta name="author" content="Wayne Choi" />
+        <meta name="description" content="Profile of Wayne Choi" />
+        <meta
+          name="keywords"
+          content="javascript, react, frontend, developer"
+        />
+      </Head>
       <img
         className={styles.pic}
         src={prefix + "images/profile.webp"}

@@ -2,8 +2,7 @@
 title: "NeoQuery, the simplified jQuery"
 date: "Sep 1, 2021"
 tag: ["JS Library", "JavaScript"]
-excerpt: "I made a DOM manipulation library, and I was highly motivated from jQuery...
-"
+excerpt: "I made a DOM manipulation library, and I was highly motivated from jQuery..."
 ---
 
 jQuery, which used to be a market-dominant library, is getting less attention in 2021. It is not an attractive option for new projects anymore, but legacy. Most browsers support web standards, and JavaScript improved a lot with ES6 update. We got fancy api like querySelectorAll() instead of getElementById(), and it is as convenient as jQuery methods.

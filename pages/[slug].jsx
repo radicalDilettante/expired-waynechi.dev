@@ -1,18 +1,31 @@
 /* eslint-disable react/no-children-prop */
 import React from "react";
+import Head from "next/head";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Markdown from "../components/blog/markdown";
+import Comment from "../components/blog/comment";
 import styles from "./blog.module.css";
 
 export default function Blog({
-  frontMatter: { title, date, tag },
+  frontMatter: { title, date, tag, excerpt },
   content,
   prefix,
 }) {
   return (
     <div className={styles.container}>
+      <Head>
+        <title>{title} - WayneChoi.dev</title>
+        <meta name="author" content="Wayne Choi" />
+        <meta name="description" content={excerpt} />
+        <meta
+          name="keywords"
+          content={tag.map((tagItem) => {
+            return tagItem;
+          })}
+        />
+      </Head>
       <div className={styles.tagWrapper}>
         {tag.map((tagItem, index) => (
           <span key={index} className={styles.tag}>
@@ -26,6 +39,7 @@ export default function Blog({
       <div className={styles.content}>
         <Markdown content={content} prefix={prefix} />
       </div>
+      <Comment issueTerm={title} />
     </div>
   );
 }

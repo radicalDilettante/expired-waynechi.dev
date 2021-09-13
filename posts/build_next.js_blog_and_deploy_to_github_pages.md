@@ -1,9 +1,8 @@
 ---
 title: "Build Next.js blog and deploy to Github Pages"
 date: "Sep 10, 2021"
-tag: ["React","Deploy"]
-excerpt: 'How I build static blog site with Next.js, and general configuration to deploy to Github Pages in this post...
-'
+tag: ["React", "Deploy"]
+excerpt: "How I build static blog site with Next.js, and general configuration to deploy to Github Pages in this post..."
 ---
 
 Next.js was known as a React framework to support server-side rendering (SSR) with zero config(if not necessary). After recent updates, it supports static generation (SSG) well, too.
