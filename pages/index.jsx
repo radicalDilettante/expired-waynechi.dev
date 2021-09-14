@@ -38,8 +38,7 @@ export default function Home({ posts }) {
       });
       setResult(newTagList);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selected]);
+  }, []);
 
   return (
     <div className={styles.container}>
