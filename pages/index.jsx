@@ -38,7 +38,7 @@ export default function Home({ posts }) {
       });
       setResult(newTagList);
     }
-  }, []);
+  }, [selected]);
 
   return (
     <div className={styles.container}>
