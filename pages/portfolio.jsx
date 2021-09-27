@@ -1,7 +1,7 @@
 import styles from "./portfolio.module.css";
 import Head from "next/head";
 
-export default function Portfolio() {
+export default function Portfolio({ prefix }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -13,7 +13,13 @@ export default function Portfolio() {
           content="javascript, react, frontend, developer"
         />
       </Head>
-      still Working
+      <h1>Portfolio</h1>
+      <h2>Website</h2>
+      <img className={styles.img} src={prefix + "images/portfolio/blog.jpg"} />
+      <img
+        className={styles.img_m}
+        src={prefix + "images/portfolio/blog_m.jpg"}
+      />
     </div>
   );
 }

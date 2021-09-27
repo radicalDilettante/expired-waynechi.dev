@@ -4,7 +4,7 @@ import Head from "next/head";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import Markdown from "../components/blog/markdown";
+import MarkdownRender from "../components/blog/markdown_render";
 import Comment from "../components/blog/comment";
 import styles from "./blog.module.css";
 
@@ -37,7 +37,7 @@ export default function Blog({
       <span className={styles.date}>{date}</span>
 
       <div className={styles.content}>
-        <Markdown content={content} prefix={prefix} />
+        <MarkdownRender content={content} prefix={prefix} />
       </div>
       <Comment issueTerm={title} />
     </div>

@@ -7,9 +7,9 @@ excerpt: "How I build static blog site with Next.js, and general configuration t
 
 Next.js was known as a React framework to support server-side rendering (SSR) with zero config(if not necessary). After recent updates, it supports static generation (SSG) well, too.
 
-To build my own blog, I got two options for React frameworks, one was Next.js, and other was Gatsby. I want to export my blog to static files, and Gatsby is specialized for SSG though, I choose Next.js. There was no reason for me to choose new tech stack, because I already tried Next.js before(for SSR), and I heard SSG in Next.js perform well.
+To build my own blog, I got two options for React frameworks, one was Next.js, and other was Gatsby. I want to export my blog to static files, and Gatsby is specialized for SSG though, I choose Next.js. There was no reason for me to choose new tech stack, because I already tried Next.js before(for SSR), and I heard SSG in Next.js performs well.
 
-I deployed the static files of my blog to Github Pages, and I needed some configuration. I would record how I build static blog site with Next.js, and general configuration to deploy to Github Pages in this post.
+I deployed the static files of my blog to Github Pages, and I needed some configuration. I would record how I built static blog site with Next.js, and general configuration to deploy to Github Pages in this post.
 
 ---
 
