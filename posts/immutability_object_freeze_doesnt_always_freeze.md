@@ -2,7 +2,7 @@
 title: "Immutability (1) - Object.freeze() doesn't always freeze"
 date: "Sep 23, 2021"
 tag: ["JavaScript"]
-excerpt: "How I build static blog site with Next.js, and general configuration to deploy to Github Pages in this post..."
+excerpt: "Explain primitive and reference data type of JavaScript, and immutability of object..."
 ---
 
 Immutability in JavaScript is getting more attention, while functional programming paradigm is on the rise. One of the important features of functional programming is that it has no side-effect.
@@ -41,14 +41,158 @@ And I reassigned number 2 to p1. At this time, number 1 in the memory address '1
 | ---- | ---- |
 | 1    | 2    |
 
-```javascript
+```js
 let p1; // declare variable
 p = 1; // assign 1 (1000)
+
+let p2 = 1; //assign 1 (1000)
+console.log(p1 === p2); // true
+
 p = 2; // reassign 2 (1001)
 ```
 
 ---
 
-## References
+## Object
 
-- [medium.com/javascript-scene](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0)
+Object is basically mutable. If I declare two variables, and assigned same object to those variables, two different memory addresses are assigned to each ones. Object is reference type data.
+
+| 2000              | 2001              |
+| ----------------- | ----------------- |
+| { name : 'choi' } | { name : 'choi' } |
+
+```js
+let o1 = { name: "choi" }; // 2000
+let o2 = { name: "choi" }; // 2001
+
+console.log(o1 === o2); // false
+```
+
+---
+
+## Copy
+
+It is simple to copy primitive type data. Primitive type data is immutable, so if I copied then changed one data, it doesn't affect the other one.
+
+```js
+let p1 = 1;
+let p2 = p1;
+
+console.log(p1); // 1
+console.log(p2); // 1
+
+p1 = 2;
+
+console.log(p1); // 2
+console.log(p2); // 1
+```
+
+Object, however, does work in different way. I assigned one variable, which is assigned an object, to other variable, then I changed one of that. It affects other variables as well. Object is reference type value, so both variable reference same object with same memory address.
+
+| 2000                        |
+| --------------------------- |
+| { name : ~~'choi'~~ 'kim' } |
+
+```js
+let o1 = { name: "choi" };
+let o2 = o1;
+
+console.log(o1); // { name: "choi" }
+console.log(o2); // { name: "choi" }
+console.log(o1 === o2); // true
+
+o2.name = "kim";
+
+console.log(o1); // { name: "kim" }
+console.log(o2); // { name: "kim" }
+console.log(o1 === o2); // true
+```
+
+If we did not mean to change the property of the original object, it could cause serious errors of an application. To keep the o1 object immutable, we can use Object.assign() to copy an object. (If it is an array, we can use Array.concat() as well.)
+
+| 2000              | 2001                        |
+| ----------------- | --------------------------- |
+| { name : 'choi' } | { name : ~~'choi'~~ 'kim' } |
+
+```js
+let o1 = { name: "choi" };
+let o2 = Object.assign({}, o1);
+
+console.log(o1); // { name: "choi" }
+console.log(o2); // { name: "choi" }
+console.log(o1 === o2); // false
+
+o2.name = "kim";
+
+console.log(o1); // { name: "choi" }
+console.log(o2); // { name: "kim" }
+```
+
+---
+
+## Object.freeze()
+
+Finally we reached the freeze method. It freeze all properties of an object. we can block to change the original object from the very beginning with this method.
+
+```js
+let o1 = { name: "choi" };
+Object.freeze(o1);
+
+o1.name = "kim";
+o1.age = 30; // even cannot add new properties
+
+console.log(o1); // { name: "choi" }
+```
+
+---
+
+## Const vs Freeze
+
+Const keyword is for immutable reference, and the freeze method is for immutable value. I declared variable o1 with let keyword and assigned an object to it. Then I freezed it.
+I can still reassign other value to o1.
+But if I make same variable o2 but with const keyword, I cannot reassign, even though I wouldn't freeze.
+
+```js
+let o1 = { name: "choi" };
+Object.freeze(o1);
+
+console.log(o1); // { name: "choi" };
+
+o1 = "hello world";
+
+console.log(o1); // hello world
+
+const o2 = { name: "choi" };
+
+o2 = "hello world"; // Uncaught TypeError: Assignment to constant variable.
+```
+
+---
+
+## Cannot freeze Nested Object
+
+If values of one or multiple properties are reference type, aka nested object, both assign and freeze methods can not keep the original object immutable when cloning. They are called shallow freeze and clone.
+
+```js
+let o1 = { name: "choi", occupation: { job: "boat builder" } };
+Object.freeze(o1);
+
+o1.name = kim;
+o1.occupation.job = "software engineer";
+
+console.log(o1); // { name : "choi", occupation : { job : "software engineer"}}
+// name hasn't changed, but job has
+
+let o2 = Object.assign({}, o1);
+o2.name = "kim";
+o2.occupation.job = "chef";
+
+console.log(o1); // { name : "choi", occupation : { job : "chef"}}
+console.log(o2); // { name : "kim", occupation : { job : "chef"}}
+```
+
+---
+
+If an object is nested with only one layer, we can freeze each properties with reference type value. It, however, is not easy to freeze all layers when the object is nested much deeper.
+
+I would like to suggest some alternatives in the following article.
