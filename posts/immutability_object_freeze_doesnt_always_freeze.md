@@ -7,13 +7,11 @@ excerpt: "Explain primitive and reference data type of JavaScript, and immutabil
 
 Immutability in JavaScript is getting more attention, while functional programming paradigm is on the rise. One of the important features of functional programming is that it has no side-effect.
 
-A side effect is any application state change that is observable outside the called function other than its return value. It cause more problems by concurrency in an application. JavaScript is single thread language though, execution environment, browser and node.js, process various task at the same time. To avoid side effects, we need to keep the state outside the function immutable.
+A side effect is any application state change that is observable outside the called function other than its return value. It cause more problems by concurrency in an application. JavaScript is single thread language though, execution environment (browser and node.js) process various task at the same time. To avoid side effects, we need to keep the state outside the function immutable.
 
 We can declare and assign immutable primitive variable with 'const' keyword, and keep properties of an object with 'Object.freeze()' method. The freeze method, however, does not always make objects immutable.
 
 In this post, I would like to explain why 'Object.freeze()' method is not complete way to make an object immutable, and to illustrate this, I need to deal with data type of JavaScript first.
-
----
 
 ## Data type of JavaScript
 
@@ -27,19 +25,7 @@ JavaScript has 2 kinds of data types. One is primitive, and other is reference. 
 - symbol
 - null
 
----
-
 ## Primitive type
-
-I declared a variable p1 and assigned number 1 to p1, number 1 is not assigned to p1 directly. At first, allocate number 1 to memory, and the memory address of number 1 is assigned to p1. Let's suppose the address of 1 is '1000'.(All of memory address in this post is hypothetical to help understand memory allocation of JavaScript)
-
-I declared new variable p2, and assigned number 1 to p2, the same memory address, '1000', is assigned to p2. Number 1 is primitive type data, and immutable.
-
-And I reassigned number 2 to p1. At this time, number 1 in the memory address '1000' won't be changed, but number 2 is allocated to memory address '1001' and it is assigned to p1. (I would not deal with garbage collection to free memory in this post)
-
-| 1000 | 1001 |
-| ---- | ---- |
-| 1    | 2    |
 
 ```js
 let p1; // declare variable
@@ -51,15 +37,17 @@ console.log(p1 === p2); // true
 p = 2; // reassign 2 (1001)
 ```
 
----
+| 1000 | 1001 |
+| ---- | ---- |
+| 1    | 2    |
+
+I declared a variable p1 and assigned number 1 to p1. Number 1 was not assigned to p1 directly, but allocated to memory first, and the memory address of number 1 is assigned to p1. Let's suppose the address of number 1 is '1000'. (All of memory address in this post is hypothetical to help understand memory allocation of JavaScript)
+
+I declared new variable p2, and assigned number 1 to p2. The same memory address, '1000', was assigned to p2. Number 1 is primitive type data, and immutable.
+
+And I reassigned number 2 to p1. At this time, number 1 in the memory '1000' won't be changed. Number 2 is allocated to the other space of memory, and its address '1001' is assigned to p1. (I would not deal with garbage collection to free memory in this post)
 
 ## Object
-
-Object is basically mutable. If I declare two variables, and assigned same object to those variables, two different memory addresses are assigned to each ones. Object is reference type data.
-
-| 2000              | 2001              |
-| ----------------- | ----------------- |
-| { name : 'choi' } | { name : 'choi' } |
 
 ```js
 let o1 = { name: "choi" }; // 2000
@@ -68,11 +56,13 @@ let o2 = { name: "choi" }; // 2001
 console.log(o1 === o2); // false
 ```
 
----
+| 2000              | 2001              |
+| ----------------- | ----------------- |
+| { name : 'choi' } | { name : 'choi' } |
+
+Object is basically mutable. If I declare two variables, and assigned objects which have same keys and values to those variables, two different memory addresses are assigned to each ones. Object is reference type data.
 
 ## Copy
-
-It is simple to copy primitive type data. Primitive type data is immutable, so if I copied then changed one data, it doesn't affect the other one.
 
 ```js
 let p1 = 1;
@@ -87,11 +77,9 @@ console.log(p1); // 2
 console.log(p2); // 1
 ```
 
-Object, however, does work in different way. I assigned one variable, which is assigned an object, to other variable, then I changed one of that. It affects other variables as well. Object is reference type value, so both variable reference same object with same memory address.
+It is simple to copy primitive type data. Primitive type data is immutable, so if I copied then changed one data, it doesn't affect the other one.
 
-| 2000                        |
-| --------------------------- |
-| { name : ~~'choi'~~ 'kim' } |
+---
 
 ```js
 let o1 = { name: "choi" };
@@ -108,11 +96,13 @@ console.log(o2); // { name: "kim" }
 console.log(o1 === o2); // true
 ```
 
-If we did not mean to change the property of the original object, it could cause serious errors of an application. To keep the o1 object immutable, we can use Object.assign() to copy an object. (If it is an array, we can use Array.concat() as well.)
+| 2000                        |
+| --------------------------- |
+| { name : ~~'choi'~~ 'kim' } |
 
-| 2000              | 2001                        |
-| ----------------- | --------------------------- |
-| { name : 'choi' } | { name : ~~'choi'~~ 'kim' } |
+however, does work in different way. I assigned one variable, which is assigned an object, to other variable, then I changed one of that. It affects other variables as well. Object is reference type value, so both variable reference same object with same memory address.
+
+---
 
 ```js
 let o1 = { name: "choi" };
@@ -128,11 +118,13 @@ console.log(o1); // { name: "choi" }
 console.log(o2); // { name: "kim" }
 ```
 
----
+| 2000              | 2001                        |
+| ----------------- | --------------------------- |
+| { name : 'choi' } | { name : ~~'choi'~~ 'kim' } |
+
+If we did not mean to change the property of the original object, it could cause serious errors of an application. To keep the o1 object immutable, we can use Object.assign() to copy an object. (If it is an array, we can use Array.concat() as well.)
 
 ## Object.freeze()
-
-Finally we reached the freeze method. It freeze all properties of an object. we can block to change the original object from the very beginning with this method.
 
 ```js
 let o1 = { name: "choi" };
@@ -144,13 +136,9 @@ o1.age = 30; // even cannot add new properties
 console.log(o1); // { name: "choi" }
 ```
 
----
+Finally we reached the freeze method. It freeze all properties of an object. we can block to change the original object from the very beginning with this method.
 
 ## Const vs Freeze
-
-Const keyword is for immutable reference, and the freeze method is for immutable value. I declared variable o1 with let keyword and assigned an object to it. Then I freezed it.
-I can still reassign other value to o1.
-But if I make same variable o2 but with const keyword, I cannot reassign, even though I wouldn't freeze.
 
 ```js
 let o1 = { name: "choi" };
@@ -167,11 +155,11 @@ const o2 = { name: "choi" };
 o2 = "hello world"; // Uncaught TypeError: Assignment to constant variable.
 ```
 
----
+Const keyword is for immutable reference, and the freeze method is for immutable value. I declared variable o1 with let keyword and assigned an object to it. Then I freezed it.
+I can still reassign other value to o1.
+But if I make same variable o2 but with const keyword, I cannot reassign, even though I wouldn't freeze.
 
 ## Cannot freeze Nested Object
-
-If values of one or multiple properties are reference type, aka nested object, both assign and freeze methods can not keep the original object immutable when cloning. They are called shallow freeze and clone.
 
 ```js
 let o1 = { name: "choi", occupation: { job: "boat builder" } };
@@ -191,8 +179,14 @@ console.log(o1); // { name : "choi", occupation : { job : "chef"}}
 console.log(o2); // { name : "kim", occupation : { job : "chef"}}
 ```
 
+If values of one or multiple properties are reference type, aka nested object, both assign and freeze methods can not keep the original object immutable when cloning. They are called shallow freeze and clone.
+
 ---
 
 If an object is nested with only one layer, we can freeze each properties with reference type value. It, however, is not easy to freeze all layers when the object is nested much deeper.
 
 I would like to suggest some alternatives in the following article.
+
+## References
+
+- [Master the JavaScript Interview: What is Functional Programming? - Eric Elliott](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0)

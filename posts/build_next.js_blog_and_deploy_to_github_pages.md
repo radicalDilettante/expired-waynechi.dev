@@ -11,8 +11,6 @@ To build my own blog, I got two options for React frameworks, one was Next.js, a
 
 I deployed the static files of my blog to Github Pages, and I needed some configuration. I would record how I built static blog site with Next.js, and general configuration to deploy to Github Pages in this post.
 
----
-
 ## Table of Contents
 
 - Write posts with markdown format
@@ -36,8 +34,6 @@ I will skip to import all libraries. The dependency is blow.
     "react-syntax-highlighter": "^15.4.4"
   }
 ```
-
----
 
 ## Get post list from markdown files
 
@@ -80,8 +76,6 @@ export default function Index({ posts }) {
 
 Now we got an array including slug of each posts. We can route pages with those slugs.
 
----
-
 ## Get static path from slug
 
 If a page has dynamic routes and uses getStaticProps it needs to define a list of paths that have to be rendered to HTML at build time.
@@ -108,8 +102,6 @@ export async function getStaticPaths() {
 }
 // define a list of paths
 ```
-
----
 
 ## Parse markdown to html and render
 
@@ -148,8 +140,6 @@ export default function Blog({ frontMatter: { title }, content}) {
 // Render html with "markdown" library
 ```
 
----
-
 ## Configuration
 
 To generate static site, and deploy to CDN, we can set up an asset Prefix and configure the CDN's origin to resolve to the domain that Next.js is hosted on.
@@ -183,8 +173,6 @@ export default MyApp;
 // other pages
 <img src={prefix + "imgSrc"}>
 ```
-
----
 
 ## References
 

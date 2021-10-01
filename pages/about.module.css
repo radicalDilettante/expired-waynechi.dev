@@ -7,6 +7,11 @@
   flex-direction: column;
 }
 
+.sub_heading {
+  border: none;
+  margin: 20px 0;
+}
+
 .pic {
   width: 60%;
   border-radius: 5px;
@@ -14,9 +19,17 @@
 }
 
 .greeting {
-  width: 60%;
+  width: 80%;
   margin: 20px 0 20px auto;
   text-align: right;
+}
+
+.greeting img {
+  width: 80px;
+  height: 80px;
+  margin: 5px 0 5px 10px;
+  border-radius: 5px;
+  float: right;
 }
 
 @media all and (max-width: 1023px) {
@@ -24,6 +37,6 @@
     width: 100%;
   }
   .greeting {
-    width: 80%;
+    width: 90%;
   }
 }

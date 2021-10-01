@@ -12,8 +12,6 @@ This study started with only a single line of code I did not understand.
 console.log(this); // undefined
 ```
 
----
-
 ## Where the hell is "window"?
 
 In the global execution context (outside of any function), "this" refers to the global object. If its runtime environment is a browser, it is "window". In module JavaScript, however, "this" refers to "undefined" in the top level context.
@@ -23,8 +21,6 @@ Modules are imported into the scope of single scripts. They cannot be called fro
 Modules have a lexical top-level scope. This means that for example, running var foo = 42; within a module does not create a global variable named foo, accessible through window.foo in a browser, although that would be the case in a classic script.
 
 Similarly, the this within modules does not refer to the global this, and instead is undefined.
-
----
 
 ## Variables Declaration
 
@@ -41,8 +37,6 @@ What object is variables, declared in top-level scope of modules, assigned to?
 
 When variables is declared, it is assigned to a property of LexicalEnvironment component in execution context. The variables in top-level scope of modules are also assigned to LexicalEnvironment like any other execution contexts, but not global object like global variable. Only global variable is assigned to the global object, and then LexicalEnvironment refer the global object.
 
----
-
 ## "var" and "let"
 
 For both modules and commonjs, variables declared suing the "let", and constants are not assigned to a global property, but only LexicalEnvironment.
@@ -53,8 +47,6 @@ console.log(a); // hi
 console.log(window.a); // undefined
 console.log(this.a); // undefined
 ```
-
----
 
 ## References
 

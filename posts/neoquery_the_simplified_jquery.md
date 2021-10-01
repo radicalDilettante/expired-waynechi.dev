@@ -11,8 +11,6 @@ In addition, jQuery is too heavy. In modern JS ecosystem, modularized library is
 
 But I believe jQuery syntax still works well. Especially its way to manipulate DOM with chaining method is still attractive. So I made a library, which is highly motivated from jQuery, and has similar methods and syntax, to manipulate DOM. It is [NeoQuery.](https://github.com/waynethebb/neoquery)
 
----
-
 ## Fluent Interface
 
 A fluent interface is normally implemented by using method chaining to implement method cascading. jQuery is one of the most representative examples of use.
@@ -90,8 +88,6 @@ class NeoQuery {
 $("#textNode").addClass("myClass").appendTo("#someDiv");
 ```
 
----
-
 ## $()
 
 The function, $(), is to create new instance, and start chaining methods. It has three features.
@@ -111,8 +107,6 @@ $(html);
 // ex) $("<div>test</div>").---
 ```
 
----
-
 ## Methods
 
 I made all methods (except $()), have only one feature. It is to avoid unnecessary logic to categorize arguments for running different feature in one methods, and has more intuitive interface.
@@ -126,8 +120,6 @@ attr(attributeName, value); // Set attributes
 attr(attributeName); // Get the value of an attributes
 addAttr(attributeName, value); // Set attributes
 ```
-
----
 
 ## Other features
 
@@ -151,8 +143,6 @@ I believe in-line styling need to be rejected, so I did not implement other styl
 - off(event, callback)
 
 I did not make other features to create event listener, but methods we can use with the browser event types.
-
----
 
 ## References
 

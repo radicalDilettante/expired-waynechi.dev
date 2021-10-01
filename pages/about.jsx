@@ -52,23 +52,26 @@ export default function About({ prefix }) {
         alt={"Wonjun Wayne Choi"}
       />
       <section className={styles.greeting}>
-        <h2>Hi!</h2>
+        <h2 className={styles.sub_heading}>Hi!</h2>
         <p>I am Wayne.</p>
         <p>
-          I prefer readable code, and maintainable system. Aim more background
+          I prefer readable code, and maintainable system. Value background more
           than tools. Love JS. Like TS.
         </p>
         <p>
-          I make web services in the morning and at night, and build boats on
-          daytime. Born and raised in South Korea. Living in New Zealand.
+          <img src={prefix + "images/profile_small.webp"} />I make web services
+          in the morning and at night, and build boats on daytime. Born and
+          raised in South Korea. Living in New Zealand.
         </p>
       </section>
+      <hr />
       <section>
-        <h2>I use</h2>
+        <h2 className={styles.sub_heading}>I use</h2>
         {useList.map((skill, index) => (
           <SkillList skill={skill} key={index} />
         ))}
-        <h2>I am learning</h2>
+        <hr />
+        <h2 className={styles.sub_heading}>I am learning</h2>
         {learnList.map((skill, index) => (
           <SkillList skill={skill} key={index} />
         ))}
