@@ -7,8 +7,8 @@ import TagListItem from "./tag_list_item";
 interface IProps {
   posts: Post[];
   selected: string[];
-  setSelected: string[];
-  numberByTag: number;
+  setSelected: Function;
+  numberByTag: Function;
 }
 
 export default function TagList({
