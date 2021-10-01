@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { useRouter } from "next/router";
 import styles from "./search_bar.module.css";
 
-export default function SearchBar({ prefix }) {
+interface IProps {
+  prefix: string;
+}
+
+export default function SearchBar({ prefix }: IProps) {
   const router = useRouter();
   const [query, setQuery] = useState("");
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     router.push({
       pathname: "/search",
@@ -19,7 +23,7 @@ export default function SearchBar({ prefix }) {
         id="keyword"
         type="text"
         placeholder="keywords..."
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(event) => setQuery(event.target.value)}
         required
       />
       <button type="submit">

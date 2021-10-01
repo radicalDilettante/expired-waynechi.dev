@@ -7,7 +7,11 @@ import SearchBar from "../search/search_bar";
 
 import styles from "./header.module.css";
 
-export default function Header({ prefix }) {
+interface IProps {
+  prefix: string;
+}
+
+export default function Header({ prefix }: IProps) {
   const router = useRouter();
   const [isHideMobileMenu, SetIsHideMobileMenu] = useState(true);
   const [isHideMobileSearch, SetIsHideMobileSearch] = useState(true);

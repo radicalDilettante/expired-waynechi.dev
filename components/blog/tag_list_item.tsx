@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import styles from "./tag_list_item.module.css";
 
+interface IProps {
+  tag: string;
+  selected: string[];
+  setSelected: Function;
+  numberByTag: Function;
+}
+
 export default function TagListItem({
   tag,
   selected,
   setSelected,
   numberByTag,
-}) {
+}: IProps) {
   const [isActive, setIsActive] = useState(false);
 
   const toggleActive = () => {

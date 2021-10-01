@@ -3,7 +3,11 @@ import Head from "next/head";
 
 import SkillList from "../components/skill_list";
 
-export default function About({ prefix }) {
+interface IProps {
+  prefix: string;
+}
+
+export default function About({ prefix }: IProps) {
   const useList = [
     {
       name: "HTML, CSS",

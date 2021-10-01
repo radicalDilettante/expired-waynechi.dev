@@ -4,9 +4,12 @@ import Link from "next/link";
 import styles from "./header_item.module.css";
 import { useRouter } from "next/router";
 
-export default function HeaderItem({ menu }) {
-  const router = useRouter();
+interface IProps {
+  menu: { name: string; path: string };
+}
 
+export default function HeaderItem({ menu }: IProps) {
+  const router = useRouter();
   return (
     <li
       className={
@@ -15,9 +18,9 @@ export default function HeaderItem({ menu }) {
           : styles.list_item
       }
     >
-      <Link href={menu.path} className={styles.link}>
-        {menu.name}
-      </Link>
+      <div className={styles.link}>
+        <Link href={menu.path}>{menu.name}</Link>
+      </div>
     </li>
   );
 }

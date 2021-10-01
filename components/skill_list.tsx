@@ -1,6 +1,14 @@
 import React from "react";
 import styles from "./skill_list.module.css";
-export default function SkillList(props) {
+
+interface IProps {
+  skill: {
+    name: string;
+    desc: string[];
+  };
+}
+
+export default function SkillList(props: IProps) {
   return (
     <div className={styles.container}>
       <p className={styles.skill}>{props.skill.name}</p>

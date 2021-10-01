@@ -1,7 +1,12 @@
 import Link from "next/link";
+import Post from "../../interface/post";
 import styles from "./post_card.module.css";
 
-export default function PostCard({ post }) {
+interface IProps {
+  post: Post;
+}
+
+export default function PostCard({ post }: IProps) {
   return (
     <div className={styles.container}>
       <Link href={`/${post.slug}`}>

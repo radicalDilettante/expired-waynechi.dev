@@ -6,13 +6,19 @@ import styles from "./search.module.css";
 
 import PostList from "../components/blog/post_list";
 import getBlogList from "../service/blog/get_list";
+import Post from "../interface/post";
 
-export default function Search({ posts }) {
+interface IProps {
+  posts: Post[];
+}
+
+export default function Search({ posts }: IProps) {
   const router = useRouter();
-  let query = router.query.q;
-  if (typeof query === "string") {
-    query = query.toLowerCase();
+  let query: string = "";
+  if (typeof router.query.q === "string") {
+    query = router.query.q.toLowerCase();
   }
+
   const searchResult = posts.filter((post) => {
     if (Object.values(post).join().toLowerCase().indexOf(query) >= 0) {
       return post;

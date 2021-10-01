@@ -1,9 +1,15 @@
-import React from "react";
+import React, { ReactChild } from "react";
 import Header from "./header";
 
 import styles from "./index.module.css";
 
-export default function Layout(props) {
+interface IProps {
+  prefix: string;
+  year: number;
+  children: ReactChild;
+}
+
+export default function Layout(props: IProps) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>

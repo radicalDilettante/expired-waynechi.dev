@@ -2,29 +2,35 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./index.module.css";
 import { Main } from "../service/animation/main";
 import Head from "next/head";
+import { GetStaticProps } from "next";
 
 import PostList from "../components/blog/post_list";
-import TagList from "..//components/blog/tag_list";
+import TagList from "../components/blog/tag_list";
 import getBlogList from "../service/blog/get_list";
+import Post from "../interface/post";
 
-export default function Home({ posts }) {
+interface IProps {
+  posts: Post[];
+}
+
+export default function Home({ posts }: IProps) {
   //animation
-  const canvas = useRef();
+  const canvas = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     new Main(canvas);
   }, []);
 
   //tag
-  const [result, setResult] = useState(posts);
-  const [selected, setSelected] = useState([]);
+  const [result, setResult] = useState<Post[]>(posts);
+  const [selected, setSelected] = useState<string[]>([]);
 
-  const filterByTag = (target, tag) => {
+  const filterByTag = (target: Post[], tag: string) => {
     return target.filter((post) => {
       return post.tag.indexOf(tag) > -1;
     });
   };
 
-  const numberByTag = (tag) => {
+  const numberByTag = (tag: string) => {
     return filterByTag(posts, tag).length;
   };
 
@@ -88,12 +94,11 @@ export default function Home({ posts }) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = getBlogList();
-
   return {
     props: {
       posts,
     },
   };
-}
+};

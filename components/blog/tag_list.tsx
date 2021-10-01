@@ -1,16 +1,29 @@
 import React, { useEffect, useState } from "react";
+import Post from "../../interface/post";
 
 import styles from "./tag_list.module.css";
 import TagListItem from "./tag_list_item";
 
-export default function TagList({ posts, selected, setSelected, numberByTag }) {
+interface IProps {
+  posts: Post[];
+  selected: string[];
+  setSelected: string[];
+  numberByTag: number;
+}
+
+export default function TagList({
+  posts,
+  selected,
+  setSelected,
+  numberByTag,
+}: IProps) {
   const [isFixed, setIsFixed] = useState(false);
 
-  let tagList = [];
+  let tagList: string[] = [];
   posts.forEach((post) => {
     tagList = [...tagList, ...post.tag];
   });
-  tagList = [...new Set(tagList)].sort();
+  tagList = Array.from(new Set(tagList)).sort();
 
   function handleScroll() {
     if (scrollY > 450) {
