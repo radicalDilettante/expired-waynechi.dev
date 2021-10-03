@@ -2,7 +2,7 @@
 import React, { useRef, useEffect } from "react";
 import Markdown from "markdown-to-jsx";
 import highlightJs from "highlight.js";
-import "highlight.js/styles/a11y-light.css";
+import "highlight.js/styles/github-dark.css";
 
 interface IProps {
   content: string;
@@ -17,7 +17,7 @@ export default function MarkdownRender({ content, prefix }: IProps) {
       rootRef.current
         .querySelectorAll<HTMLElement>("pre code")
         .forEach((block) => {
-          highlightJs.highlightBlock(block);
+          highlightJs.highlightElement(block);
         });
     }
   }, [content]);

@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import sortByDate from "../lib/sort_by_date";
 
 export default function getBlogList() {
   const files = fs.readdirSync(path.join("posts"));
@@ -15,13 +14,20 @@ export default function getBlogList() {
     );
 
     const { data: frontMatter, content } = matter(markdownWithMeta);
+    const { title, date, tag, excerpt }: { [key: string]: string } =
+      frontMatter;
 
     return {
       slug,
-      ...frontMatter,
+      title,
+      date,
+      tag,
+      excerpt,
       content,
     };
   });
 
-  return posts.sort(sortByDate);
+  return posts.sort((a, b): number => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
 }
