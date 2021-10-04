@@ -59,13 +59,13 @@ export default function About({ prefix }: IProps) {
         <h2 className={styles.sub_heading}>Hi!</h2>
         <p>I am Wayne.</p>
         <p>
-          I prefer readable code, and maintainable system. Value background more
-          than tools. Love JS. Like TS.
+          I prefer readable code, and maintainable system. I value background
+          more than tools. Love JS. Like TS.
         </p>
         <p>
           <img src={prefix + "images/profile_small.webp"} />I make web services
-          in the morning and at night, and build boats on daytime. Born and
-          raised in South Korea. Living in New Zealand.
+          in the morning and at night, and build boats as a full-time boat
+          builder. Born and raised in South Korea. Living in New Zealand.
         </p>
       </section>
       <hr />
