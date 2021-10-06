@@ -2,7 +2,7 @@
 import React, { useRef, useEffect } from "react";
 import Markdown from "markdown-to-jsx";
 import highlightJs from "highlight.js";
-import "highlight.js/styles/github-dark.css";
+import "highlight.js/styles/a11y-dark.css";
 
 interface IProps {
   content: string;

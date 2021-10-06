@@ -9,7 +9,7 @@
   padding-top: 30px;
 }
 
-.canvasWrapper {
+.canvas_wrapper {
   width: 100%;
 }
 
@@ -17,10 +17,17 @@
   width: 100%;
   height: 300px;
   color: #fff;
+}
+
+.night {
+  background: url("/images/night.jpg") repeat-x;
+}
+
+.day {
   background: linear-gradient(
     to bottom,
-    rgb(196, 228, 253, 0.4),
-    rgba(210, 232, 248, 0.4),
+    rgba(164, 216, 255, 0.4),
+    rgba(190, 228, 255, 0.4),
     rgb(255, 255, 255)
   );
 }

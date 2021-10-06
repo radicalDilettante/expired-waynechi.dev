@@ -1,0 +1,6 @@
+.dark {
+  background-color: var(--dark-theme-background);
+}
+.light {
+  background-color: var(--light-theme-background);
+}

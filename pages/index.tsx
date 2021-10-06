@@ -11,9 +11,10 @@ import Post from "../interface/post";
 
 interface IProps {
   posts: Post[];
+  isDark: boolean;
 }
 
-export default function Home({ posts }: IProps) {
+export default function Home({ posts, isDark }: IProps) {
   //animation
   const canvas = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
@@ -57,8 +58,11 @@ export default function Home({ posts }: IProps) {
           content="javascript, react, frontend, developer"
         />
       </Head>
-      <div className={styles.canvasWrapper}>
-        <canvas ref={canvas} className={styles.canvas} />
+      <div className={styles.canvas_wrapper}>
+        <canvas
+          ref={canvas}
+          className={`${styles.canvas} ${isDark ? styles.night : styles.day}`}
+        />
       </div>
       <p className={styles.bonVoyage}>Bon Voyage!</p>
       <div className={styles.mobileTag}>

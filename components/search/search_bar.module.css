@@ -5,6 +5,7 @@
   padding: 5px 10px;
   border: solid #666 1px;
   border-radius: 3px;
+  color: currentColor;
 }
 .container button {
   border-left: solid #666 1px;

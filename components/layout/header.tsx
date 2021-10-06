@@ -6,12 +6,15 @@ import HeaderItem from "./header_item";
 import SearchBar from "../search/search_bar";
 
 import styles from "./header.module.css";
+import theme from "../../style/theme.module.css";
 
 interface IProps {
   prefix: string;
+  isDark: boolean;
+  toggleTheme: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export default function Header({ prefix }: IProps) {
+export default function Header({ prefix, isDark, toggleTheme }: IProps) {
   const router = useRouter();
   const [isHideMobileMenu, SetIsHideMobileMenu] = useState(true);
   const [isHideMobileSearch, SetIsHideMobileSearch] = useState(true);
@@ -63,7 +66,7 @@ export default function Header({ prefix }: IProps) {
           ))}
         </ul>
         <div className={styles.searchBar}>
-          <SearchBar prefix={prefix} />
+          <SearchBar prefix={prefix} isDark={isDark} />
         </div>
         <button
           className={styles.mobileSearchButton}
@@ -76,13 +79,29 @@ export default function Header({ prefix }: IProps) {
           )}
         </button>
       </div>
+      <button className={styles.theme_button} onClick={toggleTheme}>
+        <div
+          className={
+            isDark ? styles.slider : `${styles.slider} ${styles.transform}`
+          }
+        />
+      </button>
+
       {!isHideMobileSearch && (
-        <div className={styles.mobileSearchBar}>
-          <SearchBar prefix={prefix} />
+        <div
+          className={`${styles.mobileSearchBar} ${
+            isDark ? theme.dark : theme.light
+          }`}
+        >
+          <SearchBar prefix={prefix} isDark={isDark} />
         </div>
       )}
       {!isHideMobileMenu && (
-        <ul className={styles.mobileMenuBar}>
+        <ul
+          className={`${styles.mobileMenuBar} ${
+            isDark ? theme.dark : theme.light
+          }`}
+        >
           {menus.map((menu, index) => (
             <HeaderItem key={index} menu={menu} />
           ))}

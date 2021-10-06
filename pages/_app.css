@@ -1,11 +1,21 @@
+@import "../style/val.css";
+
 html,
 body {
   width: 100%;
   padding: 0;
   margin: 0;
   font-family: "Ubuntu", sans-serif;
-  color: #222222;
-  /* background-color: #000; */
+}
+
+.light_theme {
+  background-color: var(--light-theme-background);
+  color: #222;
+}
+
+.dark_theme {
+  background-color: var(--dark-theme-background);
+  color: #ccc;
 }
 
 * {
@@ -21,6 +31,10 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+  outline: none;
+}
+input {
+  outline: none;
 }
 
 table,

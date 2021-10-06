@@ -1,6 +1,32 @@
 .container {
   max-width: 1000px;
   margin: 0 auto;
+  position: relative;
+}
+
+.theme_button {
+  position: absolute;
+  right: 0;
+  width: 50px;
+  height: 30px;
+  margin: 10px;
+  border-radius: 20px;
+  background-color: #fff;
+  padding: 5px;
+  cursor: pointer;
+  z-index: -1;
+}
+
+.slider {
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #000;
+  transition: 0.3s;
+}
+.transform {
+  transform: translateX(20px);
 }
 
 .header {
@@ -83,6 +109,13 @@
 }
 .mobileSearchBar input {
   width: 100%;
+}
+
+.dark_theme {
+  background-color: #141414;
+}
+.light_theme {
+  background-color: #fff;
 }
 
 @media all and (max-width: 1023px) {
