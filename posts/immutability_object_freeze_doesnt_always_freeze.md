@@ -1,8 +1,8 @@
 ---
-title: "Immutability (1) - Object.freeze() doesn't always freeze"
-date: "Sep 23, 2021"
-tag: ["JavaScript"]
-excerpt: "Explain primitive and reference data type of JavaScript, and immutability of object..."
+title: 'Immutability (1) - Object.freeze() doesn''t always freeze'
+tag: [JavaScript]
+excerpt: Explain primitive and reference data type of JavaScript, and immutability of object...
+modified: 2021-10-06T16:54:22+13:00
 ---
 
 Immutability in JavaScript is getting more attention, while functional programming paradigm is on the rise. One of the important features of functional programming is that it has no side-effect.
@@ -190,3 +190,4 @@ I would like to suggest some alternatives in the following article.
 ## References
 
 - [Master the JavaScript Interview: What is Functional Programming? - Eric Elliott](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0)
+- 함수형 자바스크립트 프로그래밍 - 유인동
