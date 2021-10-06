@@ -1,7 +1,7 @@
 ---
 title: "NeoQuery, the simplified jQuery"
 date: "Sep 1, 2021"
-tag: ["Library", "JavaScript"]
+tag: ["Library", "JavaScript", "jQuery"]
 excerpt: "I made a DOM manipulation library, and I was highly motivated from jQuery..."
 ---
 
@@ -147,4 +147,4 @@ I did not make other features to create event listener, but methods we can use w
 ## References
 
 - ["jQuery: The write less, do more, JavaScript library"](http://jquery.com/)
-- [Martin Fowler, "FluentInterface"](https://www.martinfowler.com/bliki/FluentInterface.html)
+- [Martin Fowler, "Fluent Interface"](https://www.martinfowler.com/bliki/FluentInterface.html)
