@@ -1,8 +1,8 @@
 ---
-title: 'Immutability (1) - Object.freeze() doesn''t always freeze'
+title: "Immutability (1) - Object.freeze() doesn't always freeze"
+date: "Sep 23, 2021"
 tag: [JavaScript]
 excerpt: Explain primitive and reference data type of JavaScript, and immutability of object...
-modified: 2021-10-06T16:54:22+13:00
 ---
 
 Immutability in JavaScript is getting more attention, while functional programming paradigm is on the rise. One of the important features of functional programming is that it has no side-effect.
