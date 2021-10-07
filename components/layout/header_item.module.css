@@ -1,5 +1,5 @@
 .list_item_active {
-  color: #292929;
+  color: currentColor;
 }
 .list_item {
   color: #8b8b8b;
