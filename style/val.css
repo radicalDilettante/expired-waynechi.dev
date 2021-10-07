@@ -1,4 +1,5 @@
 :root {
   --light-theme-background: #fff;
   --dark-theme-background: #141414;
+  --max-width: 1000px;
 }

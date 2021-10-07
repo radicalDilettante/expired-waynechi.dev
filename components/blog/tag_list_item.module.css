@@ -14,6 +14,7 @@
 @media all and (min-width: 1023px) {
   .inactive:hover {
     background-color: #eee;
+    color: #141414;
   }
 }
 @media all and (max-width: 1023px) {
