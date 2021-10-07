@@ -1,5 +1,6 @@
 .container {
   margin: 10px 0;
+  display: flex;
 }
 .container span {
   cursor: pointer;
@@ -8,7 +9,8 @@
 }
 
 .active {
-  background-color: #2bc1bc1a;
+  background-color: #d6ebeb;
+  color: #141414;
 }
 
 @media all and (min-width: 1023px) {
