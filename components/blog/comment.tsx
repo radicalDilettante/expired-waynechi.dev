@@ -1,9 +1,21 @@
 import React, { useEffect, useRef } from "react";
 
-export default function Comment({ issueTerm = "pathname" }) {
+interface IProps {
+  issueTerm: string;
+  isDark: boolean;
+}
+
+export default function Comment({ issueTerm, isDark }: IProps) {
   const rootElm = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let theme: string;
+    if (isDark) {
+      theme = "github-dark";
+    } else {
+      theme = "github-light";
+    }
+
     if (rootElm.current) {
       while (rootElm.current.firstChild) {
         rootElm.current.removeChild(rootElm.current.firstChild);
@@ -16,7 +28,7 @@ export default function Comment({ issueTerm = "pathname" }) {
         repo: "waynethebb/waynethebb.github.io",
         "issue-term": issueTerm,
         label: "Comment",
-        theme: "github-light",
+        theme,
         crossorigin: "anonymous",
         async: "async",
       }).forEach(([key, value]) => {
@@ -25,7 +37,7 @@ export default function Comment({ issueTerm = "pathname" }) {
       // attach script element
       rootElm.current.appendChild(utterances);
     }
-  }, []);
+  }, [isDark]);
 
   return <div id="utterances_container" ref={rootElm} />;
 }
