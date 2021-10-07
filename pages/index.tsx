@@ -60,13 +60,15 @@ export default function Home({ posts, isDark, toggleTheme }: IProps) {
         />
       </Head>
       <div className={styles.canvas_wrapper}>
-        <button className={styles.theme_button} onClick={toggleTheme}>
-          <div
-            className={
-              isDark ? styles.slider : `${styles.slider} ${styles.transform}`
-            }
-          />
-        </button>
+        <div className={styles.theme_button_wrapper}>
+          <button className={styles.theme_button} onClick={toggleTheme}>
+            <div
+              className={`${styles.slider} ${
+                isDark ? styles.dark_theme_button : styles.light_theme_button
+              }`}
+            />
+          </button>
+        </div>
         <canvas
           ref={canvas}
           className={`${styles.canvas} ${isDark ? styles.night : styles.day}`}
