@@ -36,8 +36,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   };
 
   return (
-    <Layout prefix={assetPrefix} isDark={isDark} toggleTheme={toggleTheme}>
-      <Component {...pageProps} prefix={assetPrefix} isDark={isDark} />
+    <Layout prefix={assetPrefix} isDark={isDark}>
+      <Component
+        {...pageProps}
+        prefix={assetPrefix}
+        isDark={isDark}
+        toggleTheme={toggleTheme}
+      />
     </Layout>
   );
 }

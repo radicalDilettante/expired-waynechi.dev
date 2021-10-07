@@ -11,10 +11,9 @@ import theme from "../../style/theme.module.css";
 interface IProps {
   prefix: string;
   isDark: boolean;
-  toggleTheme: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export default function Header({ prefix, isDark, toggleTheme }: IProps) {
+export default function Header({ prefix, isDark }: IProps) {
   const router = useRouter();
   const [isHideMobileMenu, SetIsHideMobileMenu] = useState(true);
   const [isHideMobileSearch, SetIsHideMobileSearch] = useState(true);
@@ -79,13 +78,6 @@ export default function Header({ prefix, isDark, toggleTheme }: IProps) {
           )}
         </button>
       </div>
-      <button className={styles.theme_button} onClick={toggleTheme}>
-        <div
-          className={
-            isDark ? styles.slider : `${styles.slider} ${styles.transform}`
-          }
-        />
-      </button>
 
       {!isHideMobileSearch && (
         <div

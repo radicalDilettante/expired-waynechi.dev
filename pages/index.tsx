@@ -12,9 +12,10 @@ import Post from "../interface/post";
 interface IProps {
   posts: Post[];
   isDark: boolean;
+  toggleTheme: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export default function Home({ posts, isDark }: IProps) {
+export default function Home({ posts, isDark, toggleTheme }: IProps) {
   //animation
   const canvas = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
@@ -59,6 +60,13 @@ export default function Home({ posts, isDark }: IProps) {
         />
       </Head>
       <div className={styles.canvas_wrapper}>
+        <button className={styles.theme_button} onClick={toggleTheme}>
+          <div
+            className={
+              isDark ? styles.slider : `${styles.slider} ${styles.transform}`
+            }
+          />
+        </button>
         <canvas
           ref={canvas}
           className={`${styles.canvas} ${isDark ? styles.night : styles.day}`}

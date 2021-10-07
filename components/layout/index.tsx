@@ -10,21 +10,15 @@ interface IProps {
   prefix: string;
   children: ReactChild;
   isDark: boolean;
-  toggleTheme: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export default function Layout({
-  prefix,
-  children,
-  isDark,
-  toggleTheme,
-}: IProps) {
+export default function Layout({ prefix, children, isDark }: IProps) {
   return (
     <div className={styles.container}>
       <header
         className={`${styles.header} ${isDark ? theme.dark : theme.light}`}
       >
-        <Header prefix={prefix} toggleTheme={toggleTheme} isDark={isDark} />
+        <Header prefix={prefix} isDark={isDark} />
       </header>
       <section className={styles.contents}>{children}</section>
       <footer className={styles.footer}>
