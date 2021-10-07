@@ -3,9 +3,11 @@ import "./_app.css";
 import { AppProps } from "next/app";
 import Layout from "../components/layout";
 import { assetPrefix } from "../next.config";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isDark, setIsDark] = useState(false);
+  const pathName = useRouter().pathname;
   useEffect(() => {
     const bgMode = window.localStorage.getItem("bgMode");
     if (bgMode === "light" || !bgMode) {
@@ -16,14 +18,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   useEffect(() => {
-    if (isDark) {
+    if (isDark || pathName === "/cli") {
       document.getElementsByTagName("html")[0].classList.add("dark_theme");
       document.getElementsByTagName("html")[0].classList.remove("light_theme");
     } else {
       document.getElementsByTagName("html")[0].classList.add("light_theme");
       document.getElementsByTagName("html")[0].classList.remove("dark_theme");
     }
-  }, [isDark]);
+  }, [isDark, pathName]);
 
   const toggleTheme = () => {
     if (isDark) {
@@ -35,7 +37,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   };
 
-  return (
+  return pathName === "/cli" ? (
+    <Component {...pageProps} />
+  ) : (
     <Layout prefix={assetPrefix} isDark={isDark}>
       <Component
         {...pageProps}
