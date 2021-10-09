@@ -1,3 +1,34 @@
 .container {
+  padding: 20px;
+  color: #62b33f;
+  overflow-x: hidden;
+  font-size: 1rem;
+}
+
+.contents p {
+  word-wrap: break-word;
+  margin: 0;
+}
+.contents span {
+  margin: 0 20px;
+}
+
+.cmd {
+  display: flex;
+  margin-top: 10px;
+}
+.user {
+  white-space: nowrap;
+  margin: 0;
+  margin-right: 5px;
+}
+.input {
+  background-color: var(--dark-theme-background);
+  width: auto;
+  border: none;
+  padding: 0;
+  outline: none;
+  color: currentColor;
   width: 100%;
+  font-size: 1rem;
 }

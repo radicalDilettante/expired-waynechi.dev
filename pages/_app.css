@@ -38,12 +38,16 @@ input {
   outline: none;
 }
 
+table {
+  margin: 2px 0;
+}
+
 table,
 th,
 td {
   border-collapse: collapse;
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid currentColor;
   padding: 2px 20px;
 }
 
