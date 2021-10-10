@@ -7,7 +7,7 @@ const RootFileList = ["blog", "about.txt"];
 const commandList = [
   {
     cmd: "help",
-    desc: "get help for a command",
+    desc: "get help for commands",
     usage: "$ help",
   },
   {
