@@ -1,6 +1,9 @@
-import { GetStaticProps } from "next";
 import React, { useRef, useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { GetStaticProps } from "next";
 import Post from "../interface/post";
+import getBlogList from "../service/blog/get_list";
+import styles from "./cli.module.css";
 import {
   help,
   cd,
@@ -8,47 +11,56 @@ import {
   ls,
   render,
   renderErrorMsg,
+  cat,
 } from "../service/blog/command";
-import getBlogList from "../service/blog/get_list";
-import styles from "./cli.module.css";
 
 interface IProps {
   posts: Post[];
+  prefix: string;
 }
 
 export default function Cli({ posts }: IProps) {
+  const router = useRouter();
+
   const [inputValue, setInputValue] = useState("");
   const [curDir, setCurDir] = useState("");
 
-  const input = useRef<HTMLInputElement>(null);
-  const contents = useRef<HTMLDivElement>(null);
+  const containerElement = useRef<HTMLDivElement>(null);
+  const inputElement = useRef<HTMLInputElement>(null);
+  const contentsElement = useRef<HTMLDivElement>(null);
 
   const executeCmd = (command: string) => {
-    render(contents, `guest: ~${curDir}$ ${inputValue}`, 10);
+    render(contentsElement, `guest: ~${curDir}$ ${inputValue}`, 10);
 
     if (command === "clear") {
-      clear(contents);
+      clear(contentsElement);
     } else if (command === "help") {
-      help(contents);
+      help(contentsElement);
     } else if (command === "ls") {
-      ls(contents, curDir, inputValue, posts);
+      ls(contentsElement, curDir, inputValue, posts);
+    } else if (command === "shutdown") {
+      router.push("/");
     } else if (command[0] === "c" && command[1] === "d") {
-      cd(contents, curDir, inputValue, setCurDir, command);
+      cd(contentsElement, curDir, setCurDir, command);
+    } else if (command.split(" ")[0] === "cat") {
+      cat(contentsElement, curDir, posts, command);
     } else {
-      renderErrorMsg(contents, inputValue);
+      renderErrorMsg(contentsElement, inputValue);
     }
 
-    window.scrollTo(0, document.body.scrollHeight);
     setInputValue("");
+    containerElement.current?.scrollTo(
+      0,
+      containerElement.current?.scrollHeight
+    );
   };
 
   useEffect(() => {
-    input.current?.focus();
+    inputElement.current?.focus();
   }, []);
-
   return (
-    <div className={styles.container}>
-      <div className={styles.contents} ref={contents} />
+    <div className={styles.container} ref={containerElement}>
+      <div className={styles.contents} ref={contentsElement} />
       <form
         className={styles.cmd}
         onSubmit={(e) => {
@@ -60,7 +72,7 @@ export default function Cli({ posts }: IProps) {
         <input
           type="text"
           className={styles.input}
-          ref={input}
+          ref={inputElement}
           autoFocus
           value={inputValue}
           onChange={(e) => {

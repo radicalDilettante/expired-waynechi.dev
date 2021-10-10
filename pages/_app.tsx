@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   };
 
   return pathName === "/cli" ? (
-    <Component {...pageProps} />
+    <Component {...pageProps} prefix={assetPrefix} />
   ) : (
     <Layout prefix={assetPrefix} isDark={isDark}>
       <Component

@@ -19,7 +19,7 @@
 .h1 {
   font-size: 2rem;
   padding-bottom: 10px;
-  border-bottom: #ccc solid 1px;
+  border-bottom: currentColor solid 1px;
   margin: 10px 0;
 }
 
