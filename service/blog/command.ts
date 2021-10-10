@@ -23,6 +23,11 @@ const commandList = [
   },
   { cmd: "cat", desc: "display contents of file", usage: "$ cat about(.txt)" },
   {
+    cmd: "clear",
+    desc: "clear the terminal screen",
+    usage: "$ clear",
+  },
+  {
     cmd: "shutdown",
     desc: "shutdown cli mode",
     usage: "$ shutdown",
