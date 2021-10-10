@@ -172,7 +172,10 @@ export const cat = (
       let indexNum = parseInt(indexNumStr);
       if (Number.isInteger(parseFloat(indexNumStr))) {
         if (indexNum >= 0 || indexNum < posts.length) {
-          render(contentsElement, posts[indexNum].title);
+          const h1 = document.createElement("h1");
+          h1.innerText = posts[indexNum].title;
+          contentsElement.current?.appendChild(h1);
+          render(contentsElement, "");
           renderMarkdown(contentsElement, posts[indexNum].content);
         } else {
           pathError(contentsElement, command, "cat");

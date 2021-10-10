@@ -28,7 +28,12 @@ export default function Cli({ posts }: IProps) {
   const containerElement = useRef<HTMLDivElement>(null);
   const inputElement = useRef<HTMLInputElement>(null);
   const contentsElement = useRef<HTMLDivElement>(null);
-
+  const scrollDown = () => {
+    containerElement.current?.scrollTo(
+      0,
+      containerElement.current.scrollHeight
+    );
+  };
   const executeCmd = (command: string) => {
     render(contentsElement, `guest: ~${curDir}$ ${inputValue}`, 10);
 
@@ -36,23 +41,28 @@ export default function Cli({ posts }: IProps) {
       clear(contentsElement);
     } else if (command === "help") {
       help(contentsElement);
+      scrollDown();
     } else if (command === "ls") {
       ls(contentsElement, curDir, inputValue, posts);
+      scrollDown();
     } else if (command === "shutdown") {
       router.push("/");
     } else if (command[0] === "c" && command[1] === "d") {
       cd(contentsElement, curDir, setCurDir, command);
+      scrollDown();
     } else if (command.split(" ")[0] === "cat") {
+      const currentHeight = containerElement.current?.scrollHeight;
       cat(contentsElement, curDir, posts, command);
+      if (currentHeight && currentHeight > window.innerHeight) {
+        containerElement.current.scrollBy(0, window.innerHeight - 30);
+        console.log("A");
+      }
     } else {
       renderErrorMsg(contentsElement, inputValue);
+      scrollDown();
     }
 
     setInputValue("");
-    containerElement.current?.scrollTo(
-      0,
-      containerElement.current?.scrollHeight
-    );
   };
 
   useEffect(() => {
