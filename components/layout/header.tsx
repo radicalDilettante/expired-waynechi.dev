@@ -15,30 +15,36 @@ interface IProps {
 
 export default function Header({ prefix, isDark }: IProps) {
   const router = useRouter();
-  const [isHideMobileMenu, SetIsHideMobileMenu] = useState(true);
-  const [isHideMobileSearch, SetIsHideMobileSearch] = useState(true);
+  const [isHideMobileMenu, setIsHideMobileMenu] = useState(true);
+  const [isHideMobileSearch, setIsHideMobileSearch] = useState(true);
+
+  const cliBoot = () => {
+    if (confirm("Do you want to boot to command prompt?") == true) {
+      router.push("/cli");
+    } else {
+    }
+  };
 
   const toggleMobileMenu = () => {
     if (isHideMobileMenu) {
-      SetIsHideMobileSearch(true);
-      SetIsHideMobileMenu(false);
+      setIsHideMobileSearch(true);
+      setIsHideMobileMenu(false);
     } else {
-      SetIsHideMobileMenu(true);
+      setIsHideMobileMenu(true);
     }
   };
 
   const toggleMobileSearch = () => {
     if (isHideMobileSearch) {
-      SetIsHideMobileMenu(true);
-      SetIsHideMobileSearch(false);
+      setIsHideMobileMenu(true);
+      setIsHideMobileSearch(false);
     } else {
-      SetIsHideMobileSearch(true);
+      setIsHideMobileSearch(true);
     }
   };
-
   useEffect(() => {
-    SetIsHideMobileMenu(true);
-    SetIsHideMobileSearch(true);
+    setIsHideMobileMenu(true);
+    setIsHideMobileSearch(true);
   }, [router]);
 
   const menus = [
@@ -63,6 +69,11 @@ export default function Header({ prefix, isDark }: IProps) {
           {menus.map((menu, index) => (
             <HeaderItem key={index} menu={menu} />
           ))}
+          <li>
+            <button className={styles.cliButton} onClick={cliBoot}>
+              <img src={prefix + "images/cli.png"} />
+            </button>
+          </li>
         </ul>
         <div className={styles.searchBar}>
           <SearchBar prefix={prefix} isDark={isDark} />
@@ -97,6 +108,11 @@ export default function Header({ prefix, isDark }: IProps) {
           {menus.map((menu, index) => (
             <HeaderItem key={index} menu={menu} />
           ))}
+          <li>
+            <button className={styles.cliButton} onClick={cliBoot}>
+              <img src={prefix + "images/cli.png"} />
+            </button>
+          </li>
         </ul>
       )}
     </div>

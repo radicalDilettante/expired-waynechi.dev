@@ -42,6 +42,18 @@
   text-decoration: none;
 }
 
+.cliButton {
+  height: 20px;
+}
+
+.cliButton img {
+  height: 100%;
+}
+
+.cliButton:hover {
+  transform: scale(1.1);
+}
+
 .searchBar {
   margin-left: auto;
   display: flex;
