@@ -8,6 +8,10 @@
   position: relative;
 }
 
+.boat {
+  font-size: 5px;
+}
+
 .markdown {
   width: 100%;
   height: 100vh;

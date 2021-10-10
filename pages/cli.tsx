@@ -70,7 +70,58 @@ export default function Cli({ posts }: IProps) {
   }, []);
   return (
     <div className={styles.container} ref={containerElement}>
-      <div className={styles.contents} ref={contentsElement} />
+      <div className={styles.contents} ref={contentsElement}>
+        <pre className={styles.boat}>
+          <code>{`
+                                       xxx
+                                      xxxxx
+                                     x xxx x
+                                    x  xxx  x
+                                   x   xxx   x
+                                  x    xxx    x
+                                 x     xxx     x
+                                x      xxx      x
+                               x       xxx       x
+                              x        xxx        x
+                             x         xxx         x
+                            x          xxx          x
+                           x           xxx           x
+                          x            xxx            x
+                         x             xxx             x
+                        x              xxx              x
+                       x               xxx               x
+                      x                xxx                x
+                     x                 xxx                 x                                 xxxxx
+                    x                  xxx                  x                                xxxxxxxxxxxx
+                   x                   xxx                   x                              xxxxxxxxx
+                  x                    xxx                    x                           xxxxxxxxxx
+                 x                     xxx                     x                         xxxxxxxxxx
+                x                      xxx                      x                        xxxxxxxxx
+               x                       xxx                       x                      xxxxxxxxx
+              x                        xxx                        x                     xxxxxxxxx
+             x                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                      xxxxxxx
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                                              xxxxxxxxx
+                                      xxxx                                              xxxxxxxxx
+  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~
+~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._
+~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~
+`}</code>
+          <code>{`
+┌-------------------------------------------------------------------------------------------------------┐
+│ xx     xx  xxxxx  xx    xx xxx    xx xxxxxxx  xxxxxx xx   xx  xxxxxx  xx     xxxxxx  xxxxxxx xx    xx │
+│ xx     xx xx   xx  xx  xx  xxxx   xx xx      xx      xx   xx xx    xx xx     xx   xx xx      xx    xx │
+│ xx  x  xx xxxxxxx   xxxx   xx xx  xx xxxxx   xx      xxxxxxx xx    xx xx     xx   xx xxxxx   xx    xx │
+│ xx xxx xx xx   xx    xx    xx  xx xx xx      xx      xx   xx xx    xx xx     xx   xx xx       xx  xx  │
+│  xxx xxx  xx   xx    xx    xx   xxxx xxxxxxx  xxxxxx xx   xx  xxxxxx  xx  x  xxxxxx  xxxxxxx   xxxx   │
+└-------------------------------------------------------------------------------------------------------┘
+`}</code>
+        </pre>
+        <p>Type 'help' and press 'enter' to get commands list.</p>
+      </div>
       <form
         className={styles.cmd}
         onSubmit={(e) => {
