@@ -1,5 +1,5 @@
 ---
-title: "Immutability (1) - Object.freeze() doesn't always freeze"
+title: "Immutability - Object.freeze() doesn't always freeze"
 date: "Sep 23, 2021"
 tag: ["JavaScript", "Immutability"]
 excerpt: "Explain primitive and reference data type of JavaScript, and immutability of object..."
@@ -100,7 +100,7 @@ console.log(o1 === o2); // true
 | --------------------------- |
 | { name : ~~'choi'~~ 'kim' } |
 
-however, does work in different way. I assigned one variable, which is assigned an object, to other variable, then I changed one of that. It affects other variables as well. Object is reference type value, so both variable reference same object with same memory address.
+It, however, does work in different way for an object to copy. I assigned one variable, o1, which is assigned an object, to other variable, o2. I changed one of them, then it affects other variables as well. Object is reference type value, so both variable reference same object with same memory address.
 
 ---
 
@@ -183,11 +183,26 @@ If values of one or multiple properties are reference type, aka nested object, b
 
 ---
 
+```js
+function deepFreeze(object) {
+  var propNames = Object.getOwnPropertyNames(object);
+
+  for (let name of propNames) {
+    let value = object[name];
+    object[name] =
+      value && typeof value === "object" ? deepFreeze(value) : value;
+  }
+
+  return Object.freeze(object);
+}
+```
+
 If an object is nested with only one layer, we can freeze each properties with reference type value. It, however, is not easy to freeze all layers when the object is nested much deeper.
 
-I would like to suggest some alternatives in the following article.
+We can implement a function to deep freeze an object with recursion, or can use a library to support immutable data structure like immutable.js.
 
 ## References
 
 - [Master the JavaScript Interview: What is Functional Programming? - Eric Elliott](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0)
+- [Anjana Vakil: Immutable data structures for functional JS | JSConf EU](https://youtu.be/Wo0qiGPSV-s)
 - 함수형 자바스크립트 프로그래밍 - 유인동
