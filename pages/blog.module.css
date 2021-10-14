@@ -5,6 +5,11 @@
   padding: 20px;
 }
 
+.container img {
+  width: 100%;
+  max-width: calc(var(--max-width) * 0.6);
+}
+
 .tagWrapper {
   width: 100%;
   overflow: hidden;
