@@ -53,7 +53,7 @@ export default function Cli({ posts }: IProps) {
       const currentHeight = containerElement.current?.scrollHeight;
       cat(contentsElement, curDir, posts, command);
       if (currentHeight && currentHeight > window.innerHeight) {
-        containerElement.current.scrollBy(0, window.innerHeight - 30);
+        containerElement.current.scrollBy(0, window.innerHeight - 50);
         console.log("A");
       }
     } else {
