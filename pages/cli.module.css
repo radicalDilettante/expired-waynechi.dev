@@ -8,6 +8,15 @@
   position: relative;
 }
 
+.container img {
+  width: 100%;
+  max-width: calc(var(--max-width) * 0.6);
+}
+
+.container pre {
+  overflow-x: scroll;
+}
+
 .boat {
   font-size: 5px;
 }
