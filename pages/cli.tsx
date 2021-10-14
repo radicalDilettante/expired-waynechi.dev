@@ -73,42 +73,42 @@ export default function Cli({ posts }: IProps) {
       <div className={styles.contents} ref={contentsElement}>
         <pre className={styles.boat}>
           <code>{`
-                                       xxx
-                                      xxxxx
-                                     x xxx x
-                                    x  xxx  x
-                                   x   xxx   x
-                                  x    xxx    x
-                                 x     xxx     x
-                                x      xxx      x
-                               x       xxx       x
-                              x        xxx        x
-                             x         xxx         x
-                            x          xxx          x
-                           x           xxx           x
-                          x            xxx            x
-                         x             xxx             x
-                        x              xxx              x
-                       x               xxx               x
-                      x                xxx                x
-                     x                 xxx                 x                                 xxxxx
-                    x                  xxx                  x                                xxxxxxxxxxxx
-                   x                   xxx                   x                              xxxxxxxxx
-                  x                    xxx                    x                           xxxxxxxxxx
-                 x                     xxx                     x                         xxxxxxxxxx
-                x                      xxx                      x                        xxxxxxxxx
-               x                       xxx                       x                      xxxxxxxxx
-              x                        xxx                        x                     xxxxxxxxx
-             x                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                      xxxxxxx
-            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                                              xxxxxxxxx
-                                      xxxx                                              xxxxxxxxx
-  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~
-~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._
-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~
+                                          xxx
+                                         xxxxx
+                                        x xxx x
+                                       x  xxx  x
+                                      x   xxx   x
+                                     x    xxx    x
+                                    x     xxx     x
+                                   x      xxx      x
+                                  x       xxx       x
+                                 x        xxx        x
+                                x         xxx         x
+                               x          xxx          x
+                              x           xxx           x
+                             x            xxx            x
+                            x             xxx             x
+                           x              xxx              x
+                          x               xxx               x
+                         x                xxx                x
+                        x                 xxx                 x                               xxxxxx
+                       x                  xxx                  x                              x     xxxxxx
+                      x                   xxx                   x                            x      x
+                     x                    xxx                    x                         x       x
+                    x                     xxx                     x                       x       x
+                   x                      xxx                      x                      x      x
+                  x                       xxx                       x                    x      x
+                 x                        xxx                        x                   x       x
+                x                         xxxxxxxxxxxxxxxxxxxxxxxxxxxxx                    x    x
+               xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                                             x    x
+                                          xxx                                            x    x
+     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      x                                                                                       x
+       x                                                                                     x
+        x                                                                                   x
+~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-
+~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"
+~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-~"^"~-,._.,-
 `}</code>
           <code>{`
 ┌-------------------------------------------------------------------------------------------------------┐
