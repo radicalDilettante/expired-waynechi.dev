@@ -35,9 +35,9 @@ export default function Comment({ issueTerm, isDark }: IProps) {
         utterances.setAttribute(key, value);
       });
       // attach script element
-      rootElm.current.appendChild(utterances);
+      rootElm.current!.appendChild(utterances);
     }
-  }, [isDark]);
+  }, []);
 
   return <div id="utterances_container" ref={rootElm} />;
 }
