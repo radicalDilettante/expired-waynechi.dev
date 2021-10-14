@@ -16,7 +16,6 @@ import {
 
 interface IProps {
   posts: Post[];
-  prefix: string;
 }
 
 export default function Cli({ posts }: IProps) {
