@@ -1,5 +1,5 @@
 ---
-title: "Immutable.js, pros and cons"
+title: "Immutability (2) - Immutable.js, pros and cons"
 date: "Oct 14, 2021"
 tag: ["JavaScript", "Library", "Immutability"]
 excerpt: "How Immutable.js works with persistent data structures, and its pros and cons..."
@@ -91,10 +91,15 @@ All the data structure implemented with Immutable.js are custom object. It means
 
 In addition, we cannot use methods of Object and Array object in Immutable.js data structures. It raises the running curve, and dependency to a specific library.
 
+---
+
+- [Immutability (1) - Object.freeze() doesn't always freeze](https://waynechoi.dev/immutability_object_freeze_doesnt_always_freeze)
+- **Immutability (2) - Immutable.js, pros and cons**
+
 ## References
 
 - [Anjana Vakil: Immutable data structures for functional JS | JSConf EU](https://youtu.be/Wo0qiGPSV-s)
+- [Wikipedia](https://en.wikipedia.org/wiki/Persistent_data_structure#Trees)
 - [Immutable.js](https://immutable-js.com/)
 - [How Immutable Data Structures (E.g. Immutable.js) are Optimized](https://hackernoon.com/how-immutable-data-structures-e-g-immutable-js-are-optimized-using-structural-sharing-e4424a866d56)
-- [Wikipedia](https://en.wikipedia.org/wiki/Persistent_data_structure#Trees)
 - 함수형 자바스크립트 프로그래밍 - 유인동

@@ -1,5 +1,5 @@
 ---
-title: "Immutability - Object.freeze() doesn't always freeze"
+title: "Immutability (1) - Object.freeze() doesn't always freeze"
 date: "Sep 23, 2021"
 tag: ["JavaScript", "Immutability"]
 excerpt: "Explain primitive and reference data type of JavaScript, and immutability of object..."
@@ -200,6 +200,11 @@ function deepFreeze(object) {
 If an object is nested with only one layer, we can freeze each properties with reference type value. It, however, is not easy to freeze all layers when the object is nested much deeper.
 
 We can implement a function to deep freeze an object with recursion, or can use a library to support immutable data structure like immutable.js.
+
+---
+
+- **Immutability (1) - Object.freeze() doesn't always freeze**
+- [Immutability (2) - Immutable.js, pros and cons](https://waynechoi.dev/immutability_immutable_js_pros_and_cons)
 
 ## References
 
