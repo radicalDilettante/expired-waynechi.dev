@@ -7,10 +7,9 @@ import marked from "marked";
 
 interface IProps {
   content: string;
-  prefix: string;
 }
 
-export default function MarkdownRender({ content, prefix }: IProps) {
+export default function MarkdownRender({ content }: IProps) {
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
