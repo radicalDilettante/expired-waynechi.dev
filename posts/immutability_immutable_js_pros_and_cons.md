@@ -69,7 +69,7 @@ const data = {
 };
 ```
 
-![trie](/images/posts/trie.png)
+![trie](/images/posts/trie_original.png)
 
 I made an JS object, and created a trie with same keys and values. A trie is a type of tree where the leaves hold the values, and the paths from the root to the values represent the keys. So I can access a value by traversing the tree to get one letter at a time.
 
