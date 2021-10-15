@@ -14,11 +14,12 @@
 }
 
 .container pre {
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .boat {
   font-size: 5px;
+  overflow-x: hidden;
 }
 
 .markdown {
