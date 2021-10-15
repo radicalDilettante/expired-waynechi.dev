@@ -1,6 +1,5 @@
 /* eslint-disable react/no-children-prop */
 import React, { useRef, useEffect } from "react";
-import Markdown from "markdown-to-jsx";
 import highlightJs from "highlight.js";
 import "highlight.js/styles/a11y-dark.css";
 import marked from "marked";
