@@ -69,19 +69,19 @@ const data = {
 };
 ```
 
-![trie](/images/posts/trie_original.png)
+<img src="/images/posts/trie_original.png">
 
 I made an JS object, and created a trie with same keys and values. A trie is a type of tree where the leaves hold the values, and the paths from the root to the values represent the keys. So I can access a value by traversing the tree to get one letter at a time.
 
 ---
 
-![trie](/images/posts/trie_path.png)
+<img src="/images/posts/trie_path.png">
 
 For example, if I want to get a value with a key, 'ted', I can start from root, and follow the paths represented 't', 'e', and 'd'. I arrived at a node that contains 4.
 
 ---
 
-![trie](/images/posts/trie_changed.png)
+<img src="/images/posts/trie_changed.png">
 
 I changed the value at the key 'ted' from 4 to 8. Other nodes are still used. With this structures, only few nodes are recreated when we change a single item,
 
