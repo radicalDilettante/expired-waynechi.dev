@@ -8,37 +8,6 @@ interface IProps {
 }
 
 export default function About({ prefix }: IProps) {
-  const useList = [
-    {
-      name: "HTML, CSS",
-      desc: ["Semantic markup", "DOM manipulation", "Responsive design"],
-    },
-    {
-      name: "JavaScript",
-      desc: [
-        "Core concept like asynchronous, prototype, closure, context and scope",
-      ],
-    },
-    {
-      name: "React",
-      desc: [
-        "Make encapsulated functional components with hooks",
-        "SSR and SSG with Next.js",
-        "Manage global state with contextAPI",
-        "Understand core concept like JSX, props, and virtual DOM",
-      ],
-    },
-    {
-      name: "TypeScript",
-      desc: ["Make type safe code", "Object oriented programming"],
-    },
-  ];
-  const learnList = [
-    {
-      name: "Node.js, express",
-      desc: ["Rest API", "Simple backend service", "Understand web more"],
-    },
-  ];
   return (
     <article className={styles.container}>
       <Head>
@@ -60,25 +29,13 @@ export default function About({ prefix }: IProps) {
         <p>I am Wayne.</p>
         <p>
           I prefer readable code, and maintainable system. I value background
-          more than tools. Love JS. Like TS.
+          more than tools. Love JavaScript. Like TypeScript.
         </p>
         <p>
-          <img src={prefix + "images/profile_small.webp"} />I make web services
-          in the morning and at night, and build boats as a full-time boat
-          builder. Born and raised in South Korea. Living in New Zealand.
+          I make web services in the morning and at night, and build boats as a
+          full-time boat builder. Born and raised in South Korea. Living in New
+          Zealand.
         </p>
-      </section>
-      <hr />
-      <section>
-        <h2 className={styles.sub_heading}>I use</h2>
-        {useList.map((skill, index) => (
-          <SkillList skill={skill} key={index} />
-        ))}
-        <hr />
-        <h2 className={styles.sub_heading}>I am learning</h2>
-        {learnList.map((skill, index) => (
-          <SkillList skill={skill} key={index} />
-        ))}
       </section>
     </article>
   );
