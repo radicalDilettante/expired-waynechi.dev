@@ -1,8 +1,6 @@
 import styles from "./about.module.css";
 import Head from "next/head";
 
-import SkillList from "../components/skill_list";
-
 interface IProps {
   prefix: string;
 }
