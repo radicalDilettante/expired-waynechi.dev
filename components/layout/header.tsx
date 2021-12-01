@@ -57,9 +57,9 @@ export default function Header({ prefix, isDark }: IProps) {
       <div className={styles.header}>
         <button className={styles.mobileMenuButton} onClick={toggleMobileMenu}>
           {isHideMobileMenu ? (
-            <img alt="menu" src={prefix + "images/menu.svg"} />
+            <img alt="open_menu_bar" src={prefix + "images/menu.svg"} />
           ) : (
-            <img alt="menu" src={prefix + "images/close.svg"} />
+            <img alt="close_menu_bar" src={prefix + "images/close.svg"} />
           )}
         </button>
         <Link href="/">
@@ -71,7 +71,7 @@ export default function Header({ prefix, isDark }: IProps) {
           ))}
           <li>
             <button className={styles.cliButton} onClick={cliBoot}>
-              <img src={prefix + "images/cli.png"} />
+              <img src={prefix + "images/cli.png"} alt="cli_mode" />
             </button>
           </li>
         </ul>
@@ -83,9 +83,9 @@ export default function Header({ prefix, isDark }: IProps) {
           onClick={toggleMobileSearch}
         >
           {isHideMobileSearch ? (
-            <img alt="search" src={prefix + "images/search.svg"} />
+            <img alt="open_search_bar" src={prefix + "images/search.svg"} />
           ) : (
-            <img alt="search" src={prefix + "images/close.svg"} />
+            <img alt="hide_search_bar" src={prefix + "images/close.svg"} />
           )}
         </button>
       </div>
@@ -110,7 +110,7 @@ export default function Header({ prefix, isDark }: IProps) {
           ))}
           <li>
             <button className={styles.cliButton} onClick={cliBoot}>
-              <img src={prefix + "images/cli.png"} />
+              <img src={prefix + "images/cli.png"} alt="cli_mode" />
             </button>
           </li>
         </ul>

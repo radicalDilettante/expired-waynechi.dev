@@ -14,7 +14,7 @@
 }
 
 .name {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 0;
   padding: 0 20px;
 }
@@ -35,6 +35,7 @@
 .list li {
   margin: 0;
   padding: 10px 15px 0 15px;
+  font-size: 0.9rem;
 }
 
 .list a {
