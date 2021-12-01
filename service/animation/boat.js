@@ -7,11 +7,11 @@ export class Boat {
     this.stageWidth = stageWidth;
     this.stageHeight = stageHeight;
 
-    this.boatHeight = stageHeight * 0.7;
+    this.boatHeight = stageHeight * 0.9;
     this.boatWidth = this.boatHeight * 0.7;
 
     this.centerX = stageWidth / 2;
-    this.centerY = stageHeight - 50 - this.boatHeight;
+    this.centerY = stageHeight - 30 - this.boatHeight;
     this.init();
   }
 

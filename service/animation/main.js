@@ -6,7 +6,7 @@ export class Main {
     this.canvas = canvas.current;
     this.ctx = this.canvas.getContext("2d");
 
-    this.waveGroup = new WaveGroup();
+    this.waveGroup = new WaveGroup(this.canvas);
     this.boat = new Boat();
 
     this.resize();
