@@ -54,8 +54,9 @@
 .day {
   background: linear-gradient(
     to bottom,
-    rgba(164, 216, 255, 0.4),
-    rgba(190, 228, 255, 0.4),
+    rgba(142, 206, 255, 0.4),
+    rgba(174, 218, 250, 0.4),
+    rgba(196, 231, 255, 0.4),
     rgb(255, 255, 255)
   );
 }
