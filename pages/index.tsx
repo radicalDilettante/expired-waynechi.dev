@@ -74,7 +74,6 @@ export default function Home({ posts, isDark, toggleTheme }: IProps) {
           className={`${styles.canvas} ${isDark ? styles.night : styles.day}`}
         />
       </div>
-      <p className={styles.bonVoyage}>Bon Voyage!</p>
       <div className={styles.mobileTag}>
         <TagList
           posts={posts}
