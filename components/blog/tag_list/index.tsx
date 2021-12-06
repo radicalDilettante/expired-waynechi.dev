@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Post from "../../interface/post";
+import Post from "../../../interface/post";
 
-import styles from "./tag_list.module.css";
-import TagListItem from "./tag_list_item";
+import styles from "./style.module.css";
+import TagListItem from "../tag_list_item";
 
 interface IProps {
   posts: Post[];

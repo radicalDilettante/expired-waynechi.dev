@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Post from "../../interface/post";
-import styles from "./post_card.module.css";
+import Post from "../../../interface/post";
+import styles from "./style.module.css";
 
 interface IProps {
   post: Post;

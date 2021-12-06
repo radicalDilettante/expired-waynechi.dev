@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { GetStaticProps } from "next";
 import Post from "../interface/post";
 import getBlogList from "../service/blog/get_list";
-import styles from "./cli.module.css";
+import styles from "../style/cli.module.css";
 import {
   help,
   cd,

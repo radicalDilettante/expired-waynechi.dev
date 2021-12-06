@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import styles from "./header_item.module.css";
+import styles from "./style.module.css";
 import { useRouter } from "next/router";
 
 interface IProps {

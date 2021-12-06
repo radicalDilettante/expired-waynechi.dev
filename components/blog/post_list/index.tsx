@@ -1,7 +1,7 @@
 import React from "react";
-import Post from "../../interface/post";
-import PostCard from "./post_card";
-import styles from "./post_list.module.css";
+import Post from "../../../interface/post";
+import PostCard from "../post_card";
+import styles from "./style.module.css";
 
 interface IProps {
   posts: Post[];

@@ -7,7 +7,7 @@ import path from "path";
 import matter from "gray-matter";
 import MarkdownRender from "../components/blog/markdown_render";
 import Comment from "../components/blog/comment";
-import styles from "./blog.module.css";
+import styles from "../style/blog.module.css";
 import Post from "../interface/post";
 
 export default function Blog({ title, date, tag, excerpt, content }: Post) {

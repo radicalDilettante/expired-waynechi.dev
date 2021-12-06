@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import styles from "./index.module.css";
+import styles from "../style/index.module.css";
 import { Main } from "../service/animation/main";
 import Head from "next/head";
 import { GetStaticProps } from "next";

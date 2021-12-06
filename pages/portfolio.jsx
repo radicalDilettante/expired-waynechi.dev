@@ -1,4 +1,4 @@
-import styles from "./portfolio.module.css";
+import styles from "../style/portfolio.module.css";
 import Head from "next/head";
 
 export default function Portfolio() {

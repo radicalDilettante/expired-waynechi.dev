@@ -1,8 +1,8 @@
 import React, { ReactChild } from "react";
-import Header from "./header";
+import Header from "../header";
 
-import styles from "./index.module.css";
-import theme from "../../style/theme.module.css";
+import styles from "./style.module.css";
+import theme from "../../../style/theme.module.css";
 
 const date = new Date();
 

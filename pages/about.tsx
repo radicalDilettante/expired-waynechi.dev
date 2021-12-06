@@ -1,4 +1,4 @@
-import styles from "./about.module.css";
+import styles from "../style/about.module.css";
 import Head from "next/head";
 
 interface IProps {

@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 
-import styles from "./search.module.css";
+import styles from "../style/search.module.css";
 
 import PostList from "../components/blog/post_list";
 import getBlogList from "../service/blog/get_list";

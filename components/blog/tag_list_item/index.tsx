@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./tag_list_item.module.css";
+import styles from "./style.module.css";
 
 interface IProps {
   tag: string;

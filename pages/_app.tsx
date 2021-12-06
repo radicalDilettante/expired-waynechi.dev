@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./_app.css";
+import "../style/_app.css";
 import { AppProps } from "next/app";
-import Layout from "../components/layout";
+import Layout from "../components/common/layout";
 import { assetPrefix } from "../next.config";
 import { useRouter } from "next/router";
 

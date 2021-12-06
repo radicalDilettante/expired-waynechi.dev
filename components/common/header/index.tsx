@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-import HeaderItem from "./header_item";
-import SearchBar from "../search/search_bar";
+import HeaderItem from "../header_item";
+import SearchBar from "../../blog/search_bar";
 
-import styles from "./header.module.css";
-import theme from "../../style/theme.module.css";
+import styles from "./style.module.css";
+import theme from "../../../style/theme.module.css";
 
 interface IProps {
   prefix: string;

@@ -1,7 +1,7 @@
 import React, { FormEvent, useState } from "react";
 import { useRouter } from "next/router";
-import styles from "./search_bar.module.css";
-import theme from "../../style/theme.module.css";
+import styles from "./style.module.css";
+import theme from "../../../style/theme.module.css";
 
 interface IProps {
   prefix: string;
