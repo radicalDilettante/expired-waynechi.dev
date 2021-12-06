@@ -1,9 +1,17 @@
 import { Point } from "./point";
 
 export class Boat {
+  stageWidth!: number;
+  stageHeight!: number;
+  boatHeight!: number;
+  boatWidth!: number;
+  centerX!: number;
+  centerY!: number;
+  point!: Point;
+
   constructor() {}
 
-  resize(stageWidth, stageHeight) {
+  resize(stageWidth: number, stageHeight: number) {
     this.stageWidth = stageWidth;
     this.stageHeight = stageHeight;
 
@@ -18,7 +26,7 @@ export class Boat {
   init() {
     this.point = new Point(0, 5, this.stageWidth / 7, this.centerY);
   }
-  draw(ctx) {
+  draw(ctx: CanvasRenderingContext2D) {
     ctx.beginPath();
     ctx.fillStyle = "#000FFF";
     this.point.update();

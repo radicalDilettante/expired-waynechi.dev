@@ -1,7 +1,13 @@
 import { Wave } from "./wave";
 
 export class WaveGroup {
-  constructor(canvas) {
+  canvas: HTMLCanvasElement;
+  totalWaves: number;
+  totalPoints: number;
+  color: string[];
+  waves: Wave[];
+
+  constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     this.totalWaves = 5;
     this.totalPoints = Math.round(canvas.offsetWidth * 0.03);
@@ -20,14 +26,14 @@ export class WaveGroup {
     }
   }
 
-  resize(stageWidth, stageHeight) {
+  resize(stageWidth: number, stageHeight: number) {
     for (let i = 0; i < this.totalWaves; i++) {
       const wave = this.waves[i];
       wave.resize(stageWidth, stageHeight);
     }
   }
 
-  draw(ctx) {
+  draw(ctx: CanvasRenderingContext2D) {
     for (let i = 0; i < this.totalWaves; i++) {
       const wave = this.waves[i];
       wave.draw(ctx);

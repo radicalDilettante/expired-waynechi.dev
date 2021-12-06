@@ -19,12 +19,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "next.config.js",
-    "service/animation/wave.js",
-    "service/animation/wave_group.js",
-    "service/animation/point.js",
-    "service/animation/main.js",
-    "service/animation/boat.js"
+    "next.config.js"
   ],
   "exclude": ["node_modules"]
 }
