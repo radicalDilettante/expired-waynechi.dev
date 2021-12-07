@@ -4,15 +4,7 @@ import { GetStaticProps } from "next";
 import Post from "../interface/post";
 import getBlogList from "../service/blog/get_list";
 import styles from "../style/cli.module.css";
-import {
-  help,
-  cd,
-  clear,
-  ls,
-  render,
-  renderErrorMsg,
-  cat,
-} from "../service/blog/command";
+import Command from "../service/blog/command";
 
 interface IProps {
   posts: Post[];
@@ -33,31 +25,33 @@ export default function Cli({ posts }: IProps) {
       containerElement.current.scrollHeight
     );
   };
+  const cliCommand = new Command();
+
   const executeCmd = (command: string) => {
-    render(contentsElement, `guest: ~${curDir}$ ${inputValue}`, 10);
+    cliCommand.render(contentsElement, `guest: ~${curDir}$ ${inputValue}`, 10);
 
     if (command === "clear") {
-      clear(contentsElement);
+      cliCommand.clear(contentsElement);
     } else if (command === "help") {
-      help(contentsElement);
+      cliCommand.help(contentsElement);
       scrollDown();
     } else if (command === "ls") {
-      ls(contentsElement, curDir, inputValue, posts);
+      cliCommand.ls(contentsElement, curDir, inputValue, posts);
       scrollDown();
     } else if (command === "shutdown") {
       router.push("/");
     } else if (command[0] === "c" && command[1] === "d") {
-      cd(contentsElement, curDir, setCurDir, command);
+      cliCommand.cd(contentsElement, curDir, setCurDir, command);
       scrollDown();
     } else if (command.split(" ")[0] === "cat") {
       const currentHeight = containerElement.current?.scrollHeight;
-      cat(contentsElement, curDir, posts, command);
+      cliCommand.cat(contentsElement, curDir, posts, command);
       if (currentHeight && currentHeight > window.innerHeight) {
         containerElement.current.scrollBy(0, window.innerHeight - 50);
         console.log("A");
       }
     } else {
-      renderErrorMsg(contentsElement, inputValue);
+      cliCommand.renderErrorMsg(contentsElement, inputValue);
       scrollDown();
     }
 
