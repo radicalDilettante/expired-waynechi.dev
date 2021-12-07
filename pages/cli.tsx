@@ -19,6 +19,7 @@ export default function Cli({ posts }: IProps) {
   const containerElement = useRef<HTMLDivElement>(null);
   const inputElement = useRef<HTMLInputElement>(null);
   const contentsElement = useRef<HTMLDivElement>(null);
+  const contentsContainer = contentsElement.current!;
   const scrollDown = () => {
     containerElement.current?.scrollTo(
       0,
@@ -28,30 +29,34 @@ export default function Cli({ posts }: IProps) {
   const cliCommand = new Command();
 
   const executeCmd = (command: string) => {
-    cliCommand.render(contentsElement, `guest: ~${curDir}$ ${inputValue}`, 10);
+    cliCommand.render(
+      contentsContainer,
+      `guest: ~${curDir}$ ${inputValue}`,
+      10
+    );
 
     if (command === "clear") {
-      cliCommand.clear(contentsElement);
+      cliCommand.clear(contentsContainer);
     } else if (command === "help") {
-      cliCommand.help(contentsElement);
+      cliCommand.help(contentsContainer);
       scrollDown();
     } else if (command === "ls") {
-      cliCommand.ls(contentsElement, curDir, inputValue, posts);
+      cliCommand.ls(contentsContainer, curDir, inputValue, posts);
       scrollDown();
     } else if (command === "shutdown") {
       router.push("/");
     } else if (command[0] === "c" && command[1] === "d") {
-      cliCommand.cd(contentsElement, curDir, setCurDir, command);
+      cliCommand.cd(contentsContainer, curDir, setCurDir, command);
       scrollDown();
     } else if (command.split(" ")[0] === "cat") {
       const currentHeight = containerElement.current?.scrollHeight;
-      cliCommand.cat(contentsElement, curDir, posts, command);
+      cliCommand.cat(contentsContainer, curDir, posts, command);
       if (currentHeight && currentHeight > window.innerHeight) {
         containerElement.current.scrollBy(0, window.innerHeight - 50);
         console.log("A");
       }
     } else {
-      cliCommand.renderErrorMsg(contentsElement, inputValue);
+      cliCommand.renderErrorMsg(contentsContainer, inputValue);
       scrollDown();
     }
 

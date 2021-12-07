@@ -1,4 +1,3 @@
-import React from "react";
 import marked from "marked";
 
 import Post from "../../../interface/post";
@@ -7,16 +6,10 @@ export default class Command {
   RootFileList: string[];
   commandList: { cmd: string; desc: string; usage: string }[];
   about: string;
-  renderList: (
-    contentsElement: React.RefObject<HTMLDivElement>,
-    fileList: string[]
-  ) => void;
-  renderMarkdown: (
-    contentsElement: React.RefObject<HTMLDivElement>,
-    contents: string
-  ) => void;
+  renderList: (contentsContainer: HTMLDivElement, fileList: string[]) => void;
+  renderMarkdown: (contentsContainer: HTMLDivElement, contents: string) => void;
   pathError: (
-    contentsElement: React.RefObject<HTMLDivElement>,
+    contentsContainer: HTMLDivElement,
     command: string,
     keyword: string
   ) => void;
@@ -59,30 +52,30 @@ export default class Command {
     this.about =
       "Hi I am Wayne.\n\nI prefer readable code, and maintainable system. I value background more than tools. Love JavaScript. Like TypeScript.\n\nI make web services in the morning and at night, and build boats as a full-time boat builder. Born and raised in South Korea. Living in New Zealand.";
     this.renderList = (
-      contentsElement: React.RefObject<HTMLDivElement>,
+      contentsContainer: HTMLDivElement,
       fileList: string[]
     ) => {
       fileList.forEach((file) => {
         const newLine = document.createElement("span");
         newLine.innerText = file;
-        contentsElement.current?.appendChild(newLine);
+        contentsContainer.appendChild(newLine);
       });
     };
     this.renderMarkdown = (
-      contentsElement: React.RefObject<HTMLDivElement>,
+      contentsContainer: HTMLDivElement,
       contents: string
     ) => {
       const newContents = document.createElement("div");
       newContents.innerHTML = marked(contents);
-      contentsElement.current?.appendChild(newContents);
+      contentsContainer.appendChild(newContents);
     };
     this.pathError = (
-      contentsElement: React.RefObject<HTMLDivElement>,
+      contentsContainer: HTMLDivElement,
       command: string,
       keyword: string
     ) => {
       this.render(
-        contentsElement,
+        contentsContainer,
         `$ ${keyword}: Cannot find path '${command
           .split(keyword)[1]
           .replaceAll(" ", "")}' because it does not exist.`
@@ -90,14 +83,14 @@ export default class Command {
     };
   }
 
-  clear(contentsElement: React.RefObject<HTMLDivElement>) {
-    while (contentsElement.current?.firstChild) {
-      contentsElement.current?.firstChild.remove();
+  clear(contentsContainer: HTMLDivElement) {
+    while (contentsContainer.firstChild) {
+      contentsContainer.firstChild.remove();
     }
   }
 
-  help(contentsElement: React.RefObject<HTMLDivElement>) {
-    this.render(contentsElement, "These are commands used in WayneChoi.dev:");
+  help(contentsContainer: HTMLDivElement) {
+    this.render(contentsContainer, "These are commands used in WayneChoi.dev:");
 
     const newTable = document.createElement("table");
     const newHeader = newTable.createTHead();
@@ -118,18 +111,18 @@ export default class Command {
       const newCell2 = newRow.insertCell(2);
       newCell2.innerText = `${command.usage}`;
     });
-    contentsElement.current?.appendChild(newTable);
+    contentsContainer.appendChild(newTable);
   }
 
   ls(
-    contentsElement: React.RefObject<HTMLDivElement>,
+    contentsContainer: HTMLDivElement,
     curDir: string,
     inputValue: string,
     posts: Post[]
   ) {
     switch (curDir) {
       case "":
-        this.renderList(contentsElement, this.RootFileList);
+        this.renderList(contentsContainer, this.RootFileList);
         break;
       case "/blog":
         const newTable = document.createElement("table");
@@ -150,16 +143,16 @@ export default class Command {
           const newCell2 = newRow.insertCell(2);
           newCell2.innerText = `${post.title}`;
         });
-        contentsElement.current?.appendChild(newTable);
+        contentsContainer.appendChild(newTable);
         break;
       default:
-        this.renderErrorMsg(contentsElement, inputValue);
+        this.renderErrorMsg(contentsContainer, inputValue);
         break;
     }
   }
 
   cd(
-    contentsElement: React.RefObject<HTMLDivElement>,
+    contentsContainer: HTMLDivElement,
     curDir: string,
     setCurDir: Function,
     command: string
@@ -169,21 +162,21 @@ export default class Command {
         if (command === "cd blog") {
           setCurDir("/blog");
         } else {
-          this.pathError(contentsElement, command, "cd");
+          this.pathError(contentsContainer, command, "cd");
         }
         break;
       case "/blog":
         if (command === "cd.." || command === "cd ..") {
           setCurDir("");
         } else {
-          this.pathError(contentsElement, command, "cd");
+          this.pathError(contentsContainer, command, "cd");
         }
         break;
     }
   }
 
   cat(
-    contentsElement: React.RefObject<HTMLDivElement>,
+    contentsContainer: HTMLDivElement,
     curDir: string,
     posts: Post[],
     command: string
@@ -192,9 +185,9 @@ export default class Command {
     switch (curDir) {
       case "":
         if (fileName === "about" || fileName === "about.txt") {
-          this.renderMarkdown(contentsElement, this.about);
+          this.renderMarkdown(contentsContainer, this.about);
         } else {
-          this.pathError(contentsElement, command, "cat");
+          this.pathError(contentsContainer, command, "cat");
         }
         break;
       case "/blog":
@@ -204,38 +197,31 @@ export default class Command {
           if (indexNum >= 0 || indexNum < posts.length) {
             const h1 = document.createElement("h1");
             h1.innerText = posts[indexNum].title;
-            contentsElement.current?.appendChild(h1);
-            this.render(contentsElement, "");
-            this.renderMarkdown(contentsElement, posts[indexNum].content);
+            contentsContainer.appendChild(h1);
+            this.render(contentsContainer, "");
+            this.renderMarkdown(contentsContainer, posts[indexNum].content);
           } else {
-            this.pathError(contentsElement, command, "cat");
+            this.pathError(contentsContainer, command, "cat");
           }
         } else {
-          this.pathError(contentsElement, command, "cat");
+          this.pathError(contentsContainer, command, "cat");
         }
 
         break;
     }
   }
 
-  render(
-    contentsElement: React.RefObject<HTMLDivElement>,
-    msg: string,
-    marginTop?: number
-  ) {
+  render(contentsContainer: HTMLDivElement, msg: string, marginTop?: number) {
     const newLine = document.createElement("p");
     newLine.innerText = msg;
     if (marginTop) {
       newLine.style.marginTop = `${marginTop}px`;
     }
-    contentsElement.current?.appendChild(newLine);
+    contentsContainer.appendChild(newLine);
   }
 
-  renderErrorMsg(
-    contentsElement: React.RefObject<HTMLDivElement>,
-    inputValue: string
-  ) {
+  renderErrorMsg(contentsContainer: HTMLDivElement, inputValue: string) {
     const errorMsg = `$ ${inputValue}: command not found. See 'help'.`;
-    this.render(contentsElement, errorMsg);
+    this.render(contentsContainer, errorMsg);
   }
 }
