@@ -1,4 +1,4 @@
-import { Wave } from "./wave";
+import { Wave } from "../wave";
 
 export class WaveGroup {
   canvas: HTMLCanvasElement;

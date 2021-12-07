@@ -1,7 +1,7 @@
 import React from "react";
 import marked from "marked";
 
-import Post from "../../interface/post";
+import Post from "../../../interface/post";
 
 const RootFileList = ["blog", "about.txt"];
 const commandList = [

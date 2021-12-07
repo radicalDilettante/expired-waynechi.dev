@@ -19,7 +19,7 @@ export default function Home({ posts, isDark, toggleTheme }: IProps) {
   //animation
   const canvas = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
-    new Main(canvas);
+    new Main(canvas.current!);
   }, []);
 
   //tag

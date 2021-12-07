@@ -1,17 +1,17 @@
-import { Boat } from "./boat";
-import { WaveGroup } from "./wave_group";
+import { Boat } from "../boat";
+import { WaveGroup } from "../wave_group";
 
 export class Main {
-  canvas: HTMLCanvasElement | null;
-  ctx: CanvasRenderingContext2D | null;
+  canvas: HTMLCanvasElement;
+  ctx: CanvasRenderingContext2D;
   waveGroup: WaveGroup;
   boat: Boat;
   stageWidth!: number;
   stageHeight!: number;
 
-  constructor(canvas: React.RefObject<HTMLCanvasElement>) {
-    this.canvas = canvas.current;
-    this.ctx = this.canvas!.getContext("2d");
+  constructor(canvas: HTMLCanvasElement) {
+    this.canvas = canvas;
+    this.ctx = this.canvas!.getContext("2d")!;
 
     this.waveGroup = new WaveGroup(this.canvas!);
     this.boat = new Boat();
