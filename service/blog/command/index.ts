@@ -1,20 +1,21 @@
 import marked from "marked";
-
 import Post from "../../../interface/post";
 
 export default class Command {
+  contentsContainer: HTMLDivElement;
+  curDir: string;
+  posts: Post[];
   RootFileList: string[];
   commandList: { cmd: string; desc: string; usage: string }[];
   about: string;
   renderList: (contentsContainer: HTMLDivElement, fileList: string[]) => void;
-  renderMarkdown: (contentsContainer: HTMLDivElement, contents: string) => void;
-  pathError: (
-    contentsContainer: HTMLDivElement,
-    command: string,
-    keyword: string
-  ) => void;
+  renderMarkdown: (contents: string) => void;
+  pathError: (command: string, keyword: string) => void;
 
-  constructor() {
+  constructor(contentsContainer: HTMLDivElement, posts: Post[]) {
+    this.contentsContainer = contentsContainer;
+    this.curDir = "";
+    this.posts = posts;
     this.RootFileList = ["blog", "about.txt"];
     this.commandList = [
       {
@@ -61,21 +62,13 @@ export default class Command {
         contentsContainer.appendChild(newLine);
       });
     };
-    this.renderMarkdown = (
-      contentsContainer: HTMLDivElement,
-      contents: string
-    ) => {
+    this.renderMarkdown = (contents: string) => {
       const newContents = document.createElement("div");
       newContents.innerHTML = marked(contents);
-      contentsContainer.appendChild(newContents);
+      this.contentsContainer.appendChild(newContents);
     };
-    this.pathError = (
-      contentsContainer: HTMLDivElement,
-      command: string,
-      keyword: string
-    ) => {
+    this.pathError = (command: string, keyword: string) => {
       this.render(
-        contentsContainer,
         `$ ${keyword}: Cannot find path '${command
           .split(keyword)[1]
           .replaceAll(" ", "")}' because it does not exist.`
@@ -83,14 +76,14 @@ export default class Command {
     };
   }
 
-  clear(contentsContainer: HTMLDivElement) {
-    while (contentsContainer.firstChild) {
-      contentsContainer.firstChild.remove();
+  clear() {
+    while (this.contentsContainer.firstChild) {
+      this.contentsContainer.firstChild.remove();
     }
   }
 
-  help(contentsContainer: HTMLDivElement) {
-    this.render(contentsContainer, "These are commands used in WayneChoi.dev:");
+  help() {
+    this.render("These are commands used in WayneChoi.dev:");
 
     const newTable = document.createElement("table");
     const newHeader = newTable.createTHead();
@@ -111,18 +104,13 @@ export default class Command {
       const newCell2 = newRow.insertCell(2);
       newCell2.innerText = `${command.usage}`;
     });
-    contentsContainer.appendChild(newTable);
+    this.contentsContainer.appendChild(newTable);
   }
 
-  ls(
-    contentsContainer: HTMLDivElement,
-    curDir: string,
-    inputValue: string,
-    posts: Post[]
-  ) {
-    switch (curDir) {
+  ls() {
+    switch (this.curDir) {
       case "":
-        this.renderList(contentsContainer, this.RootFileList);
+        this.renderList(this.contentsContainer, this.RootFileList);
         break;
       case "/blog":
         const newTable = document.createElement("table");
@@ -134,7 +122,7 @@ export default class Command {
         headerCell1.innerText = "date";
         const headerCell2 = headerRow.insertCell(2);
         headerCell2.innerText = "subject";
-        posts.forEach((post, index) => {
+        this.posts.forEach((post, index) => {
           const newRow = newTable.insertRow(index + 1);
           const newCell0 = newRow.insertCell(0);
           newCell0.innerText = `${index}.md`;
@@ -143,85 +131,72 @@ export default class Command {
           const newCell2 = newRow.insertCell(2);
           newCell2.innerText = `${post.title}`;
         });
-        contentsContainer.appendChild(newTable);
-        break;
-      default:
-        this.renderErrorMsg(contentsContainer, inputValue);
+        this.contentsContainer.appendChild(newTable);
         break;
     }
   }
 
-  cd(
-    contentsContainer: HTMLDivElement,
-    curDir: string,
-    setCurDir: Function,
-    command: string
-  ) {
-    switch (curDir) {
+  cd(command: string) {
+    switch (this.curDir) {
       case "":
         if (command === "cd blog") {
-          setCurDir("/blog");
+          this.curDir = "/blog";
         } else {
-          this.pathError(contentsContainer, command, "cd");
+          this.pathError(command, "cd");
         }
         break;
       case "/blog":
         if (command === "cd.." || command === "cd ..") {
-          setCurDir("");
+          this.curDir = "";
         } else {
-          this.pathError(contentsContainer, command, "cd");
+          this.pathError(command, "cd");
         }
         break;
     }
   }
 
-  cat(
-    contentsContainer: HTMLDivElement,
-    curDir: string,
-    posts: Post[],
-    command: string
-  ) {
+  cat(command: string) {
     const fileName = command.split(" ")[1];
-    switch (curDir) {
+    switch (this.curDir) {
       case "":
         if (fileName === "about" || fileName === "about.txt") {
-          this.renderMarkdown(contentsContainer, this.about);
+          this.renderMarkdown(this.about);
         } else {
-          this.pathError(contentsContainer, command, "cat");
+          this.pathError(command, "cat");
         }
         break;
       case "/blog":
         const indexNumStr = fileName.replaceAll(".md", "");
         let indexNum = parseInt(indexNumStr);
         if (Number.isInteger(parseFloat(indexNumStr))) {
-          if (indexNum >= 0 || indexNum < posts.length) {
+          if (indexNum >= 0 || indexNum < this.posts.length) {
             const h1 = document.createElement("h1");
-            h1.innerText = posts[indexNum].title;
-            contentsContainer.appendChild(h1);
-            this.render(contentsContainer, "");
-            this.renderMarkdown(contentsContainer, posts[indexNum].content);
+            h1.innerText = this.posts[indexNum].title;
+            this.contentsContainer.appendChild(h1);
+            this.render("");
+            this.renderMarkdown(this.posts[indexNum].content);
           } else {
-            this.pathError(contentsContainer, command, "cat");
+            this.pathError(command, "cat");
           }
         } else {
-          this.pathError(contentsContainer, command, "cat");
+          this.pathError(command, "cat");
         }
 
         break;
     }
   }
 
-  render(contentsContainer: HTMLDivElement, msg: string, marginTop?: number) {
+  render(msg: string, marginTop?: number) {
     const newLine = document.createElement("p");
     newLine.innerText = msg;
     if (marginTop) {
       newLine.style.marginTop = `${marginTop}px`;
     }
-    contentsContainer.appendChild(newLine);
+    this.contentsContainer.appendChild(newLine);
   }
 
-  renderErrorMsg(contentsContainer: HTMLDivElement, inputValue: string) {
+  renderErrorMsg(inputValue: string) {
     const errorMsg = `$ ${inputValue}: command not found. See 'help'.`;
-    this.render(contentsContainer, errorMsg);
+    this.render(errorMsg);
   }
 }

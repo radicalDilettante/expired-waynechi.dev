@@ -26,37 +26,33 @@ export default function Cli({ posts }: IProps) {
       containerElement.current.scrollHeight
     );
   };
-  const cliCommand = new Command();
+  const cliCommand = new Command(contentsContainer, posts);
 
   const executeCmd = (command: string) => {
-    cliCommand.render(
-      contentsContainer,
-      `guest: ~${curDir}$ ${inputValue}`,
-      10
-    );
+    cliCommand.render(`guest: ~${cliCommand.curDir}$ ${inputValue}`, 10);
 
     if (command === "clear") {
-      cliCommand.clear(contentsContainer);
+      cliCommand.clear();
     } else if (command === "help") {
-      cliCommand.help(contentsContainer);
+      cliCommand.help();
       scrollDown();
     } else if (command === "ls") {
-      cliCommand.ls(contentsContainer, curDir, inputValue, posts);
+      cliCommand.ls();
       scrollDown();
     } else if (command === "shutdown") {
       router.push("/");
     } else if (command[0] === "c" && command[1] === "d") {
-      cliCommand.cd(contentsContainer, curDir, setCurDir, command);
+      cliCommand.cd(command);
       scrollDown();
     } else if (command.split(" ")[0] === "cat") {
       const currentHeight = containerElement.current?.scrollHeight;
-      cliCommand.cat(contentsContainer, curDir, posts, command);
+      cliCommand.cat(command);
       if (currentHeight && currentHeight > window.innerHeight) {
         containerElement.current.scrollBy(0, window.innerHeight - 50);
         console.log("A");
       }
     } else {
-      cliCommand.renderErrorMsg(contentsContainer, inputValue);
+      cliCommand.renderErrorMsg(inputValue);
       scrollDown();
     }
 

@@ -9,7 +9,8 @@
     "export": "next export",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch"
+    "test": "jest --watch ",
+    "cover": "jest --coverage"
   },
   "dependencies": {
     "gh-pages": "^3.2.3",

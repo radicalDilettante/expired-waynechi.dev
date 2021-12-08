@@ -1,9 +1,9 @@
 export default interface Post {
-  prefix: string;
+  prefix?: string;
   content: string;
   title: string;
   date: string;
-  tag: string[];
+  tag: string;
   excerpt: string;
   slug?: string;
 }
