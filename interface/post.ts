@@ -3,7 +3,7 @@ export default interface Post {
   content: string;
   title: string;
   date: string;
-  tag: string;
+  tag: string[];
   excerpt: string;
   slug?: string;
 }

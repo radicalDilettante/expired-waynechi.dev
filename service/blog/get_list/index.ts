@@ -14,8 +14,8 @@ export default function getBlogList() {
     );
 
     const { data: frontMatter, content } = matter(markdownWithMeta);
-    const { title, date, tag, excerpt }: { [key: string]: string } =
-      frontMatter;
+    const { title, date, excerpt }: { [key: string]: string } = frontMatter;
+    const { tag }: { [eky: string]: string[] } = frontMatter;
 
     return {
       slug,
