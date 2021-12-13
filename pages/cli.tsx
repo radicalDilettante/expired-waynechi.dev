@@ -26,7 +26,7 @@ export default function Cli({ posts }: IProps) {
       containerElement.current.scrollHeight
     );
   };
-  const cliCommand = new Command(contentsContainer, posts);
+  const cliCommand = new Command(contentsContainer, posts, curDir);
 
   const executeCmd = (command: string) => {
     cliCommand.render(`guest: ~${cliCommand.curDir}$ ${inputValue}`, 10);
@@ -43,13 +43,13 @@ export default function Cli({ posts }: IProps) {
       router.push("/");
     } else if (command[0] === "c" && command[1] === "d") {
       cliCommand.cd(command);
+      setCurDir(cliCommand.curDir);
       scrollDown();
     } else if (command.split(" ")[0] === "cat") {
       const currentHeight = containerElement.current?.scrollHeight;
       cliCommand.cat(command);
       if (currentHeight && currentHeight > window.innerHeight) {
         containerElement.current.scrollBy(0, window.innerHeight - 50);
-        console.log("A");
       }
     } else {
       cliCommand.renderErrorMsg(inputValue);

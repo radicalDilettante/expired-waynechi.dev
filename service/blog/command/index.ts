@@ -8,13 +8,14 @@ export default class Command {
   RootFileList: string[];
   commandList: { cmd: string; desc: string; usage: string }[];
   about: string;
-  renderList: (contentsContainer: HTMLDivElement, fileList: string[]) => void;
-  renderMarkdown: (contents: string) => void;
-  pathError: (command: string, keyword: string) => void;
 
-  constructor(contentsContainer: HTMLDivElement, posts: Post[]) {
+  constructor(
+    contentsContainer: HTMLDivElement,
+    posts: Post[],
+    rootDir: string
+  ) {
     this.contentsContainer = contentsContainer;
-    this.curDir = "";
+    this.curDir = rootDir;
     this.posts = posts;
     this.RootFileList = ["blog", "about.txt"];
     this.commandList = [
@@ -52,28 +53,6 @@ export default class Command {
     ];
     this.about =
       "Hi I am Wayne.\n\nI prefer readable code, and maintainable system. I value background more than tools. Love JavaScript. Like TypeScript.\n\nI make web services in the morning and at night, and build boats as a full-time boat builder. Born and raised in South Korea. Living in New Zealand.";
-    this.renderList = (
-      contentsContainer: HTMLDivElement,
-      fileList: string[]
-    ) => {
-      fileList.forEach((file) => {
-        const newLine = document.createElement("span");
-        newLine.innerText = file;
-        contentsContainer.appendChild(newLine);
-      });
-    };
-    this.renderMarkdown = (contents: string) => {
-      const newContents = document.createElement("div");
-      newContents.innerHTML = marked(contents);
-      this.contentsContainer.appendChild(newContents);
-    };
-    this.pathError = (command: string, keyword: string) => {
-      this.render(
-        `$ ${keyword}: Cannot find path '${command
-          .split(keyword)[1]
-          .replaceAll(" ", "")}' because it does not exist.`
-      );
-    };
   }
 
   clear() {
@@ -110,7 +89,7 @@ export default class Command {
   ls() {
     switch (this.curDir) {
       case "":
-        this.renderList(this.contentsContainer, this.RootFileList);
+        this.renderList(this.RootFileList);
         break;
       case "/blog":
         const newTable = document.createElement("table");
@@ -169,7 +148,7 @@ export default class Command {
         const indexNumStr = fileName.replaceAll(".md", "");
         let indexNum = parseInt(indexNumStr);
         if (Number.isInteger(parseFloat(indexNumStr))) {
-          if (indexNum >= 0 || indexNum < this.posts.length) {
+          if (indexNum >= 0 && indexNum < this.posts.length) {
             const h1 = document.createElement("h1");
             h1.innerText = this.posts[indexNum].title;
             this.contentsContainer.appendChild(h1);
@@ -198,5 +177,27 @@ export default class Command {
   renderErrorMsg(inputValue: string) {
     const errorMsg = `$ ${inputValue}: command not found. See 'help'.`;
     this.render(errorMsg);
+  }
+
+  private renderList(fileList: string[]) {
+    fileList.forEach((file) => {
+      const newLine = document.createElement("span");
+      newLine.innerText = file;
+      this.contentsContainer.appendChild(newLine);
+    });
+  }
+
+  private renderMarkdown(contents: string) {
+    const newContents = document.createElement("div");
+    newContents.innerHTML = marked(contents);
+    this.contentsContainer.appendChild(newContents);
+  }
+
+  private pathError(command: string, keyword: string) {
+    this.render(
+      `$ ${keyword}: Cannot find path '${command
+        .split(keyword)[1]
+        .replaceAll(" ", "")}' because it does not exist.`
+    );
   }
 }

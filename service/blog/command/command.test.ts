@@ -4,10 +4,10 @@ import getBlogList from "../get_list";
 describe("Command", () => {
   let contentsContainer: HTMLDivElement;
   let cliCommand: Command;
-
+  const posts = getBlogList();
   beforeEach(() => {
     contentsContainer = document.createElement("div");
-    cliCommand = new Command(contentsContainer, getBlogList());
+    cliCommand = new Command(contentsContainer, posts, "");
   });
   describe("clear", () => {
     it("clears contents", () => {
@@ -78,6 +78,36 @@ describe("Command", () => {
       cliCommand.cat("cat about.txt");
       expect(contentsContainer.textContent).toContain("Hi I am Wayne.");
     });
+
+    it("renders error message with wrong route in main dir", () => {
+      cliCommand.cat("cat wrong");
+      expect(
+        contentsContainer.getElementsByTagName("p")[0].innerText
+      ).toContain("Cannot find path");
+    });
+
+    it("displays contents in blog dir", () => {
+      cliCommand.cd("cd blog");
+      cliCommand.cat("cat 0.md");
+      expect(contentsContainer.textContent).toContain(posts[0].title);
+    });
+
+    it("renders error message with wrong route in blog dir", () => {
+      cliCommand.cd("cd blog");
+      cliCommand.cat("cat wrong");
+      expect(
+        contentsContainer.getElementsByTagName("p")[0].innerText
+      ).toContain("Cannot find path");
+    });
+
+    it("renders error message with greater posts index number in blog dir", () => {
+      const maxPostIndexNumber = posts.length;
+      cliCommand.cd("cd blog");
+      cliCommand.cat(`cat ${maxPostIndexNumber + 1}`);
+      expect(
+        contentsContainer.getElementsByTagName("p")[0].innerText
+      ).toContain("Cannot find path");
+    });
   });
 
   describe("render", () => {
@@ -86,6 +116,13 @@ describe("Command", () => {
       expect(contentsContainer.getElementsByTagName("p")[0].innerText).toBe(
         "hello world"
       );
+    });
+
+    it("renders message with margin top", () => {
+      cliCommand.render("hello world", 10);
+      expect(
+        contentsContainer.getElementsByTagName("p")[0].style.marginTop
+      ).toBe("10px");
     });
   });
 
