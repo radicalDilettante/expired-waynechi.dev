@@ -43,8 +43,12 @@ describe("Command", () => {
     it("prints a list of files and subdirectories of blog dir", () => {
       cliCommand.cd("cd blog");
       cliCommand.ls();
-      expect(contentsContainer.getElementsByTagName("tr").length).toBe(5);
-      expect(contentsContainer.getElementsByTagName("td").length).toBe(15);
+      expect(contentsContainer.getElementsByTagName("tr").length).toBe(
+        posts.length + 1
+      );
+      expect(contentsContainer.getElementsByTagName("td").length).toBe(
+        (posts.length + 1) * 3
+      );
     });
   });
 
@@ -90,7 +94,9 @@ describe("Command", () => {
     it("displays contents in blog dir", () => {
       cliCommand.cd("cd blog");
       cliCommand.cat("cat 0.md");
-      expect(contentsContainer.textContent).toContain(posts[0].title);
+      expect(contentsContainer.getElementsByTagName("h1")[0].innerText).toBe(
+        posts[0].title
+      );
     });
 
     it("renders error message with wrong route in blog dir", () => {
