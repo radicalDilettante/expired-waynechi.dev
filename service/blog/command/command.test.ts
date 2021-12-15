@@ -7,7 +7,8 @@ describe("Command", () => {
   const posts = getBlogList();
   beforeEach(() => {
     contentsContainer = document.createElement("div");
-    cliCommand = new Command(contentsContainer, posts, "");
+    cliCommand = new Command();
+    cliCommand.init(contentsContainer, posts);
   });
   describe("clear", () => {
     it("clears contents", () => {

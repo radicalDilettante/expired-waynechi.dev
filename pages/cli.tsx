@@ -1,16 +1,17 @@
 import React, { useRef, useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import { GetStaticProps } from "next";
-import Post from "../interface/post";
-import getBlogList from "../service/blog/get_list";
+import { useRouter } from "next/router";
 import styles from "../style/cli.module.css";
 import Command from "../service/blog/command";
+import getBlogList from "../service/blog/get_list";
+import Post from "../interface/post";
 
 interface IProps {
+  cliCommand: Command;
   posts: Post[];
 }
 
-export default function Cli({ posts }: IProps) {
+export default function Cli({ cliCommand, posts }: IProps) {
   const router = useRouter();
 
   const [inputValue, setInputValue] = useState("");
@@ -26,7 +27,6 @@ export default function Cli({ posts }: IProps) {
       containerElement.current.scrollHeight
     );
   };
-  const cliCommand = new Command(contentsContainer, posts, curDir);
 
   const executeCmd = (command: string) => {
     cliCommand.render(`guest: ~${cliCommand.curDir}$ ${inputValue}`, 10);
@@ -62,6 +62,9 @@ export default function Cli({ posts }: IProps) {
   useEffect(() => {
     inputElement.current?.focus();
   }, []);
+  useEffect(() => {
+    cliCommand.init(contentsContainer, posts);
+  }, [contentsContainer, posts]);
   return (
     <div className={styles.container} ref={containerElement}>
       <div className={styles.contents} ref={contentsElement}>

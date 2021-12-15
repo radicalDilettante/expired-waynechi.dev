@@ -2,21 +2,15 @@ import marked from "marked";
 import Post from "../../../interface/post";
 
 export default class Command {
-  contentsContainer: HTMLDivElement;
+  contentsContainer!: HTMLDivElement;
+  posts!: Post[];
   curDir: string;
-  posts: Post[];
   RootFileList: string[];
   commandList: { cmd: string; desc: string; usage: string }[];
   about: string;
 
-  constructor(
-    contentsContainer: HTMLDivElement,
-    posts: Post[],
-    rootDir: string
-  ) {
-    this.contentsContainer = contentsContainer;
-    this.curDir = rootDir;
-    this.posts = posts;
+  constructor() {
+    this.curDir = "";
     this.RootFileList = ["blog", "about.txt"];
     this.commandList = [
       {
@@ -55,10 +49,16 @@ export default class Command {
       "Hi I am Wayne.\n\nI prefer readable code, and maintainable system. I value background more than tools. Love JavaScript. Like TypeScript.\n\nI make web services in the morning and at night, and build boats as a full-time boat builder. Born and raised in South Korea. Living in New Zealand.";
   }
 
+  init(contentsContainer: HTMLDivElement, posts: Post[]) {
+    this.contentsContainer = contentsContainer;
+    this.posts = posts;
+  }
+
   clear() {
     while (this.contentsContainer.firstChild) {
       this.contentsContainer.firstChild.remove();
     }
+    console.log(this.curDir);
   }
 
   help() {

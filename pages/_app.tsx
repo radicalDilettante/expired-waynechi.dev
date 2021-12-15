@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
-import "../style/_app.css";
 import { AppProps } from "next/app";
+
+import "../style/_app.css";
+
 import Layout from "../components/common/layout";
 import { assetPrefix } from "../next.config";
 import { useRouter } from "next/router";
+
+import Command from "../service/blog/command";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isDark, setIsDark] = useState(false);
@@ -37,8 +41,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   };
 
+  const cliCommand = new Command();
+
   return pathName === "/cli" ? (
-    <Component {...pageProps} />
+    <Component {...pageProps} cliCommand={cliCommand} />
   ) : (
     <Layout prefix={assetPrefix} isDark={isDark}>
       <Component
