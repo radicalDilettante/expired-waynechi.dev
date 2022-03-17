@@ -1,6 +1,6 @@
 ---
 title: "State management with Class in React"
-date: "March 18, 2022"
+date: "Mar 18, 2022"
 tag: ["React", "Architecture"]
 excerpt: "To implement global state management with class and dependency injection in React application."
 ---
