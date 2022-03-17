@@ -18,9 +18,15 @@ body {
   background-color: var(--light-theme-background);
   color: #222;
 }
+.light_theme a {
+  color: #222;
+}
 
 .dark_theme {
   background-color: var(--dark-theme-background);
+  color: #ccc;
+}
+.dark_theme a {
   color: #ccc;
 }
 

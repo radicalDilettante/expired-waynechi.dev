@@ -125,7 +125,7 @@ export default class Command {
         }
         break;
       case "/blog":
-        if (command === "cd.." || command === "cd ..") {
+        if (command === "cd ..") {
           this.curDir = "";
         } else {
           this.pathError(command, "cd");

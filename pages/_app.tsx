@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AppProps } from "next/app";
 
 import "../style/_app.css";
@@ -12,7 +12,7 @@ import Command from "../service/blog/command";
 function MyApp({ Component, pageProps }: AppProps) {
   const [isDark, setIsDark] = useState(false);
   const pathName = useRouter().pathname;
-  useLayoutEffect(() => {
+  useEffect(() => {
     const bgMode = window.localStorage.getItem("bgMode");
     if (bgMode === "light" || !bgMode) {
       setIsDark(false);
@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isDark || pathName === "/cli") {
       document.getElementsByTagName("html")[0].classList.add("dark_theme");
       document.getElementsByTagName("html")[0].classList.remove("light_theme");
