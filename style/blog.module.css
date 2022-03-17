@@ -10,6 +10,9 @@
   max-width: calc(var(--max-width) * 0.6);
 }
 
+.container a {
+  color: #3537cf;
+}
 .container a:hover {
   text-decoration: underline;
 }

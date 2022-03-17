@@ -46,7 +46,7 @@ export default class Command {
       },
     ];
     this.about =
-      "Hi I am Wayne.\n\nI prefer readable code, and maintainable system. I value background more than tools. Love JavaScript. Like TypeScript.\n\nI make web services in the morning and at night, and build boats as a full-time boat builder. Born and raised in South Korea. Living in New Zealand.";
+      "Hi I am Wayne.\n\nI prefer readable code, and maintainable system. I value background more than tools. Like JavaScript. Love TypeScript.\n\nI make web services in the morning and at night, and build boats as a full-time boat builder. Born and raised in South Korea. Living in New Zealand.";
   }
 
   init(contentsContainer: HTMLDivElement, posts: Post[]) {
