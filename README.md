@@ -22,6 +22,6 @@ It is a static blog site generated with Next.js. Posts are written by markdown, 
 
     <img width="600" src="./public/screenshot/waynechoi_dev_cli.jpg">
 
-### To be implemented future
+### To be implemented in the future
 
 - Re-implement dark theme without direct manipulating DOM. (I got some styling issue for few devices.)
