@@ -25,3 +25,4 @@ It is a static blog site generated with Next.js. Posts are written by markdown, 
 ### To be implemented in the future
 
 - Re-implement dark theme without direct manipulating DOM. (I got some styling issue for few devices.)
+- Apply dark theme in portfolio page as well
