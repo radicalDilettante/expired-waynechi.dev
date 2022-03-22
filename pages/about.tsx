@@ -36,7 +36,7 @@ export default function About({ prefix }: IProps) {
           Zealand.
         </p>
         <p>You can get in touch with me at wonjun92@gmail.com.</p>
-        <a href="https://github.com/radicalDilettante">
+        <a href="https://github.com/radicalDilettante" target="_blank">
           github.com/radicalDilettante
         </a>
       </section>

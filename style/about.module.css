@@ -7,6 +7,10 @@
   flex-direction: column;
 }
 
+.container a {
+  color: #6651c4;
+}
+
 .sub_heading {
   border: none;
   margin: 10px 0;
