@@ -10,7 +10,18 @@ import Comment from "../components/blog/comment";
 import styles from "../style/blog.module.css";
 import Post from "../interface/post";
 
-export default function Blog({ title, date, tag, excerpt, content }: Post) {
+interface IProps extends Post {
+  isDark: boolean;
+}
+
+export default function Blog({
+  title,
+  date,
+  tag,
+  excerpt,
+  content,
+  isDark,
+}: IProps) {
   return (
     <div className={styles.container}>
       <Head>
@@ -32,7 +43,7 @@ export default function Blog({ title, date, tag, excerpt, content }: Post) {
       <div className={styles.content}>
         <MarkdownRender content={content} />
       </div>
-      <Comment />
+      <Comment isDark={isDark} />
     </div>
   );
 }
