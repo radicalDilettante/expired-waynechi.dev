@@ -9,7 +9,7 @@ export default function Portfolio({ prefix }: IProps) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Search - WayneChoi.dev</title>
+        <title>Portfolio - WayneChoi.dev</title>
         <meta name="author" content="Wayne Choi" />
         <meta name="description" content="Portfolio of Wayne Choi." />
         <meta
