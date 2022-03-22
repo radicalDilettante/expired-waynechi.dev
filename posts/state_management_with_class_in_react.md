@@ -5,17 +5,17 @@ tag: ["React", "Architecture"]
 excerpt: "To implement global state management with class and dependency injection in React application."
 ---
 
-I implemented a global state management to deal with JWT token and local storage in React application. This post is to share my concerns and how I solved them. The module is class-based. A React library to manage global statement, and window object to get and set local storage is injected from outside the class.
+I implemented a global state management to deal with JWT token and local storage in React application. This post is to share my concerns and how I solved them. The module is class-based. A React library to manage global statement, and window object to get and set local storage are injected from outside the class.
 
 ## Why class?
 
 I struggled between class(to deal with action and status together) and function(with objects literal) to manage statements in this application.
 
-If I decoupled to reduce dependence with class, it makes better maintainability, and easier test code. At the same time, it costs a lot to covert states from the class instance to the React library, and from the React library to the class instance.
+If I decoupled to reduce dependence with class, it makes better maintainability, and easier test code. At the same time, it costs a lot to convert states from the class instance to the React library, and even from the React library to the class instance.
 
 There are various of dependency for frontend application, such as DOM, React libraries, and window object, so if it is decoupled too deep, the complexity of the application increases incredibly. So, I normally prefer not to use class to manage statement in frontend application.
 
-However, I picked class and dependency injection. All the action about authentication shares same statement, so I thought it costs more to inject all the dependency into every single function. The other reason was that the storage to store user information is different depend on user option. It would be better to be abstracted.
+However, I picked class and dependency injection for this case. All the action about authentication shares same statement, so I thought it costs more to inject all the dependency into every single function. The other reason was that the storage to store user information is different depend on user option. It would be better to be abstracted.
 
 ## Recoil?
 
@@ -112,6 +112,6 @@ export default AuthProvider;
 
 ## To be fixed
 
-The branching process to figure out local storage to save user information is abstracted, so hard to be tested with unit tests. The test coverage of this service is about 80% now.
+The branching process to figure out which local storage to save user information is abstracted with private methods. So It is hard to be tested. The test coverage of this service is about 80% now.
 
 I guess I could decouple this process with another class or static class to decouple.
