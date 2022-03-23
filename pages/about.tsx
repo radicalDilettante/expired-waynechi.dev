@@ -27,14 +27,14 @@ export default function About({ prefix }: IProps) {
         <h2 className={styles.sub_heading}>Hi!</h2>
         <p>I am Wayne.</p>
         <p>
+          I make web services in the morning and at night, and build boats as a
+          full-time boat builder.
+        </p>
+        <p>
           I prefer readable code, and maintainable system. I value background
           more than tools.
         </p>
         <p>Like JavaScript, and Love TypeScript.</p>
-        <p>
-          I make web services in the morning and at night, and build boats as a
-          full-time boat builder.
-        </p>
         <p>Born and raised in South Korea. Living in New Zealand.</p>
         <p>You can get in touch with me at wonjun92@gmail.com.</p>
         <a href="https://github.com/radicalDilettante" target="_blank">
