@@ -23,6 +23,15 @@
   margin-left: auto;
 }
 
+.link {
+  padding: 20px 10px 0 0;
+  text-align: right;
+}
+.link img {
+  height: 25px;
+  margin-left: 15px;
+}
+
 .greeting {
   width: 80%;
   margin: 20px 0 20px auto;
@@ -35,6 +44,22 @@
   margin: 5px 0 5px 10px;
   border-radius: 5px;
   float: right;
+}
+
+.contact {
+  list-style: none;
+  text-align: right;
+  padding-left: 20px;
+}
+
+.contact li {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.contact img {
+  height: 1rem;
+  padding-right: 7px;
 }
 
 @media all and (max-width: 1023px) {

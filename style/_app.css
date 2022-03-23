@@ -61,16 +61,3 @@ td {
   border: 1px solid currentColor;
   padding: 2px 20px;
 }
-
-h2 {
-  margin: 0;
-  margin-top: 30px;
-  padding-bottom: 10px;
-  border-bottom: currentColor solid 1px;
-}
-
-hr {
-  border: 0;
-  border-bottom: currentColor solid 1px;
-  margin: 30px 0;
-}

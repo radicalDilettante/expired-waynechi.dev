@@ -1,0 +1,91 @@
+.container {
+  width: 100%;
+  max-width: 740px;
+  margin: auto;
+  padding: 100px 20px;
+}
+
+.boat {
+  width: 70px;
+}
+
+.container a {
+  color: #6651c4;
+}
+
+.container h1 {
+  font-size: 3rem;
+  margin-top: 0;
+}
+.container h2 {
+  color: #d9730d;
+  font-size: 2rem;
+  padding-bottom: 10px;
+  border-bottom: #969696 solid 1px;
+}
+.container h3 {
+  color: #816549;
+  font-size: 1.5rem;
+}
+
+.contact {
+  list-style: none;
+  text-align: right;
+  padding-left: 20px;
+}
+
+.contact li {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.contact img {
+  height: 1rem;
+  padding-right: 7px;
+}
+
+.project {
+  padding-left: 20px;
+}
+.project_desc {
+  padding-left: 20px;
+}
+.project b {
+  font-size: 1.2rem;
+}
+.table {
+  display: flex;
+  margin: 20px 0;
+}
+.table ul {
+  margin: 0;
+  width: calc(100% - 200px);
+}
+.table_subject {
+  width: 200px;
+  padding-left: 20px;
+}
+.company {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.date {
+  margin: 0;
+  font-size: 1rem;
+  color: #969696;
+}
+.skill {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+@media (max-width: 500px) {
+  .table_subject {
+    width: 120px;
+  }
+  .table ul {
+    width: calc(100% - 120px);
+  }
+}

@@ -10,7 +10,13 @@ export default function HeaderItem({ menu }: IProps) {
     <li>
       <div>
         <Link href={menu.path}>
-          <a href={menu.path}>{menu.name}</a>
+          {menu.name === "CV" ? (
+            <a href={menu.path} target="_blank">
+              {menu.name}
+            </a>
+          ) : (
+            <a href={menu.path}>{menu.name}</a>
+          )}
         </Link>
       </div>
     </li>

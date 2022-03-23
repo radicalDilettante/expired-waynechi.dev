@@ -51,6 +51,7 @@ export default function Header({ prefix, isDark }: IProps) {
     { name: "HOME", path: "/" },
     { name: "ABOUT", path: "/about" },
     { name: "PORTFOLIO", path: "/portfolio" },
+    { name: "CV", path: "/cv" },
   ];
   return (
     <div className={styles.container}>

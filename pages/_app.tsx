@@ -43,18 +43,23 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const cliCommand = new Command();
 
-  return pathName === "/cli" ? (
-    <Component {...pageProps} cliCommand={cliCommand} />
-  ) : (
-    <Layout prefix={assetPrefix} isDark={isDark}>
-      <Component
-        {...pageProps}
-        prefix={assetPrefix}
-        isDark={isDark}
-        toggleTheme={toggleTheme}
-      />
-    </Layout>
-  );
+  switch (pathName) {
+    case "cli":
+    case "/cv":
+      return <Component {...pageProps} cliCommand={cliCommand} />;
+    // break; not reachable
+    default:
+      return (
+        <Layout prefix={assetPrefix} isDark={isDark}>
+          <Component
+            {...pageProps}
+            prefix={assetPrefix}
+            isDark={isDark}
+            toggleTheme={toggleTheme}
+          />
+        </Layout>
+      );
+  }
 }
 
 export default MyApp;
