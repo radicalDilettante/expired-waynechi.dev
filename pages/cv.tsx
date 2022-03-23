@@ -174,7 +174,7 @@ export default function CV() {
 
         <div className={styles.table}>
           <div className={styles.table_subject}>
-            <p className={styles.company}>YACHTING DEVELOPMENTS</p>
+            <p className={styles.company}>Yachting Developments</p>
             <p className={styles.date}>Aug 2016 - Jul 2018</p>
           </div>
           <ul>
