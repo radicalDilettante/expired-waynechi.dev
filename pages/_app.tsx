@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const cliCommand = new Command();
 
   switch (pathName) {
-    case "cli":
+    case "/cli":
     case "/cv":
       return <Component {...pageProps} cliCommand={cliCommand} />;
     // break; not reachable
