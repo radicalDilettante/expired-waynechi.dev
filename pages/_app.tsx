@@ -12,6 +12,16 @@ import Command from "../service/blog/command";
 function MyApp({ Component, pageProps }: AppProps) {
   const [isDark, setIsDark] = useState(false);
   const pathName = useRouter().pathname;
+
+  const toDarkTheme = () => {
+    document.getElementsByTagName("html")[0].classList.add("dark_theme");
+    document.getElementsByTagName("html")[0].classList.remove("light_theme");
+  };
+  const toLightTheme = () => {
+    document.getElementsByTagName("html")[0].classList.add("light_theme");
+    document.getElementsByTagName("html")[0].classList.remove("dark_theme");
+  };
+
   useEffect(() => {
     const bgMode = window.localStorage.getItem("bgMode");
     if (bgMode === "light" || !bgMode) {
@@ -22,12 +32,19 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   useEffect(() => {
-    if (isDark || pathName === "/cli") {
-      document.getElementsByTagName("html")[0].classList.add("dark_theme");
-      document.getElementsByTagName("html")[0].classList.remove("light_theme");
-    } else {
-      document.getElementsByTagName("html")[0].classList.add("light_theme");
-      document.getElementsByTagName("html")[0].classList.remove("dark_theme");
+    switch (pathName) {
+      case "/cli":
+        toDarkTheme();
+        break;
+      case "/cv":
+        toLightTheme();
+        break;
+      default:
+        if (isDark) {
+          toDarkTheme();
+        } else {
+          toLightTheme();
+        }
     }
   }, [isDark, pathName]);
 
