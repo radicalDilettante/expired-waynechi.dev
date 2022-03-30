@@ -109,9 +109,3 @@ const AuthProvider = ({ children, urlBase }: IProps) => {
 
 export default AuthProvider;
 ```
-
-## To be fixed
-
-The branching process to figure out which local storage to save user information is abstracted with private methods. So It is hard to be tested. The test coverage of this service is about 80% now.
-
-I guess I could decouple this process with another class or static class to decouple.
