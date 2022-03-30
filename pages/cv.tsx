@@ -50,14 +50,14 @@ export default function CV() {
           I value background more than tools. Of course, I've studied the deep
           concepts of JavaScript, but I'm more interested in how the browser,
           web and network work. I understand how HTTP and backend applications
-          work in order to create a better frontend applications. I try to use
-          semantic HTML5 tags to consider accesibility and SEO.
+          work in order to create better frontend applications. I try to use
+          semantic HTML5 tags to consider accessibility and SEO.
         </p>
         <p>
-          I prefer readable code, and maintainable system. For those, I always
+          I prefer readable code, and a maintainable system. For those, I always
           try to separate implementations and interfaces. Recently, I have been
-          struggling with the effecient way to modularize along with various
-          dependencies from web frontend, like DOM, user interaction, and
+          struggling with the efficient way to modularize along with various
+          dependencies from the web frontend, like DOM, user interaction, and
           rendering libraries.
         </p>
       </div>
