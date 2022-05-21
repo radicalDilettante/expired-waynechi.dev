@@ -44,7 +44,7 @@ export default function CV() {
           I make web services in the morning and at night, and build boats as a
           full-time boat builder. I have achieved rapid growth for web
           development by splitting up the time I lack due to job and baby
-          sitting over the past one year.
+          sitting over the past two years.
         </p>
         <p>
           I value background more than tools. Of course, I've studied the deep
@@ -147,6 +147,9 @@ export default function CV() {
           </li>
           <li>
             <b>Database</b>: MYSQL, MongoDB
+          </li>
+          <li>
+            <b>etc</b>: 3D Modeling, Graphic Editing
           </li>
         </ul>
       </div>
