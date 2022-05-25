@@ -39,7 +39,7 @@ export default function CV() {
       </ul>
 
       <div>
-        <h2>Introduce</h2>
+        <h2>Introduction</h2>
         <p>
           I make web services in the morning and at night, and build boats as a
           full-time boat builder. I have achieved rapid growth for web
@@ -68,10 +68,16 @@ export default function CV() {
           <h3>Skilled Kiwi</h3>
           <p>
             This service is a platform designed to connect skilled individuals
-            with those in need of their help.
+            with those in need of their help. Building both frontend and backend
+            applicatoin by myself.
           </p>
           <div className={styles.project_desc}>
-            <b>Frontend</b>:{" "}
+            <b>Link (demo)</b>:{" "}
+            <a href="https://skilledkiwi.netlify.app" target="_blank">
+              https://skilledkiwi.netlify.app
+            </a>
+            <br />
+            <b>Repository</b>:{" "}
             <a
               href="https://github.com/radicalDilettante/skilled_kiwi_client"
               target="_blank"
@@ -99,15 +105,6 @@ export default function CV() {
                 Unit test with Jest, and all modules are decopuled reasonably
                 for the test
               </li>
-            </ul>
-            <b>Backend</b>:{" "}
-            <a
-              href="https://github.com/radicalDilettante/skilled_kiwi_client"
-              target="_blank"
-            >
-              https://github.com/radicalDilettante/skilled_kiwi_client
-            </a>
-            <ul>
               <li>Express application with MySQL database</li>
               <li>RESTful api for CRUD operations</li>
               <li>Authentication with JWT tokens (access and refresh)</li>
@@ -118,7 +115,17 @@ export default function CV() {
 
         <div className={styles.project}>
           <h3>WayneChoi.dev</h3>
+          <p>
+            This service is my personal tech blog to record and share what I
+            learn and build. Most of contents are about web frontend
+            development.
+          </p>
           <div className={styles.project_desc}>
+            <b>Link</b>:{" "}
+            <a href="https://waynechoi.dev" target="_blank">
+              https://waynechoi.dev
+            </a>
+            <br />
             <b>Repository</b>:{" "}
             <a
               href="https://github.com/radicalDilettante/skilled_kiwi_client"
@@ -132,6 +139,50 @@ export default function CV() {
               <li>Create an animation with canvas APIs</li>
               <li>Implement command line rendering for blog contents</li>
             </ul>
+          </div>
+        </div>
+
+        <div className={styles.project}>
+          <h3>Color Dropper</h3>
+          <p>
+            This service is a tool application to pick color from any website or
+            pictures. I built it with only vanilla javascript.
+          </p>
+          <div className={styles.project_desc}>
+            <b>Link</b>:{" "}
+            <a href="https://colordropper.netlify.app" target="_blank">
+              https://colordropper.netlify.app
+            </a>
+            <br />
+            <b>Repository</b>:{" "}
+            <a
+              href="https://github.com/radicalDilettante/dropper"
+              target="_blank"
+            >
+              https://github.com/radicalDilettante/dropper
+            </a>
+          </div>
+        </div>
+
+        <div className={styles.project}>
+          <h3>NeoQuery</h3>
+          <p>
+            It is a fast and small JavaScript library to traversal and
+            manipulate the HTML DOM (Document Object Model) with simple syntax.
+          </p>
+          <div className={styles.project_desc}>
+            <b>Link</b>:{" "}
+            <a href="https://www.npmjs.com/package/neoquery" target="_blank">
+              https://www.npmjs.com/package/neoquery
+            </a>
+            <br />
+            <b>Repository</b>:{" "}
+            <a
+              href="https://github.com/radicalDilettante/neoquery"
+              target="_blank"
+            >
+              https://github.com/radicalDilettante/neoquery
+            </a>
           </div>
         </div>
       </div>
@@ -152,6 +203,18 @@ export default function CV() {
             <b>etc</b>: 3D Modeling, Graphic Editing
           </li>
         </ul>
+      </div>
+
+      <div>
+        <h2>Education</h2>
+        <div className={styles.education}>
+          <b>Manukau Institute of Technology</b>
+          <span> - Diploma, Computer Integrated Manufacturing</span>
+        </div>
+        <div className={styles.education}>
+          <b>Unitec Institute of Technology</b>
+          <span> - Certificate in Applied Technology in Boatbuilding</span>
+        </div>
       </div>
 
       <div>
@@ -181,18 +244,6 @@ export default function CV() {
             <li>Carbon super yacht building, Restoration sailing boats</li>
             <li>Laminating, Trouble shooting, Assembly, Detailing</li>
           </ul>
-        </div>
-      </div>
-
-      <div>
-        <h2>Education</h2>
-        <div className={styles.education}>
-          <b>Manukau Institute of Technology</b>
-          <span> - Diploma, Computer Integrated Manufacturing</span>
-        </div>
-        <div className={styles.education}>
-          <b>Unitec Institute of Technology</b>
-          <span> - Certificate in Applied Technology in Boatbuilding</span>
         </div>
       </div>
     </div>
