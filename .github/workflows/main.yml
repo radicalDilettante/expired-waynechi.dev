@@ -22,7 +22,6 @@ jobs:
           CI: true
           DEPLOY_TARGET: gh-pages
       - run: touch out/.nojekyll
-      - run: echo radicaldilettante.github.io/expired-waynechi.dev > out/CNAME
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
