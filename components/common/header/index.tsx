@@ -48,10 +48,10 @@ export default function Header({ prefix, isDark }: IProps) {
   }, [router]);
 
   const menus = [
-    { name: "HOME", path: "/" },
-    { name: "ABOUT", path: "/about" },
-    { name: "PORTFOLIO", path: "/portfolio" },
-    { name: "CV", path: "/cv" },
+    { name: "HOME", path: "/expired-waynechi.dev/" },
+    { name: "ABOUT", path: "/expired-waynechi.dev/about" },
+    { name: "PORTFOLIO", path: "/expired-waynechi.dev/portfolio" },
+    { name: "CV", path: "/expired-waynechi.dev/cv" },
   ];
   return (
     <div className={styles.container}>

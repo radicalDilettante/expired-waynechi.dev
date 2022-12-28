@@ -9,7 +9,7 @@ interface IProps {
 export default function PostCard({ post }: IProps) {
   return (
     <div className={styles.container}>
-      <Link href={`/${post.slug}`}>
+      <Link href={`/expired-waynechi.dev/${post.slug}`}>
         <a>
           <div className={styles.header}>
             <span className={styles.date}>{post.date}</span>
