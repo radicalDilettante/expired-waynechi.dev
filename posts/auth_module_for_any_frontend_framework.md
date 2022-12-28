@@ -9,7 +9,7 @@ I implemented an authentication module, and it is not dependent to any framework
 
 I described in more detail why I used classes rather than functions, in the link below.
 
-["State management with Class in React"](https://waynechoi.dev/state_management_with_class_in_react)
+["State management with Class in React"](https://radicaldilettante.github.io/expired-waynechi.dev/state_management_with_class_in_react)
 
 ## Singleton pattern
 

@@ -69,19 +69,19 @@ const data = {
 };
 ```
 
-<img src="https://waynechoi.dev/images/posts/trie_original.png">
+<img src="https://radicaldilettante.github.io/expired-waynechi.dev/images/posts/trie_original.png">
 
 I made an JS object, and created a trie with same keys and values. A trie is a type of tree where the leaves hold the values, and the paths from the root to the values represent the keys. So I can access a value by traversing the tree to get one letter at a time.
 
 ---
 
-<img src="https://waynechoi.dev/images/posts/trie_path.png">
+<img src="https://radicaldilettante.github.io/expired-waynechi.dev/images/posts/trie_path.png">
 
 For example, if I want to get a value with a key, 'ted', I can start from root, and follow the paths represented 't', 'e', and 'd'. I arrived at a node that contains 4.
 
 ---
 
-<img src="https://waynechoi.dev/images/posts/trie_changed.png">
+<img src="https://radicaldilettante.github.io/expired-waynechi.dev/images/posts/trie_changed.png">
 
 I changed the value at the key 'ted' from 4 to 8. Other nodes are still used. With this structures, only few nodes are recreated when we change a single item,
 
@@ -93,7 +93,7 @@ In addition, we cannot use methods of Object and Array object in Immutable.js da
 
 ---
 
-- [Immutability (1) - Object.freeze() doesn't always freeze](https://waynechoi.dev/immutability_object_freeze_doesnt_always_freeze)
+- [Immutability (1) - Object.freeze() doesn't always freeze](https://radicaldilettante.github.io/expired-waynechi.dev/immutability_object_freeze_doesnt_always_freeze)
 - **Immutability (2) - Immutable.js, pros and cons**
 
 ## References

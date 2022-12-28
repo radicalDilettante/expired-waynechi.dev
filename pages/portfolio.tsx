@@ -89,8 +89,11 @@ export default function Portfolio({ prefix }: IProps) {
           </p>
           <ul>
             <li>
-              <a href="https://waynechoi.dev/" target="_blank">
-                https://waynechoi.dev
+              <a
+                href="https://radicaldilettante.github.io/expired-waynechi.dev/"
+                target="_blank"
+              >
+                https://radicaldilettante.github.io/expired-waynechi.dev
               </a>
             </li>
             <li>

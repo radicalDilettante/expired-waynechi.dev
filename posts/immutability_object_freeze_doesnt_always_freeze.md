@@ -204,7 +204,7 @@ We can implement a function to deep freeze an object with recursion, or can use 
 ---
 
 - **Immutability (1) - Object.freeze() doesn't always freeze**
-- [Immutability (2) - Immutable.js, pros and cons](https://waynechoi.dev/immutability_immutable_js_pros_and_cons)
+- [Immutability (2) - Immutable.js, pros and cons](https://radicaldilettante.github.io/expired-waynechi.dev/immutability_immutable_js_pros_and_cons)
 
 ## References
 
