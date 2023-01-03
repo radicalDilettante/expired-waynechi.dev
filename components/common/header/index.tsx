@@ -63,7 +63,7 @@ export default function Header({ prefix, isDark }: IProps) {
             <img alt="close_menu_bar" src={prefix + "images/close.svg"} />
           )}
         </button>
-        <Link href="/">
+        <Link href="/expired-waynechi.dev/">
           <a className={styles.name}>WayneChoi.dev</a>
         </Link>
         <ul className={styles.list}>
