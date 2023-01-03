@@ -20,7 +20,7 @@ export default function Header({ prefix, isDark }: IProps) {
 
   const cliBoot = () => {
     if (confirm("Do you want to boot to command prompt?") == true) {
-      router.push("/cli");
+      router.push("/expired-waynechi.dev/cli");
     } else {
     }
   };
@@ -111,7 +111,10 @@ export default function Header({ prefix, isDark }: IProps) {
           ))}
           <li>
             <button className={styles.cliButton} onClick={cliBoot}>
-              <img src={prefix + "images/cli.png"} alt="cli_mode" />
+              <img
+                src={prefix + "expired-waynechi.dev/" + "images/cli.png"}
+                alt="cli_mode"
+              />
             </button>
           </li>
         </ul>

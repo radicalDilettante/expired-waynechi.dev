@@ -19,7 +19,7 @@ export default function About({ prefix }: IProps) {
       </Head>
       <img
         className={styles.pic}
-        src={prefix + "images/profile.webp"}
+        src={"./images/profile.webp"}
         alt={"Wonjun Wayne Choi"}
       />
       <section className={styles.link}>

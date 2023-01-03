@@ -40,7 +40,7 @@ export default function Cli({ cliCommand, posts }: IProps) {
       cliCommand.ls();
       scrollDown();
     } else if (command === "shutdown") {
-      router.push("/");
+      router.push("/expired-waynechi.dev/");
     } else if (command[0] === "c" && command[1] === "d") {
       cliCommand.cd(command);
       setCurDir(cliCommand.curDir);
