@@ -1,4 +1,4 @@
-~~ WayneChoi.Dev ~~
+# ~~WayneChoi.Dev~~
 It is deprecated.
 
 ## Overview
