@@ -1,11 +1,12 @@
 # ~~WayneChoi.Dev~~
+
 It is deprecated.
 
 ## Overview
 
 It is a static blog site generated with Next.js. Posts are written by markdown, and parsed to JSX.
 
-[https://radicaldilettante.github.io/expired-waynechi.dev/](https://radicaldilettante.github.io/expired-waynechi.dev/)
+[https://waynechoidev.github.io/expired-waynechi.dev/](https://waynechoidev.github.io/expired-waynechi.dev/)
 
 <img width="600" src="./public/screenshot/waynechoi_dev.jpg">
 

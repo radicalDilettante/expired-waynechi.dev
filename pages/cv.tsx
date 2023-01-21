@@ -33,10 +33,10 @@ export default function CV() {
         <li>
           <img src="./images/icon/web.svg" />
           <a
-            href="https://radicaldilettante.github.io/expired-waynechi.dev"
+            href="https://waynechoidev.github.io/expired-waynechi.dev"
             target="_blank"
           >
-            https://radicaldilettante.github.io/expired-waynechi.dev
+            https://waynechoidev.github.io/expired-waynechi.dev
           </a>
         </li>
       </ul>
@@ -126,10 +126,10 @@ export default function CV() {
           <div className={styles.project_desc}>
             <b>Link</b>:{" "}
             <a
-              href="https://radicaldilettante.github.io/expired-waynechi.dev"
+              href="https://waynechoidev.github.io/expired-waynechi.dev"
               target="_blank"
             >
-              https://radicaldilettante.github.io/expired-waynechi.dev
+              https://waynechoidev.github.io/expired-waynechi.dev
             </a>
             <br />
             <b>Repository</b>:{" "}

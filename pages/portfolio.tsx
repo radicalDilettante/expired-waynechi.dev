@@ -90,10 +90,10 @@ export default function Portfolio({ prefix }: IProps) {
           <ul>
             <li>
               <a
-                href="https://radicaldilettante.github.io/expired-waynechi.dev/"
+                href="https://waynechoidev.github.io/expired-waynechi.dev/"
                 target="_blank"
               >
-                https://radicaldilettante.github.io/expired-waynechi.dev
+                https://waynechoidev.github.io/expired-waynechi.dev
               </a>
             </li>
             <li>
